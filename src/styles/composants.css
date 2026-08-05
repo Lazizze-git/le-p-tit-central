@@ -1,0 +1,147 @@
+/* ==================================================================
+   COMPOSANTS — boutons, liens, statut, surligneur, emplacements photo
+   ================================================================== */
+
+/* ---------- Boutons ----------
+   Coins vifs partout sauf ici : la pilule rend la zone tactile
+   évidente au pouce sans amollir le reste du design. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+  min-height: var(--tap);
+  padding-inline: 24px;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  /* `scale` est une propriété distincte de `transform` : les deux se
+     composent au lieu de s'écraser. */
+  transition:
+    background-color var(--dur-micro) var(--ease-inout),
+    color var(--dur-micro) var(--ease-inout),
+    border-color var(--dur-micro) var(--ease-inout),
+    scale var(--dur-micro) var(--ease-out);
+}
+
+/* Retour de pression immédiat, au doigt comme à la souris. */
+.btn:active {
+  scale: 0.98;
+}
+
+/* Le survol n'existe que là où il y a un vrai pointeur. */
+@media (hover: hover) and (pointer: fine) {
+  /* Le bouton secondaire monte au niveau du principal : le contour
+     devient plein. */
+  .btn:hover {
+    background: var(--fg);
+    border-color: var(--fg);
+    color: var(--bg);
+  }
+
+  /* L'ACTION PRINCIPALE NE BOUGE PAS AU SURVOL. Elle est déjà à son
+     maximum : le survol sert à faire monter les autres jusqu'à elle,
+     jamais à la faire descendre.
+
+     La règle précédente la retournait en contour — sur une bande crème,
+     survoler « Voir la carte » produisait alors un aplat d'encre à
+     16:1 pendant que « Réserver » se réduisait à un filet. La
+     hiérarchie s'inversait à chaque passage de souris. Le retour de
+     pression est assuré pour tout le monde par `:active { scale }`,
+     qui fonctionne aussi au doigt. Déclaré après la règle générique,
+     qui a la même spécificité. */
+  .btn--action:hover {
+    background: var(--action);
+    border-color: var(--action);
+    color: var(--sur-action);
+  }
+}
+
+/* L'ACTION PRINCIPALE — le seul aplat de couleur en dehors des bandes.
+   Une par écran, jamais deux. Elle garde le filet d'un pixel de sa
+   bande : sur fond encre, c'est lui qui rend le contour du bouton
+   perceptible, le bleu seul n'y tenant que 2.5:1. */
+.btn--action {
+  background: var(--action);
+  color: var(--sur-action);
+  font-variation-settings: 'wght' 600;
+}
+
+.btn--plein {
+  width: 100%;
+}
+
+/* ---------- Liens ---------- */
+.lien {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+}
+
+.lien::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.15em;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-micro) var(--ease-out);
+}
+
+.lien:hover::after,
+.lien:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Lien déjà souligné en permanence (numéro de téléphone, adresse). */
+.lien--tenu::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Statut ouvert / fermé ----------
+   Les deux états ne se distinguent PAS par la couleur seule (WCAG
+   1.4.1) : ouvert est un disque plein et un libellé en gras, fermé est
+   un anneau creux et un libellé en graisse normale. La différence tient
+   encore en niveaux de gris, et le mot « Ouvert » ou « Fermé » est
+   toujours écrit à côté. */
+/* `min-width: 0` : sans lui, l'enfant flex ne rétrécit jamais et
+   l'ellipsis du libellé ne peut pas se déclencher — « Fermé — ouvre
+   demain à 07h00 » débordait au lieu d'être tronqué proprement. */
+.statut {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65em;
+  min-width: 0;
+}
+
+.statut__point {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--fg-muted);
+  background: transparent;
+}
+
+.statut[data-etat='ouvert'] {
+  font-variation-settings: 'wght' 600;
+}
+
+.statut[data-etat='ouvert'] .statut__point {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.statut[data-etat='ferme'] .statut__point {
+  border-color: var(--fg);
+}

@@ -1,0 +1,101 @@
+import Link from 'next/link';
+import type { ReactElement } from 'react';
+import { ADRESSE_UNE_LIGNE, LIEN_ITINERAIRE, SITE } from '@/content/site';
+import { COMMUN, NAV } from '@/content/textes';
+import { RESUME_HORAIRES } from '@/content/horaires';
+import { lienTelephone } from '@/lib/format';
+
+function Colonne({
+  titre,
+  children,
+}: {
+  readonly titre: string;
+  readonly children: ReactElement | readonly ReactElement[];
+}): ReactElement {
+  return (
+    <div className="flex flex-col gap-[var(--space-tight)]">
+      {/* Le titre de colonne se détache par un filet, pas par une
+          opacité : sur le bleu, aucun gris ne tient le seuil AA. */}
+      <h2 className="t-label border-b border-[var(--rule)] pb-[var(--space-hair)]">{titre}</h2>
+      {children}
+    </div>
+  );
+}
+
+/** Pied de page : bande bleue, colonnes de liens en capitales monospace. */
+export function PiedDePage(): ReactElement {
+  const tel = lienTelephone(SITE.telephone.e164);
+
+  return (
+    <footer className="bande bande--bleu bande--serree pied-de-page" data-fond="bleu">
+      <div className="bande__inner flex flex-col gap-[var(--space-block)]">
+        <p className="t-display">
+          {SITE.nomCourt}
+          <span
+            className="t-signature"
+            style={{ fontSize: '0.4em', verticalAlign: 'super', letterSpacing: 0 }}
+          >
+            ™
+          </span>
+        </p>
+
+        <div className="grid gap-[var(--space-block)] sm:grid-cols-2 lg:grid-cols-4">
+          <Colonne titre="Adresse">
+            <a className="t-label lien" href={LIEN_ITINERAIRE} target="_blank" rel="noopener noreferrer">
+              {ADRESSE_UNE_LIGNE}
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          </Colonne>
+
+          <Colonne titre="Contact">
+            <>
+              <a className="t-label lien lien--tenu" href={tel}>
+                {SITE.telephone.affichage}
+              </a>
+              <a className="t-label lien" href={`mailto:${SITE.email}`}>
+                {SITE.email}
+              </a>
+            </>
+          </Colonne>
+
+          <Colonne titre="Horaires">
+            <p className="t-label" style={{ lineHeight: 1.7 }}>
+              {RESUME_HORAIRES}
+            </p>
+          </Colonne>
+
+          <Colonne titre="Suivre">
+            <>
+              {SITE.reseaux.map((reseau) => (
+                <a
+                  key={reseau.url}
+                  className="t-label lien"
+                  href={reseau.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {reseau.nom}
+                  <span aria-hidden="true"> ↗</span>
+                </a>
+              ))}
+            </>
+          </Colonne>
+        </div>
+
+        <hr className="filet" />
+
+        <nav
+          className="flex flex-wrap items-center gap-x-[var(--space-block)] gap-y-[var(--space-tight)]"
+          aria-label="Pied de page"
+        >
+          {NAV.map((item) => (
+            <Link key={item.href} href={item.href} className="t-label lien">
+              {item.libelle}
+            </Link>
+          ))}
+          <span className="t-label ml-auto">{COMMUN.credit}</span>
+        </nav>
+      </div>
+    </footer>
+  );
+}

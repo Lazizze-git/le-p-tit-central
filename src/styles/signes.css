@@ -1,0 +1,258 @@
+/* ==================================================================
+   SIGNES — surligneur, étiquettes, emplacements photo
+   Le vocabulaire graphique propre au lieu, par opposition aux
+   composants d'interface génériques (boutons, liens, statut).
+   ================================================================== */
+
+/* ---------- Surligneur des catégories de la carte ----------
+   Le trait est peint en fond de l'élément en ligne, et non sur un
+   rectangle posé derrière : un titre de catégorie qui passe sur deux
+   lignes doit être surligné ligne par ligne, comme au marqueur. Un
+   bloc unique engloberait les deux lignes et donnerait un pavé.
+
+   `box-decoration-break: clone` est ce qui redonne à chaque ligne son
+   propre trait, avec ses propres marges. La légère inclinaison prévue
+   à l'origine tombe avec cette technique : elle est remplacée par un
+   débord plus généreux en bas qu'en haut, qui donne le même sentiment
+   de trait posé à la main. */
+.hl {
+  display: inline;
+  background-image: linear-gradient(var(--marqueur), var(--marqueur));
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 0 100%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.02em 0.22em 0.09em;
+  margin-inline: -0.22em;
+  transition:
+    background-size var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+}
+
+/* L'INTERLIGNE ET LE DÉBORD DU TRAIT SE RÈGLENT ENSEMBLE.
+   Mesuré à l'écran : le trait occupe 1.185 em de haut — la zone de la
+   police (1.075 em) plus ses deux débords (0.11 em) — alors que
+   l'interligne de display vaut 0.95 em. Il mordait donc de 3 px sur le
+   sommet des capitales de la ligne suivante : sous « FILETS DE
+   PERCHE », le mot « TOUS LES » était amputé de son sommet.
+
+   Un titre qui porte un marqueur reçoit l'interligne que le marqueur
+   réclame. À 1.18 em, chaque trait reste entier, et deux lignes
+   surlignées se posent l'une sous l'autre au lieu de fondre en un seul
+   pavé — « une ligne, un trait », comme au marqueur.
+   SI LE DÉBORD DE `.hl` CHANGE, CE NOMBRE CHANGE AVEC LUI. */
+:is(.t-display, .t-h2, .t-h3):has(.hl) {
+  line-height: 1.18;
+}
+
+/* Le trait se tire de gauche à droite à l'entrée dans l'écran, et le
+   texte bascule alors sur la couleur lisible sur l'aplat. Le marqueur
+   est l'inversion de la bande, pas une couleur d'accent : c'est ce qui
+   permet au bleu de rester réservé aux actions. */
+.hl[data-vu='true'] {
+  background-size: 100% 100%;
+  color: var(--sur-marqueur);
+}
+
+/* ---------- Le fleuron ----------
+   La fleur peinte du cartouche, prélevée telle quelle dans le logo
+   vectorisé. C'est le seul ornement du site, et il n'a pas été
+   dessiné : il vient de la plaque elle-même.
+
+   PEINT EN MASQUE, PAS EN IMAGE. Le fichier ne sert que de découpe :
+   la couleur vient de `currentColor`, donc le fleuron est bleu sur
+   crème, crème sur bleu, crème sur encre — sans qu'aucun composant ait
+   à savoir sur quel fond il est posé. C'est la même règle que le reste
+   du système. */
+.sur-titre {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  color: var(--fg-muted);
+}
+
+.sur-titre::before {
+  content: '';
+  flex: none;
+  /* Le dessin est plus haut que large (128 x 162) : les deux mesures
+     suivent cette proportion, sinon la fleur s'écrase.
+     À 2.2 em d'un corps de 12 px, la fleur fait 26 px de haut : c'est
+     le minimum pour qu'on y reconnaisse des pétales plutôt qu'une
+     tache. En dessous, autant ne rien mettre. */
+  width: 1.75em;
+  height: 2.2em;
+  background: currentColor;
+  -webkit-mask: url('/fleuron.svg') center / contain no-repeat;
+  mask: url('/fleuron.svg') center / contain no-repeat;
+}
+
+/* Filet gravé au fleuron : le séparateur des grandes respirations.
+   Un trait, la fleur, un trait — la ponctuation classique d'une page
+   gravée. */
+.filet-fleuron {
+  display: flex;
+  align-items: center;
+  gap: var(--space-stack);
+  color: var(--fg-muted);
+}
+
+.filet-fleuron::before,
+.filet-fleuron::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ---------- Étiquettes de mention (végé, fait maison…) ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding-inline: 10px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-pill);
+  font-family: var(--ff-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---------- Emplacement photo ----------
+   Tant qu'il n'y a pas d'image, le cadre affiche le « C » de Central
+   en très grand, rogné par le cadre. La proportion est verrouillée :
+   le jour où la photo arrive, rien ne bouge dans la page. */
+
+/* RÈGLE CARDINALE : une photo n'est jamais affichée plus grande que sa
+   définition réelle. `--slot-max` porte la largeur du fichier en
+   pixels, relue directement dans le contenu. Une image de 186 px de
+   large étirée sur un écran entier serait une bouillie ; posée à
+   186 px, c'est un tirage net. La règle se règle donc toute seule :
+   le jour d'un vrai shooting en 1600 px, le plafond monte avec le
+   fichier et ne limite plus rien. */
+.slot-figure {
+  max-width: var(--slot-max, 100%);
+}
+
+.slot {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  aspect-ratio: var(--slot-ratio, 4 / 5);
+}
+
+/* Panneau « C » : `size` et non `inline-size`, le signe doit pouvoir se
+   caler sur la hauteur du cadre autant que sur sa largeur, sinon il
+   devient un arc abstrait dans les formats panoramiques. */
+.slot--panneau {
+  container-type: size;
+}
+
+.slot__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Voir --photo-ton dans globals.css. À 0, le filtre est neutre. */
+  filter: saturate(calc(1 - var(--photo-ton))) contrast(calc(1 + var(--photo-ton) / 2));
+}
+
+/* Le voile bleu : il ne recolorie pas l'image, il n'en déplace que la
+   teinte, de 12 %. Une terrasse en plein soleil et une salle en
+   tungstène jaune se retrouvent alors sur la même température, celle
+   des azulejos. À --photo-ton: 0, il disparaît complètement. */
+.slot--photo {
+  isolation: isolate;
+}
+
+.slot--photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--pc-bleu);
+  mix-blend-mode: color;
+  opacity: var(--photo-ton);
+}
+
+/* ---------- Planche contact ----------
+   Plusieurs tirages côte à côte, qui se partagent toute la largeur.
+   ATTENTION, DEUX RÔLES À NE PAS CONFONDRE :
+     `--slot-part`  la PART de ligne que prend le cadre — c'est ce qui
+                    règle sa taille à l'écran ;
+     `--slot-max`   le PLAFOND, en pixels réels du fichier — il ne sert
+                    qu'à ne jamais étirer une image au-delà de sa
+                    définition.
+   Les deux portent le même nombre, mais l'un est un rapport et l'autre
+   une limite. Les avoir confondus faisait passer chaque cadre à la
+   ligne : une base de 1800 px ne tient pas dans une colonne de 1000,
+   donc le navigateur cassait la ligne avant même de rétrécir quoi que
+   ce soit. `flex-basis: 0` supprime la question — seule la part
+   compte, et deux cadres de 1800 et 900 se partagent la ligne en deux
+   tiers / un tiers, à n'importe quelle largeur d'écran. */
+.planche {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--gutter);
+  /* La planche se mesure elle-même : voir la règle d'empilement. */
+  container-type: inline-size;
+}
+
+.planche > .slot-figure {
+  flex: var(--slot-part, 1) 1 0;
+}
+
+/* DEUX TIRAGES NE SE PARTAGENT UNE LIGNE QUE S'IL Y A LA PLACE.
+   La question n'est pas la taille de l'écran mais celle de la COLONNE
+   qui accueille la planche : dans le haut de page elle fait 1100 px et
+   deux tirages y sont grands ; dans une page carte, la même planche
+   n'a qu'un tiers de la largeur, et les deux mêmes tirages y devenaient
+   deux vignettes de 180 px. Sous 30rem, ils s'empilent donc et prennent
+   chacun toute la largeur — un grand tirage vaut mieux que deux petits.
+
+   `@container` et non `@media` : c'est la seule façon de poser la règle
+   au bon endroit, sans que chaque page ait à connaître sa propre mise
+   en page. */
+@container (max-width: 30rem) {
+  .planche > .slot-figure {
+    flex-basis: 100%;
+  }
+}
+
+/* Variante du haut de page : les tirages s'alignent par le bas, le
+   grand et le petit posés sur la même ligne de sol. */
+.planche--pied {
+  align-items: flex-end;
+}
+
+.slot__signe {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.slot__signe span {
+  font-family: var(--ff-display);
+  /* Le C se cale sur la plus contraignante des deux dimensions du
+     cadre : il reste entier quelle que soit la proportion — un C rogné
+     à gauche ET à droite ne se lit plus comme un C.
+     LES DEUX NOMBRES DÉPENDENT DU DESSIN DE LA LETTRE. Ceux-ci valent
+     pour la serif du cartouche, dont le C est plus étroit et plus haut
+     que celui de la grotesque qu'elle remplace. Changer de police sans
+     refaire la mesure rognerait le signe. */
+  font-size: min(148cqw, 128cqh);
+  line-height: 0.74;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--fg);
+}
+
+.slot__legende {
+  margin-top: var(--space-tight);
+  color: var(--fg-muted);
+}

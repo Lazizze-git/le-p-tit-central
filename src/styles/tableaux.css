@@ -1,0 +1,116 @@
+/* ==================================================================
+   TABLEAUX ET FORMULAIRE — horaires, lignes de la carte, champs
+   Tout ce qui aligne de l'information en colonnes, c'est-à-dire
+   l'essentiel de ce que les visiteurs viennent réellement lire.
+   ================================================================== */
+
+/* ---------- Tableau des horaires ---------- */
+.horaires {
+  border-top: 1px solid var(--rule);
+}
+
+.horaires__ligne {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, auto) 1fr;
+  align-items: baseline;
+  gap: var(--space-tight);
+  padding-block: 13px;
+  padding-inline: 10px;
+  margin-inline: -10px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* La ligne du jour s'inverse en encre plutôt que de prendre l'accent :
+   le tableau apparaît trois fois de suite (établissement, midi, soir),
+   et trois aplats de couleur empilés cessent de signaler quoi que ce
+   soit. Un repère n'est pas une action : le bleu reste réservé aux
+   actions. L'inversion reprend le repère déjà utilisé par l'onglet actif
+   de la navigation. Elle suit la gamme de la bande, donc elle reste
+   lisible sur crème comme sur encre. */
+.horaires__ligne[data-aujourdhui='true'] {
+  background: var(--fg);
+  color: var(--bg);
+  font-variation-settings: 'wght' 600;
+}
+
+.horaires__valeur {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Lignes de la carte ---------- */
+.plat {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  column-gap: var(--space-stack);
+  padding-block: 14px;
+  border-bottom: 1px dotted var(--rule);
+}
+
+/* Le prix ne porte plus de couleur : il y en a soixante sur la page, et
+   soixante taches de couleur ne signalent plus rien. Il se détache par
+   sa colonne, son alignement à droite, sa famille monospace et sa
+   graisse 600 — quatre leviers non chromatiques qui tiennent sur les
+   trois bandes sans réglage. */
+.plat__prix {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.plat__prix[data-inconnu='true'] {
+  color: var(--fg-muted);
+  font-variation-settings: 'wght' 400;
+}
+
+/* ---------- Formulaire ----------
+   Les champs restent toujours sur gamme claire : un champ de saisie
+   qui change de fond d'une bande à l'autre nuit à la lisibilité. */
+.champ {
+  display: block;
+}
+
+.champ__label {
+  display: block;
+  margin-bottom: var(--space-hair);
+}
+
+.champ__saisie {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 12px 14px;
+  background: var(--pc-craie);
+  color: var(--pc-encre);
+  border: 1px solid var(--pc-encre);
+  font-family: var(--ff-text);
+  font-size: 1rem; /* 16 px minimum : en dessous, iOS zoome au focus. */
+}
+
+.champ__saisie::placeholder {
+  color: var(--pc-cendre);
+}
+
+/* Le doublement du filet signale l'erreur — sauf quand le champ a le
+   focus, où l'anneau de focus doit rester seul et visible. Le message
+   n'est ni rouge ni bleu : il est en gras et il commence par une
+   flèche qui pointe le champ fautif. Une erreur se lit, elle ne se
+   devine pas à une couleur. */
+.champ__saisie[aria-invalid='true'] {
+  border-color: var(--pc-encre);
+}
+
+.champ__saisie[aria-invalid='true']:not(:focus-visible) {
+  outline: 1px solid var(--pc-encre);
+  outline-offset: 2px;
+}
+
+.champ__erreur {
+  display: block;
+  margin-top: var(--space-hair);
+  font-variation-settings: 'wght' 600;
+}
+
+textarea.champ__saisie {
+  min-height: 8rem;
+  resize: vertical;
+}

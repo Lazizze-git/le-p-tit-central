@@ -1,0 +1,106 @@
+LES IMAGES DU SITE
+==================================================================
+
+
+À LIRE EN PREMIER — IL N'Y A PLUS AUCUNE PHOTO SUR LE SITE
+------------------------------------------------------------------
+
+C'est volontaire, et c'est une bonne nouvelle.
+
+Le site affichait jusqu'ici sept photos récupérées sur votre fiche
+Google. C'étaient des vignettes : de toutes petites images, prévues
+pour être vues en timbre-poste dans un résultat de recherche. La plus
+petite faisait 186 pixels de large, quand un écran de téléphone en
+fait environ 1200. Impossible de leur donner la place qu'elles
+méritaient sans les transformer en bouillie de pixels.
+
+Elles ont donc été retirées, en attendant de vraies photos.
+
+Chaque emplacement affiche pour l'instant le « C » de Central. Ce n'est
+pas un trou : c'est un bloc graphique qui tient debout tout seul, et le
+site reste entièrement présentable en l'état.
+
+Ces panneaux occupent EXACTEMENT la place prévue pour la photo. Le jour
+où vous déposez une image, elle prend ce cadre-là, à la virgule près :
+la mise en page ne bouge pas d'un pixel.
+
+
+LES ONZE EMPLACEMENTS QUI ATTENDENT UNE PHOTO
+------------------------------------------------------------------
+
+La place de chacun est DÉJÀ RÉSERVÉE, au bon format.
+
+Le format indiqué est le SENS DE CADRAGE à donner au photographe.
+
+  EMPLACEMENT       FORMAT      CE QU'IL FAUT PHOTOGRAPHIER
+  devanture  . . .  portrait    la devanture, l'enseigne, les vitres
+  terrasse . . . .  paysage     la terrasse en été, rue Centrale
+  portemanteau . .  portrait    l'entrée, le fer forgé, les azulejos
+  ardoise-du-jour   portrait    l'ardoise du menu, écrite à la craie
+  comptoir . . . .  carré       le bar, les bouteilles, les ardoises
+  salle-midi . . .  portrait    la salle avant le service
+  salle-soir . . .  portrait    la salle en soirée, tables dressées
+  entrecote  . . .  paysage     une assiette du soir
+  perche . . . . .  paysage     les filets de perche du vendredi
+  salle-privee . .  paysage     la salle privée dressée
+  salle-azulejos .  portrait    une table le long des fresques
+
+  portrait = 1600 x 2000 px      paysage = 1800 x 1200 px
+  carré    = 1600 x 1600 px
+
+Dans le haut de la page d'accueil, « devanture » se place à droite du
+logo, ET SEULEMENT SUR GRAND ÉCRAN : sur téléphone la colonne n'existe
+pas, pour ne pas repousser hors de l'écran le « ouvert » et le bouton
+d'appel. En dessous, les deux cadres se partagent la largeur : la
+terrasse sur deux tiers (1800 x 1200), l'entrée sur un tiers
+(900 x 1200). L'écart est voulu — c'est lui qui donne son rythme au
+haut de page. À conserver.
+
+La terrasse se photographie EN PAYSAGE, pas en portrait : sur deux
+tiers de la colonne, un cadre portrait devient plus haut qu'un écran.
+
+
+LE MUR D'AZULEJOS — CE N'EST PAS UN EMPLACEMENT PHOTO
+------------------------------------------------------------------
+
+  azulejos.webp . . . . 500 x 1000 px
+
+Ce fichier est la MATIÈRE du site. Il contient exactement 2 carreaux
+de large sur 4 de haut, découpés pile sur les joints, ce qui lui
+permet de se répéter à l'infini sans que le raccord se voie. C'est le
+FOND DE TOUT LE SITE : chaque section est une plaque posée dessus, et
+le carrelage se voit entre elles.
+
+Ne le remplacez pas par une photo ordinaire : il faut une prise de vue
+bien de face, un découpage sur les joints, et un nombre entier de
+carreaux. Demandez-nous, c'est vite fait.
+
+
+DÉPOSER UNE PHOTO — EN TROIS ÉTAPES
+------------------------------------------------------------------
+
+1. Déposez le fichier dans ce dossier (public/photos/).
+   Format .jpg ou .webp, 300 Ko maximum.
+   Pour compresser : squoosh.app, gratuit, dans le navigateur.
+
+2. Notez ses DIMENSIONS EXACTES en pixels. Sur Mac : clic droit sur le
+   fichier, « Lire les informations », ligne « Dimensions ».
+
+3. Ouvrez src/content/medias.ts et changez DEUX lignes :
+
+       src:   null           devient   '/photos/terrasse.webp'
+       ratio: '1800/1200'    devient   les dimensions exactes
+
+   Relisez au passage la ligne « alt » : elle décrit l'image pour les
+   personnes non voyantes et pour Google. Si la photo déposée ne montre
+   pas ce qui y est écrit, corrigez la phrase.
+
+C'est tout. Le cadre prend la proportion du fichier et la page se
+recalcule seule.
+
+IMPORTANT : le premier chiffre de « ratio » sert aussi de limite. Le
+site n'affichera JAMAIS une photo plus large que sa vraie définition —
+c'est ce qui garantit qu'aucune image ne sera floue. Déposez du 1600 px
+ou plus et la photo occupera toute la place que la page lui offre.
+
+Le détail complet est dans README.md, section 6.

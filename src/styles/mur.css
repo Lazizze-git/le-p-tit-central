@@ -1,0 +1,171 @@
+/* ==================================================================
+   LE MUR D'AZULEJOS
+   Le bar et la salle du P’tit Central sont couverts de fresques de
+   carreaux portugais bleu et blanc. C'est la matière réelle du lieu,
+   et l'origine du bleu de la marque : elle a donc droit à la même
+   échelle que le wordmark, pas à une vignette.
+
+   DEUX PRIMITIVES, ET RIEN D'AUTRE
+   `.mur`      la surface carrelée, pleine largeur, en fond ;
+   `.ardoise`  le pavé plein qui la perce et porte le texte.
+
+   RÈGLE ABSOLUE : aucun texte ne se pose sur les carreaux. Le motif est
+   dense et contrasté — un texte posé dessus serait illisible, et un
+   voile pour le rattraper salirait le motif sans sauver le texte. Le
+   texte vit donc dans un aplat franc, opaque, sans transparence.
+   ================================================================== */
+
+/* ---------- LA MATIÈRE : la surface carrelée ----------
+   Primitive partagée par le haut de page et la bande du milieu. Le
+   fichier fait 500 x 1000 px et contient exactement 2 carreaux de
+   large sur 4 de haut, découpés sur les joints : il se répète donc
+   sans couture, la jointure du raccord tombant sur un joint.
+   `--carreau` porte la taille d'UN carreau à l'écran ; tout le reste
+   en découle, y compris la hauteur de la bande.
+
+   L'ÉCHELLE EST DÉCLARÉE ICI, ET UNE SEULE FOIS : les carreaux du
+   haut de page et ceux du milieu de page doivent avoir exactement la
+   même taille, sinon la page semble montrer deux murs différents. */
+.carrelage {
+  --carreau: 130px;
+
+  position: relative;
+  /* Le blanc de la faïence, visible le temps du chargement. */
+  background-color: var(--pc-craie);
+  background-image: url('/photos/azulejos.webp');
+  background-repeat: repeat;
+  background-size: calc(var(--carreau) * 2) auto;
+  /* Centré : les carreaux sont coupés aux deux bords, comme un mur qui
+     continue hors du cadre. Calé à gauche, la découpe aurait l'air
+     d'un motif posé plutôt que d'une paroi. */
+  background-position: center top;
+}
+
+@media (min-width: 768px) {
+  .carrelage {
+    --carreau: 165px;
+  }
+}
+
+@media (min-width: 1120px) {
+  .carrelage {
+    --carreau: 190px;
+  }
+}
+
+/* ---------- La bande de mur du milieu de page ---------- */
+/* Le nombre de rangs augmente quand l'écran rétrécit, et c'est voulu :
+   sur téléphone l'ardoise occupe presque toute la largeur, il ne reste
+   donc de mur qu'au-dessus et en dessous — il faut l'y donner en
+   hauteur. Sur grand écran, l'ardoise ne fait qu'un tiers de la
+   largeur : le mur a déjà toute la place sur les côtés.
+   Mesuré à l'écran : 7 rangs sur téléphone laissent 217 px de
+   carrelage de part et d'autre, contre 87 px à 5 rangs. */
+.mur {
+  --rangs: 7;
+
+  /* Un mur se mesure en rangs de carreaux, pas en vh : la bande fait
+     donc un nombre entier de rangs. C'est la même rigueur que le
+     rythme de 4 px du reste du site. */
+  min-height: calc(var(--carreau) * var(--rangs));
+
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-section);
+}
+
+@media (min-width: 768px) {
+  .mur {
+    --rangs: 5;
+  }
+}
+
+@media (min-width: 1120px) {
+  .mur {
+    --rangs: 4;
+  }
+}
+
+/* Le contenu reprend la colonne du site : l'ardoise s'aligne sur le
+   même bord gauche que le wordmark et que tous les titres. */
+.mur__inner {
+  width: 100%;
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+
+/* ---------- L'ardoise ----------
+   Nommée d'après les vraies ardoises manuscrites accrochées au mur de
+   la salle : un pavé sombre vissé sur la faïence. Elle n'invente pas
+   une forme, elle reprend un objet du lieu.
+
+   Elle porte `bande--encre` dans le balisage : c'est ce qui redéfinit
+   toute la gamme (texte, filets, action, focus) pour son contenu, sans
+   qu'aucun composant à l'intérieur ait à savoir sur quoi il est posé.
+   Aplat 100 % opaque, coins vifs, aucune ombre — 16.15:1. */
+.ardoise {
+  background: var(--bg);
+  color: var(--fg);
+  max-width: 34rem;
+  padding: var(--space-block) var(--space-stack);
+  /* Le pavé devient sa propre référence de mesure : voir le titre. */
+  container-type: inline-size;
+}
+
+/* LE TITRE SE RÈGLE SUR LE PAVÉ, PAS SUR L'ÉCRAN.
+   Une ardoise est trois fois plus étroite qu'une bande : l'échelle de
+   display, calibrée sur la pleine largeur, y fait déborder n'importe
+   quel mot long. Mesuré à l'écran, le mot le plus long du site en
+   Archivo Expanded 800 — « INTROUVABLE », 11 signes — occupe 9.08 fois
+   le corps. À 9cqi, il reste donc ~18 % de marge quelle que soit la
+   largeur du pavé, et le titre ne pourra plus jamais dépasser, même si
+   quelqu'un change le texte. */
+.ardoise :is(h1, h2) {
+  font-size: clamp(1.375rem, 9cqi, 3.25rem);
+}
+
+@media (min-width: 768px) {
+  .ardoise {
+    padding: var(--space-block);
+  }
+}
+
+/* Le contenu de l'ardoise s'empile au même rythme que celui d'une
+   bande : un seul vocabulaire d'espacement sur tout le site. */
+.ardoise__corps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+}
+
+/* ==================================================================
+   LE TITRE-CARTOUCHE
+   ------------------------------------------------------------------
+   Le logo peint tient lieu de titre en page d'accueil. Ce n'est pas
+   une image d'illustration : c'est le nom de la maison, dessiné.
+
+   IL A UNE TAILLE MAXIMALE, et il en a besoin. Laissé libre, il prend
+   les 1100 px du cartouche : à cette échelle le trait devient un mur
+   de bleu et le nom se perd dans son propre encadrement. À 34rem il
+   retrouve la densité d'une plaque émaillée accrochée au mur — c'est
+   ce qu'il est.
+
+   `width` et `height` portent dans le balisage les proportions réelles
+   du dessin (931 x 497) : la place est réservée avant même que le
+   fichier soit chargé, donc la page ne sursaute pas.
+
+   NE PAS TENTER DE LE FAIRE DÉBORDER de la marge du cartouche avec une
+   marge négative : `img { max-width: 100% }`, posé dans base.css,
+   plafonne la largeur mais laisse passer la marge. Le dessin se
+   retrouve poussé d'un côté, avec un vide de l'autre.
+   ================================================================== */
+.titre-logo {
+  display: block;
+}
+
+.titre-logo img {
+  width: 100%;
+  max-width: 34rem;
+  height: auto;
+}

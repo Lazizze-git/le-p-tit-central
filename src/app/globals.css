@@ -1,0 +1,199 @@
+/* Ordre d'import volontaire : les fondations d'abord, le motion en
+   dernier — la règle « moins d'animation » doit pouvoir écraser tout
+   ce qui précède. */
+@import 'tailwindcss';
+@import '../styles/base.css';
+@import '../styles/typographie.css';
+@import '../styles/bandes.css';
+@import '../styles/composants.css';
+@import '../styles/signes.css';
+@import '../styles/mur.css';
+@import '../styles/blocs.css';
+@import '../styles/tableaux.css';
+@import '../styles/motion.css';
+
+/* ==================================================================
+   LE P'TIT CENTRAL — SYSTÈME VISUEL
+   Toutes les valeurs de la direction artistique vivent ici.
+   Aucune couleur, aucune taille de texte n'est écrite ailleurs.
+   ================================================================== */
+
+:root {
+  /* ---------- Palette brute ----------
+     TROIS VALEURS, UNE SEULE COULEUR. Le bleu est la couleur réelle du
+     lieu : la salle et le bar sont couverts de fresques d'azulejos bleu
+     et blanc. Le crème est la faïence, l'encre le fer forgé et les
+     ardoises. Il n'y a pas d'autre teinte sur ce site.
+     Contrastes vérifiés au ratio WCAG (voir DIRECTION-ARTISTIQUE §3). */
+  --pc-creme: #f4f0e7;
+  --pc-craie: #fbfaf6;
+  --pc-encre: #17140f;
+
+  /* LE BLEU EST RELEVÉ DANS LE CARRELAGE, pas choisi à côté.
+     Mesuré sur public/photos/azulejos.webp, le cobalt du motif tombe
+     entre #14295D dans les pleins et #304F8E dans les demi-teintes.
+     C'est ce cobalt-là, à peine remonté en saturation pour tenir comme
+     couleur de marque, qui sert d'accent. Un ultramarine électrique à
+     côté de vraies faïences, c'était deux bleus dans la même page.
+
+     Le bleu a besoin de deux nuances, pas d'une : celle qui porte du
+     texte crème en aplat est trop sombre pour être lue en petit corps
+     sur fond encre. C'est la même couleur, à deux clartés. */
+  --pc-bleu: #2a4a8f; /* l'aplat, et le texte sur crème — 7.5:1 */
+  --pc-bleu-clair: #93a8e8; /* le trait et le texte sur encre — 7.9:1 */
+
+  --pc-cendre: #6b6456; /* texte secondaire sur crème — 5.2:1 */
+  --pc-cendre-clair: #a8a192; /* texte secondaire sur encre — 7.2:1 */
+
+  /* ---------- Rôles ----------
+     C'est ce que les composants utilisent. Une bande de couleur
+     redéfinit ces rôles pour elle-même : aucun composant n'a besoin
+     de savoir sur quel fond il est posé.
+
+     Avec un seul accent, la hiérarchie ne peut plus reposer sur la
+     teinte. Elle repose sur trois régimes de surface, et chacun a son
+     jeton :
+       --accent      le bleu à l'état de trait ou de texte (rare) ;
+       --action      l'aplat d'une action — pilule, cellule d'appel ;
+       --marqueur    l'inversion encre/crème d'un repère — surligneur
+                     de la carte, jour courant, page courante.
+     Une action est bleue. Un repère est inversé. Rien d'autre n'a le
+     droit de prendre la parole en couleur. */
+  --bg: var(--pc-creme);
+  --fg: var(--pc-encre);
+  --fg-muted: var(--pc-cendre);
+  --accent: var(--pc-bleu);
+  --action: var(--pc-bleu);
+  --sur-action: var(--pc-creme); /* ce qui s'écrit SUR l'aplat d'action */
+  --marqueur: var(--pc-encre); /* l'aplat d'un repère */
+  --sur-marqueur: var(--pc-creme);
+  --rule: var(--pc-encre);
+  --focus: var(--pc-bleu);
+
+  /* ---------- Traitement photo ----------
+     Réglage unique qui ramène toutes les photos du site à une même
+     température, tirée vers le bleu des azulejos.
+
+     À ZÉRO AUJOURD'HUI, ET C'EST VOULU : il avait été monté à 0.12 pour
+     rattraper les vignettes de la fiche Google, prises à des heures et
+     sous des lumières très différentes (plein soleil en terrasse,
+     tungstène jaune en salle). Ces vignettes ont été retirées. Un
+     reportage photo fait en une fois n'a pas besoin d'être rattrapé :
+     les fichiers déposés s'afficheront donc tels quels.
+     SI LES NOUVELLES PHOTOS VIENNENT ENCORE DE SOURCES MÉLANGÉES,
+     remonter cette valeur à 0.12 suffit à les réaccorder. */
+  --photo-ton: 0;
+
+  /* ---------- Typographie ----------
+     DEUX VOIX, ET PAS UNE DE PLUS.
+     La serif peinte du cartouche dit tout ce qui se lit — titres,
+     chapôs, paragraphes. La monospace dit tout ce qui se relève —
+     horaires, prix, étiquettes, libellés de boutons.
+
+     La grotesque a été retirée du projet : elle ne servait plus qu'à
+     une lettre décorative, et charger une famille entière pour ça est
+     un poids qu'aucun visiteur n'a à payer. Les trois rôles ci-dessous
+     pointent donc sur la même fonte, et c'est voulu : ils décrivent des
+     INTENTIONS, pas des fichiers. Le jour où les titres doivent changer
+     de dessin, une seule ligne bouge. */
+  --ff-display: var(--font-serif), 'Times New Roman', Times, serif;
+  --ff-text: var(--font-serif), 'Times New Roman', Times, serif;
+  --ff-serif: var(--font-serif), 'Times New Roman', Times, serif;
+  --ff-mono: var(--font-mono), ui-monospace, monospace;
+
+  /* L'échelle démarre à `display` : le titre de la page d'accueil n'est
+     plus un mot composé mais le cartouche peint de la maison, un
+     dessin. Il n'a donc plus de corps typographique. */
+  --fs-display: clamp(2.25rem, 9vw, 4.5rem);
+  --fs-h2: clamp(1.75rem, 5vw, 2.5rem);
+  --fs-h3: clamp(1.125rem, 2.5vw, 1.25rem);
+  --fs-lead: clamp(1.375rem, 4vw, 1.75rem);
+  /* UN CRAN AU-DESSUS DE L'ANCIENNE ÉCHELLE, et c'est nécessaire : à
+     corps égal, une serif à œil modeste se lit plus petit qu'une
+     grotesque. Les valeurs d'avant (1rem / 0.875rem) étaient justes
+     pour la grotesque ; gardées telles quelles, elles rendaient le
+     texte courant grêle. */
+  --fs-body: clamp(1.0625rem, 1.3vw, 1.1875rem);
+  --fs-small: 0.9375rem;
+  --fs-price: clamp(1.0625rem, 1.4vw, 1.125rem);
+  --fs-label: clamp(0.6875rem, 1vw, 0.75rem);
+
+  --lh-display: 0.95;
+  --lh-title: 1.02;
+  --lh-lead: 1.2;
+  --lh-body: 1.55;
+
+  --ls-display: 0.005em;
+  --ls-title: 0.01em;
+  --ls-label: 0.14em;
+
+  /* ---------- Espace (rythme 4 px) ---------- */
+  --space-hair: 8px;
+  --space-tight: 12px;
+  --space-stack: 24px;
+  --space-block: 40px;
+  --space-section: 72px;
+
+  --gutter: 16px;
+  --margin: 20px;
+  /* Le joint : la bande de mur qui reste visible entre deux cartouches,
+     et tout autour d'eux. C'est lui qui fait tenir la métaphore — sans
+     joint, les pavés se touchent et le mur disparaît. */
+  --joint: 20px;
+  --max-content: 1240px;
+  --max-text: 62ch;
+
+  /* ---------- Forme ---------- */
+  --radius-pill: 999px;
+  --tap: 44px;
+  /* Hauteur réservée à la barre d'action mobile : le contenu passe dessous. */
+  --barre-h: 56px;
+
+  /* ---------- Motion ---------- */
+  --dur-micro: 160ms;
+  --dur-base: 320ms;
+  --dur-reveal: 600ms;
+  --dur-signature: 900ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --marquee-dur: 45s;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 20px;
+    --margin: 32px;
+    --joint: 32px;
+    --space-block: 56px;
+    --space-section: 104px;
+  }
+}
+
+@media (min-width: 1120px) {
+  :root {
+    --gutter: 24px;
+    --margin: 48px;
+    --joint: 44px;
+    --space-block: 64px;
+    --space-section: 128px;
+    --space-stack: 32px;
+    --space-tight: 16px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   PAS DE PASSERELLE VERS TAILWIND, ET C'EST VOLONTAIRE.
+   Une déclaration `@theme inline` exposait ici dix-sept jetons
+   (`text-fg`, `border-rule`, `font-display`…). Vérification faite,
+   aucun composant du site n'en appelait un seul : tout passe soit par
+   les classes maison de src/styles/, soit par une valeur explicite du
+   type `gap-[var(--space-block)]`. Une primitive que rien n'emploie
+   n'existe pas — elle a donc été retirée plutôt que laissée en
+   promesse.
+
+   Si un jour l'équipe veut écrire `text-fg` plutôt que
+   `text-[var(--fg)]`, le bloc se rétablit en dix lignes ; mais mieux
+   vaut deux façons possibles d'écrire une couleur que zéro utilisée
+   sur deux. La règle du projet reste : une couleur s'écrit avec un
+   rôle (`var(--fg)`), jamais avec une valeur.
+   ------------------------------------------------------------------ */

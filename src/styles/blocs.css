@@ -1,0 +1,187 @@
+/* ==================================================================
+   BLOCS — barres de navigation, marquee, tableaux, carte, formulaire
+   ================================================================== */
+
+/* ---------- Barre haute ----------
+   Collante à partir de la tablette seulement : sur mobile, la barre
+   d'action du bas suffit et deux bandeaux fixes mangeraient l'écran. */
+.entete {
+  position: relative;
+  z-index: 40;
+  background: var(--pc-creme);
+  color: var(--pc-encre);
+  border-bottom: 1px solid var(--pc-encre);
+}
+
+@media (min-width: 768px) {
+  .entete {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.entete__haut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-stack);
+  max-width: var(--max-content);
+  margin-inline: auto;
+  min-height: 56px;
+  padding-inline: var(--margin);
+}
+
+/* LE NOM DE LA BARRE HAUTE EST DESSINÉ, PAS COMPOSÉ.
+   Ce sont les lettres peintes du cartouche, prélevées dans le logo
+   vectorisé puis remises sur une seule ligne — la plaque les empile sur
+   deux, ce qui ne convient pas à une barre. Aucune police ne pouvait
+   les imiter : autant prendre les vraies.
+
+   PEINT EN MASQUE, PAS EN IMAGE : le fichier ne sert que de découpe, la
+   couleur vient de `currentColor`. Le nom est donc encre sur la barre
+   crème, et suivrait n'importe quel autre fond sans qu'on y touche.
+
+   `aspect-ratio` porte les proportions exactes du dessin (808 x 89) :
+   la hauteur commande, la largeur suit, et la place est réservée avant
+   même que le fichier soit chargé. */
+.entete__marque {
+  display: block;
+  height: 18px;
+  aspect-ratio: 808 / 89;
+  background: currentColor;
+  -webkit-mask: url('/lettrage-ptit-central.svg') left center / contain no-repeat;
+  mask: url('/lettrage-ptit-central.svg') left center / contain no-repeat;
+}
+
+/* Navigation mobile : trois cellules tabulaires séparées d'un filet. */
+.entete__onglets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--pc-encre);
+}
+
+.entete__onglet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  border-left: 1px solid var(--pc-encre);
+  text-align: center;
+}
+
+.entete__onglet:first-child {
+  border-left: 0;
+}
+
+.entete__onglet[aria-current='page'] {
+  background: var(--pc-encre);
+  color: var(--pc-creme);
+}
+
+@media (min-width: 768px) {
+  .entete__onglets {
+    display: none;
+  }
+}
+
+.entete__liens {
+  display: none;
+  align-items: center;
+  gap: var(--space-block);
+}
+
+@media (min-width: 768px) {
+  .entete__liens {
+    display: flex;
+  }
+}
+
+/* La page courante se marque par le filet tenu et la graisse, pas par
+   une couleur : le bleu reste réservé aux actions. C'est le même
+   vocabulaire que `.lien--tenu`. */
+.entete__lien[aria-current='page'] {
+  font-variation-settings: 'wght' 600;
+}
+
+.entete__lien[aria-current='page']::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Barre d'action mobile ----------
+   Le téléphone et l'itinéraire restent à un pouce de distance sur
+   toutes les pages : c'est le vrai travail d'un site de restaurant. */
+.barre {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  background: var(--pc-creme);
+  color: var(--pc-encre);
+  border-top: 1px solid var(--pc-encre);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (min-width: 768px) {
+  .barre {
+    display: none;
+  }
+}
+
+.barre__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: var(--barre-h);
+  padding-inline: 16px;
+  border-left: 1px solid var(--pc-encre);
+}
+
+.barre__cell:first-child {
+  justify-content: flex-start;
+  padding-left: var(--margin);
+  border-left: 0;
+  min-width: 0;
+}
+
+/* La seule cellule pleine de la barre : appeler. Le filet d'un pixel
+   qui la précède détache son bord du crème voisin. */
+.barre__cell--action {
+  background: var(--pc-bleu);
+  color: var(--pc-creme);
+  font-variation-settings: 'wght' 600;
+}
+
+/* ---------- Marquee des horaires ---------- */
+.marquee {
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  border-bottom: 1px solid var(--rule);
+  padding-block: 11px;
+}
+
+.marquee__piste {
+  display: flex;
+  width: max-content;
+  animation: defile var(--marquee-dur) linear infinite;
+}
+
+.marquee__item {
+  padding-inline: 1.1em;
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  .marquee:hover .marquee__piste {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes defile {
+  to {
+    transform: translateX(-50%);
+  }
+}

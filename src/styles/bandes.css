@@ -1,0 +1,187 @@
+/* ==================================================================
+   LES BANDES — le rythme du site
+   Chaque section est une bande pleine largeur avec sa propre couleur,
+   séparée de la suivante par un filet d'un pixel.
+
+   POINT CLÉ DU SYSTÈME : une bande ne se contente pas de changer de
+   fond, elle REDÉFINIT toute la gamme pour elle-même et ses enfants
+   (texte, filets, accent, signal, anneau de focus). Résultat : aucun
+   composant ne sait sur quel fond il est posé, et changer la couleur
+   dominante du site ne demande pas de reprendre les exceptions une
+   par une.
+   ================================================================== */
+
+.bande {
+  background: var(--bg);
+  color: var(--fg);
+  border-bottom: 1px solid var(--rule);
+  padding-block: var(--space-section);
+}
+
+.bande--serree {
+  padding-block: var(--space-block);
+}
+
+.bande__inner {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+
+/* ==================================================================
+   LE MUR ET SES CARTOUCHES
+   ------------------------------------------------------------------
+   Tout le site est un mur d'azulejos. Les sections ne sont plus des
+   bandes de couleur qui se touchent : ce sont des CARTOUCHES, des
+   pavés pleins posés sur la faïence, séparés par un joint de mur.
+   C'est le geste du logo lui-même — une plaque peinte accrochée au
+   carrelage — appliqué à la page entière.
+
+   LA RÈGLE ABSOLUE NE CHANGE PAS : aucun texte ne se pose sur les
+   carreaux. Le motif est dense et contrasté ; le cartouche est ce qui
+   rend le texte lisible. Il est opaque à 100 %, sans transparence ni
+   flou — ne jamais « adoucir » le raccord, cela salirait le motif sans
+   sauver le texte.
+
+   PORTÉE : ces règles ne valent qu'à l'intérieur du mur. L'en-tête et
+   le pied de page, eux, restent des bandes pleine largeur — ce sont
+   les deux extrémités qui tiennent le mur, pas des pavés posés dessus.
+   ================================================================== */
+.mur-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--joint);
+  padding: var(--joint) var(--joint);
+}
+
+/* Le cartouche. `border-bottom` disparaît : un pavé posé sur le mur
+   n'a plus besoin d'un filet pour se séparer du suivant, c'est le
+   joint qui s'en charge. */
+.mur-page > .bande {
+  width: 100%;
+  max-width: var(--max-content);
+  margin-inline: auto;
+  border-bottom: 0;
+  padding: var(--space-section) var(--space-block);
+}
+
+/* La colonne intérieure est déjà celle du cartouche : elle ne remet ni
+   largeur maximale ni marge, sinon le texte se retrouverait deux fois
+   en retrait. */
+.mur-page > .bande > .bande__inner {
+  max-width: none;
+  padding-inline: 0;
+}
+
+.mur-page > .bande--serree {
+  padding-block: var(--space-block);
+}
+
+/* Le marquee est un cartouche lui aussi, mais en bandeau : un seul
+   filet, pas de double encadrement — à 40 px de haut, deux traits
+   n'en font plus qu'un épais. */
+.mur-page > .marquee {
+  width: 100%;
+  max-width: var(--max-content);
+  margin-inline: auto;
+  border-bottom: 0;
+  outline: 1px solid var(--rule);
+  outline-offset: -1px;
+}
+
+/* L'ENCADREMENT GRAVÉ — le double filet du cartouche.
+   Deux traits d'un pixel, l'un sur le bord du pavé, l'autre en retrait :
+   c'est la façon dont le logo lui-même est encadré, et la convention de
+   la gravure depuis toujours. Purement décoratif, donc invisible aux
+   lecteurs d'écran. */
+.mur-page > .bande {
+  position: relative;
+  outline: 1px solid var(--rule);
+  outline-offset: -1px;
+}
+
+.mur-page > .bande::before {
+  content: '';
+  position: absolute;
+  inset: var(--space-hair);
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+/* ---------- Crème (réglage par défaut, rappelé pour les imbrications) ---------- */
+.bande--creme {
+  --bg: var(--pc-creme);
+  --fg: var(--pc-encre);
+  --fg-muted: var(--pc-cendre);
+  --accent: var(--pc-bleu);
+  --action: var(--pc-bleu);
+  --sur-action: var(--pc-creme);
+  --marqueur: var(--pc-encre);
+  --sur-marqueur: var(--pc-creme);
+  --rule: var(--pc-encre);
+  --focus: var(--pc-bleu);
+}
+
+/* ---------- Encre ----------
+   Le bleu d'aplat reste le bleu d'aplat : c'est la pilule d'action.
+   Comme il ne tient que 2.16:1 face à l'encre — le cobalt des carreaux
+   est plus sombre que l'ultramarine qu'il remplace, donc plus proche
+   de l'encre encore —, sa bordure d'un pixel (--rule, donc crème ici)
+   est ce qui rend son contour perceptible. C'est elle qui satisfait la
+   règle WCAG 1.4.11 pour un contrôle, pas le bleu. NE PAS LA RETIRER. */
+.bande--encre {
+  --bg: var(--pc-encre);
+  --fg: var(--pc-creme);
+  --fg-muted: var(--pc-cendre-clair);
+  --accent: var(--pc-bleu-clair);
+  --action: var(--pc-bleu);
+  --sur-action: var(--pc-creme);
+  --marqueur: var(--pc-creme);
+  --sur-marqueur: var(--pc-encre);
+  --rule: var(--pc-creme);
+  --focus: var(--pc-creme);
+}
+
+/* ---------- Bleu Comptoir ----------
+   Aucun gris ne passe le seuil AA sur ce bleu, et le bleu ne peut pas
+   s'y signaler lui-même : l'accent, l'action et le repère y deviennent
+   tous crème. La hiérarchie s'y fait par l'échelle, la famille et les
+   filets — jamais par un texte affaibli. */
+.bande--bleu {
+  --bg: var(--pc-bleu);
+  --fg: var(--pc-creme);
+  --fg-muted: var(--pc-creme);
+  --accent: var(--pc-creme);
+  --action: var(--pc-creme);
+  --sur-action: var(--pc-bleu);
+  --marqueur: var(--pc-creme);
+  --sur-marqueur: var(--pc-bleu);
+  --rule: var(--pc-creme);
+  --focus: var(--pc-creme);
+}
+
+/* Grain discret sur les aplats saturés : sans lui, les grandes
+   surfaces de couleur paraissent mortes à l'écran. */
+.bande--bleu,
+.bande--encre {
+  position: relative;
+  isolation: isolate;
+}
+
+.bande--bleu::after,
+.bande--encre::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Filet horizontal réutilisable, toujours d'un pixel. */
+.filet {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}

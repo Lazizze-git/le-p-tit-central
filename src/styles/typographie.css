@@ -1,0 +1,118 @@
+/* ==================================================================
+   TYPOGRAPHIE — les deux voix du système
+   La serif peinte du cartouche dit tout ce qui se LIT : titres, chapôs,
+   paragraphes. La monospace dit tout ce qui se RELÈVE : horaires, prix,
+   étiquettes, libellés de boutons. Chaque famille a un rôle, aucune
+   n'en change.
+
+   CONSÉQUENCE À CONNAÎTRE : la serif n'existe qu'en UNE graisse. Toute
+   hiérarchie passe donc par le corps, la casse et l'interlettrage — et
+   l'emphase dans un paragraphe passe par l'italique, jamais par un gras
+   que le navigateur devrait fabriquer lui-même (il l'obtient en
+   épaississant le tracé, ce qui empâte une serif contrastée).
+   ================================================================== */
+
+/* ---------- Familles et échelles ---------- */
+
+/* La césure aide un paragraphe sur écran étroit, jamais un titre :
+   « LAU-SANNE » coupé en deux dans un corps de 48 px est une faute. */
+.t-display,
+.t-h2,
+.t-h3,
+.t-lead,
+.t-label,
+.t-price {
+  hyphens: none;
+}
+
+/* LES TITRES SONT DES LETTRES PEINTES.
+   Plus de graisse 800 ni de chasse élargie : la serif du cartouche n'a
+   qu'un dessin, et c'est lui qui porte le caractère. Les capitales et
+   le rien d'interlettrage viennent du logo, pas d'un effet ajouté. */
+.t-display,
+.t-h2 {
+  font-family: var(--ff-display);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.t-display {
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+}
+
+.t-h2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-title);
+  letter-spacing: var(--ls-title);
+}
+
+.t-h3 {
+  font-family: var(--ff-text);
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* Une seule mesure pour ce rôle, et elle est ici. Cinq appels la
+   contredisaient en ligne (20ch, 24ch, 26ch, 30ch) : cinq largeurs
+   pour un même chapô, dont aucune n'était un jeton. */
+.t-lead {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  letter-spacing: 0;
+  max-width: 26ch;
+  text-wrap: balance;
+}
+
+.t-body {
+  font-family: var(--ff-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  max-width: var(--max-text);
+}
+
+.t-small {
+  font-size: var(--fs-small);
+  line-height: 1.45;
+}
+
+.t-label {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-label);
+  line-height: 1.4;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  font-variation-settings: 'wght' 400;
+}
+
+.t-price {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-price);
+  font-variation-settings: 'wght' 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+/* EMPHASE ÉDITORIALE AU MILIEU D'UN PARAGRAPHE.
+   En italique, et non en gras : la serif du cartouche n'a qu'une
+   graisse, et sa vraie italique est dessinée. Demander du gras
+   laisserait le navigateur en fabriquer un en épaississant le tracé —
+   sur une serif contrastée, le mot devient une tache.
+   `font-weight: 400` est donc explicite : il interdit ce faux gras. */
+.t-body strong,
+.t-small strong,
+.t-lead strong {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Seule l'italique en serif est autorisée : elle porte les plats signature. */
+.t-signature {
+  font-family: var(--ff-serif);
+  font-style: italic;
+}
