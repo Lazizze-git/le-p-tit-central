@@ -1,9 +1,49 @@
 # Direction Artistique — Le P'tit Central
 
 **Restaurant-café, Lausanne (CH)** · Client WeAreBrothers
-Document de cadrage DA · **v3.1 · 5 août 2026** (v1, v2 et v3 : même date)
-Établi à partir de 9 inspirations (1 lien + 8 captures mobiles), puis **recalé
-sur 8 photographies du lieu réel** — voir §3 et §6.
+Document de cadrage DA · **v4 · 6 août 2026**
+Établi à partir de 9 inspirations (1 lien + 8 captures mobiles), recalé sur des
+photographies du lieu réel, puis **refondu autour du logo peint de la maison**.
+
+> **Ce qui a changé en v4 — l'arrivée du logo a fait tomber la typographie**
+>
+> Le cartouche peint de la maison (plaque d'azulejos, lettres à la main,
+> fleurons) n'était pas dans le dossier quand cette DA a été écrite. Il est
+> arrivé après, et il a rendu caduque la décision la plus structurante du
+> document : le trio grotesque display / grotesque texte / serif éditoriale.
+>
+> **Une grotesque très grasse et très large à côté d'une plaque peinte à la
+> main, ce sont deux affiches collées l'une sur l'autre.** Le logo a gagné, et
+> c'est lui qui donne désormais le ton.
+>
+> 1. **Deux familles au lieu de trois.** La serif dit tout ce qui se LIT —
+>    titres, chapôs, paragraphes. La monospace dit tout ce qui se RELÈVE —
+>    horaires, prix, étiquettes, boutons. **La grotesque est retirée du
+>    projet** : elle ne servait plus qu'à une lettre décorative, et une famille
+>    entière pour une lettre est un poids que le visiteur n'a pas à payer.
+> 2. **Conséquence à connaître : la serif n'a qu'UNE graisse.** Toute
+>    hiérarchie passe donc par le corps, la casse et l'interlettrage. Et
+>    l'emphase dans un paragraphe passe par l'ITALIQUE, jamais par un gras que
+>    le navigateur fabriquerait en épaississant le tracé.
+> 3. **Le corps de texte monte d'un cran** (17 → 19 px). À corps égal, une
+>    serif à œil modeste se lit plus petit qu'une grotesque : les valeurs
+>    calibrées pour l'ancienne famille rendaient le texte grêle.
+> 4. **Le bleu est relevé DANS le carrelage**, plus choisi à côté : `#2A4A8F`,
+>    le cobalt des azulejos, au lieu de l'ultramarine `#2B3AE8`. Un bleu
+>    électrique posé près de vraies faïences, cela faisait deux bleus dans la
+>    même page. Contraste sur crème : 7.46:1 (contre 6.43:1). Voir §3.
+> 5. **Le mur devient le fond de tout le site**, et chaque section un
+>    CARTOUCHE posé dessus, cerné d'un double filet gravé. La section « Le
+>    décor » disparaît : elle expliquait d'où venait le bleu devant un site
+>    qui est entièrement un mur. Voir §6 ter.
+> 6. **Le seul ornement du site est prélevé dans le logo** — le fleuron des
+>    sur-titres est la fleur du cartouche, au tracé près. Rien n'a été dessiné
+>    à côté.
+>
+> **La leçon, pour les prochains projets : réclamer les objets réels de la
+> marque AVANT d'écrire la DA.** Un logo, une carte imprimée, une enseigne ne
+> sont pas des inspirations, ce sont des contraintes. Une DA écrite sans eux
+> est une DA qu'il faudra refaire.
 
 > **Ce qui a changé depuis la v2**
 > 1. **Le bleu est le seul accent. Le vermillon est supprimé du site.** Demande
@@ -524,8 +564,8 @@ ailleurs il est trait ou texte. Si un jour on compte plus d'un aplat bleu par
 
 | Rôle | Famille (gratuite, Google Fonts) | Équivalent premium | Réglages |
 |---|---|---|---|
-| **Display** — nom, titres de section | **Archivo** (variable, axes `wght` 100–900 + `wdth` 62–125) réglée en **Expanded 800** (`wdth 125`) | Druk Wide Bold (Commercial Type), Söhne Breit (Klim) | CAPITALES, `letter-spacing: -0.03em`, `line-height: 0.85` |
-| **Texte courant** — paragraphes, UI | **Archivo** `wdth 100`, `wght 400/500/600` | Söhne, Neue Haas Grotesk | Casse normale, `line-height: 1.55` |
+| ~~**Display**~~ — *abandonné en v4* | ~~Archivo Expanded 800~~ → **Instrument Serif** `400` | — | CAPITALES, `letter-spacing: 0.005em`, `line-height: 0.95` |
+| ~~**Texte courant**~~ — *abandonné en v4* | ~~Archivo~~ → **Instrument Serif** `400` | — | Casse normale, `line-height: 1.55`, emphase en *italique* |
 | **Éditorial** — chapôs, citations, plats signature | **Instrument Serif** `400` + `400 italic` | Times Now (RP), Canela (Commercial) | Casse normale, `line-height: 1.15` |
 | **Data / labels** — horaires, prix, légendes, nav | **Martian Mono** `400/600` | Antarctican Mono (Dunwich Type — celle de tāst) | CAPITALES, `letter-spacing: 0.12em` |
 
