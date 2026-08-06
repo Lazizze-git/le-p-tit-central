@@ -14,8 +14,8 @@ html {
      déroulants, barres de défilement) doivent s'y accorder même si le
      système est en thème sombre. */
   color-scheme: light;
-  /* Sur mobile la barre haute défile avec la page : rien à compenser. */
-  scroll-padding-top: 0;
+  /* La compensation d'ancre est déclarée avec la barre elle-même, dans
+     blocs.css : la valeur dépend de sa hauteur, elle doit vivre à côté. */
 }
 
 @media (min-width: 768px) {
@@ -49,14 +49,14 @@ body {
    pied de page finissait cachée derrière la barre, tout en bas du
    document, donc impossible à faire défiler. D'où `.bande` en tête :
    (0,2,0) contre (0,1,0). Ne pas retirer. */
-.bande.pied-de-page {
+.pied-mur .bande.pied-de-page {
   padding-bottom: calc(
     var(--space-block) + var(--barre-h) + env(safe-area-inset-bottom, 0px)
   );
 }
 
 @media (min-width: 768px) {
-  .bande.pied-de-page {
+  .pied-mur .bande.pied-de-page {
     padding-bottom: var(--space-block);
   }
 }

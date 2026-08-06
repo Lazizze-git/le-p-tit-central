@@ -6,6 +6,7 @@ import type { ReactElement } from 'react';
 import { SITE } from '@/content/site';
 import { NAV } from '@/content/textes';
 import { lienTelephone } from '@/lib/format';
+import { useBarreAuDefilement } from '@/hooks/useBarreAuDefilement';
 
 /** « /carte/ » et « /carte » désignent la même page. */
 function estPageCourante(href: string, chemin: string | null): boolean {
@@ -18,14 +19,22 @@ function estPageCourante(href: string, chemin: string | null): boolean {
  * Barre haute. Sur mobile, la navigation prend la forme de trois
  * cellules tabulaires séparées par des filets — le même vocabulaire
  * que le reste du site. À partir de la tablette, elle devient une
- * ligne de liens à droite du nom, et la barre se fige en haut.
+ * ligne de liens à droite du nom.
+ *
+ * SUR MOBILE, LA BARRE SE RETIRE QUAND ON DESCEND ET REVIENT DÈS QU'ON
+ * REMONTE. Elle occupe cent pixels de haut sur un écran de téléphone :
+ * la laisser fixée en permanence, c'est amputer la lecture d'un
+ * dixième. La faire disparaître pour toujours, c'est obliger à remonter
+ * toute la page pour changer de rubrique. Le compromis est celui que
+ * tout le monde connaît sans avoir à l'apprendre.
  */
 export function Entete(): ReactElement {
   const chemin = usePathname();
   const tel = lienTelephone(SITE.telephone.e164);
+  const cachee = useBarreAuDefilement();
 
   return (
-    <header className="entete">
+    <header className="entete" data-cachee={cachee ? 'true' : undefined}>
       <div className="entete__haut">
         <Link
           href="/"

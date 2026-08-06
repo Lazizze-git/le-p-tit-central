@@ -76,6 +76,17 @@
   max-width: var(--max-text);
 }
 
+/* LE CHAPÔ D'UNE SECTION — un cran au-dessus du texte courant.
+   Le texte courant est calibré pour un paragraphe long ; dans une
+   demi-colonne, face à un titre de 40 px, il paraît maigre. Cette
+   taille-là tient la comparaison sans monter jusqu'au chapô de tête. */
+.t-body-grand {
+  font-family: var(--ff-text);
+  font-size: clamp(1.1875rem, 1.7vw, 1.4375rem);
+  line-height: 1.5;
+  max-width: var(--max-text);
+}
+
 .t-small {
   font-size: var(--fs-small);
   line-height: 1.45;
@@ -105,6 +116,7 @@
    sur une serif contrastée, le mot devient une tache.
    `font-weight: 400` est donc explicite : il interdit ce faux gras. */
 .t-body strong,
+.t-body-grand strong,
 .t-small strong,
 .t-lead strong {
   font-style: italic;

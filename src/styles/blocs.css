@@ -3,20 +3,40 @@
    ================================================================== */
 
 /* ---------- Barre haute ----------
-   Collante à partir de la tablette seulement : sur mobile, la barre
-   d'action du bas suffit et deux bandeaux fixes mangeraient l'écran. */
+   Collante partout, mais pas de la même façon.
+
+   SUR TÉLÉPHONE elle s'escamote quand on descend et revient dès qu'on
+   remonte : elle fait cent pixels de haut sur un écran de six pouces,
+   la garder en permanence amputerait la lecture d'un dixième, et la
+   supprimer obligerait à remonter toute la page pour changer de
+   rubrique. `data-cachee` est posé par le composant (voir
+   useBarreAuDefilement) ; le CSS seul décide de ce que ça veut dire.
+
+   À PARTIR DE LA TABLETTE elle reste simplement en haut : la place ne
+   manque plus, et une barre qui va et vient sous une souris agace. */
 .entete {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 40;
   background: var(--pc-creme);
   color: var(--pc-encre);
   border-bottom: 1px solid var(--pc-encre);
+  transition: transform var(--dur-base) var(--ease-out);
 }
 
-@media (min-width: 768px) {
-  .entete {
-    position: sticky;
-    top: 0;
+@media (max-width: 767px) {
+  .entete[data-cachee='true'] {
+    /* 101 % et non 100 % : le filet du bas doit sortir lui aussi,
+       sinon il reste un trait suspendu en haut de l'écran. */
+    transform: translateY(-101%);
+  }
+}
+
+/* Les ancres ne doivent pas s'arrêter derrière la barre. Sur téléphone
+   elle mesure ses deux rangées ; au-delà, une seule. */
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 104px;
   }
 }
 
@@ -152,6 +172,29 @@
   background: var(--pc-bleu);
   color: var(--pc-creme);
   font-variation-settings: 'wght' 600;
+}
+
+/* ---------- Le plan ----------
+   Le cadre porte le filet et la proportion ; la carte le remplit. Un
+   `iframe` n'a pas de proportion propre, il faut donc la lui donner,
+   sinon il se rabat sur les 150 px de haut du navigateur.
+   `filter` : la carte arrive en couleurs vives, étrangère à la gamme du
+   site. Désaturée et légèrement contrastée, elle redevient un document
+   posé sur la page plutôt qu'une fenêtre découpée dedans. */
+.plan {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+}
+
+.plan__carte {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.55) contrast(1.05);
 }
 
 /* ---------- Marquee des horaires ---------- */

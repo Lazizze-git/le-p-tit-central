@@ -22,7 +22,7 @@ export function Maison(): ReactElement {
         </Reveal>
 
         <Reveal rang={1} className="flex flex-col gap-[var(--space-block)] lg:w-1/2">
-          <Paragraphes textes={ACCUEIL.intro} />
+          <Paragraphes textes={ACCUEIL.intro} className="t-body-grand" />
 
           {/* Chiffre au-dessus, intitulé en dessous : les trois valeurs
               s'alignent alors sur la même ligne de base, même quand un

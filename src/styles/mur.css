@@ -53,37 +53,17 @@
   }
 }
 
-/* ---------- La bande de mur du milieu de page ---------- */
-/* Le nombre de rangs augmente quand l'écran rétrécit, et c'est voulu :
-   sur téléphone l'ardoise occupe presque toute la largeur, il ne reste
-   donc de mur qu'au-dessus et en dessous — il faut l'y donner en
-   hauteur. Sur grand écran, l'ardoise ne fait qu'un tiers de la
-   largeur : le mur a déjà toute la place sur les côtés.
-   Mesuré à l'écran : 7 rangs sur téléphone laissent 217 px de
-   carrelage de part et d'autre, contre 87 px à 5 rangs. */
+/* ---------- La bande de mur ----------
+   Elle ne réclame plus de hauteur minimale. C'était nécessaire quand
+   elle était la SEULE surface carrelée de la page : il lui fallait
+   quatre rangs de carreaux pour exister. Depuis que le mur porte tout
+   le site, ces quatre rangs n'étaient plus qu'un grand vide autour
+   d'une petite ardoise. La bande fait maintenant la hauteur de ce
+   qu'elle contient. */
 .mur {
-  --rangs: 7;
-
-  /* Un mur se mesure en rangs de carreaux, pas en vh : la bande fait
-     donc un nombre entier de rangs. C'est la même rigueur que le
-     rythme de 4 px du reste du site. */
-  min-height: calc(var(--carreau) * var(--rangs));
-
   display: flex;
   align-items: center;
-  padding-block: var(--space-section);
-}
-
-@media (min-width: 768px) {
-  .mur {
-    --rangs: 5;
-  }
-}
-
-@media (min-width: 1120px) {
-  .mur {
-    --rangs: 4;
-  }
+  padding-block: var(--space-block);
 }
 
 /* Le contenu reprend la colonne du site : l'ardoise s'aligne sur le

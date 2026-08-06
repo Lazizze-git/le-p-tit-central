@@ -1,94 +1,64 @@
 import type { ReactElement } from 'react';
-import { ADRESSE_UNE_LIGNE, LIEN_ITINERAIRE } from '@/content/site';
+import { ADRESSE_UNE_LIGNE, LIEN_ITINERAIRE, SITE } from '@/content/site';
 
 /**
- * PLAN DE SITUATION
+ * LA CARTE — une vraie carte, pas un schéma.
  * ------------------------------------------------------------------
- * Un plan dessiné, pas une carte Google incrustée : pas de traceur
- * publicitaire déposé sans consentement, pas de trois cents kilo-octets
- * de script, et un visuel qui appartient à la charte du lieu.
+ * Il y avait ici un plan dessiné à la main : quatre rues, un
+ * quadrillage et un carré bleu. C'était dans la charte, mais ça ne
+ * rendait pas service — on ne peut ni zoomer, ni regarder autour, ni
+ * comprendre où l'on est quand on ne connaît pas déjà Lausanne. Une
+ * adresse mérite une carte qu'on peut vraiment lire.
  *
- * Le vrai itinéraire est à un clic, dans l'application de cartes du
- * visiteur — c'est de toute façon ce qu'il ouvrira pour marcher.
+ * POURQUOI OPENSTREETMAP ET NON GOOGLE MAPS : la carte de Google dépose
+ * des cookies de suivi dès l'affichage, ce qui obligerait à poser une
+ * bannière de consentement sur tout le site pour une seule vignette.
+ * OpenStreetMap n'en dépose aucun, ne réclame aucune clé d'API, et rend
+ * exactement le même service. C'est le choix propre pour un site suisse.
+ *
+ * `loading="lazy"` : la carte ne se charge que si le visiteur descend
+ * jusqu'à elle. Elle ne coûte rien à ceux qui ne la regardent pas.
  */
+
+/** Fenêtre affichée autour de l'adresse, en degrés — environ 300 m de côté. */
+const RAYON_LON = 0.0035;
+const RAYON_LAT = 0.0018;
+
+function urlCarte(): string {
+  const { latitude, longitude } = SITE.geo;
+  const cadre = [
+    longitude - RAYON_LON,
+    latitude - RAYON_LAT,
+    longitude + RAYON_LON,
+    latitude + RAYON_LAT,
+  ].join(',');
+  return (
+    `https://www.openstreetmap.org/export/embed.html?bbox=${cadre}` +
+    `&layer=mapnik&marker=${latitude},${longitude}`
+  );
+}
+
 export function PlanSchematique(): ReactElement {
   return (
     <figure className="flex flex-col gap-[var(--space-tight)]">
-      <a
-        href={LIEN_ITINERAIRE}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block border border-[var(--rule)]"
-        aria-label={`Ouvrir l’itinéraire vers ${ADRESSE_UNE_LIGNE} dans une application de cartes (nouvelle fenêtre)`}
-      >
-        <svg
-          viewBox="0 0 400 250"
-          role="img"
-          aria-labelledby="plan-titre"
-          style={{ width: '100%', height: 'auto', display: 'block' }}
-        >
-          <title id="plan-titre">
-            Plan de situation : le P’tit Central se trouve rue Centrale, entre Bel-Air et la
-            place de la Palud, au centre de Lausanne.
-          </title>
+      <div className="plan">
+        <iframe
+          className="plan__carte"
+          src={urlCarte()}
+          title={`Plan : ${ADRESSE_UNE_LIGNE}`}
+          loading="lazy"
+          referrerPolicy="no-referrer"
+        />
+      </div>
 
-          <g
-            stroke="currentColor"
-            strokeWidth="1"
-            fill="none"
-            vectorEffect="non-scaling-stroke"
-            opacity="0.55"
-          >
-            {/* Trame de fond : les rues secondaires */}
-            <path d="M0 60h400M0 200h400M60 0v250M180 0v250M300 0v250" />
-          </g>
-
-          <g stroke="currentColor" strokeWidth="3" fill="none">
-            {/* Rue Centrale — l'axe du lieu */}
-            <path d="M12 132h376" />
-            {/* Grand-Pont, qui descend depuis Bel-Air */}
-            <path d="M12 62l96 62" />
-            {/* Rue de la Mercerie, qui monte vers la Cité */}
-            <path d="M262 132l44-92" />
-          </g>
-
-          {/* Les repères connus */}
-          <g fill="currentColor" fontSize="9" letterSpacing="1.4" style={{ textTransform: 'uppercase' }}>
-            <text x="14" y="52">BEL-AIR</text>
-            <text x="196" y="86">PL. DE LA PALUD</text>
-            <text x="300" y="34">LA CITÉ</text>
-            <text x="14" y="222">LE FLON</text>
-            <text x="196" y="156">RUE CENTRALE</text>
-          </g>
-
-          {/* La maison. Le carré est bleu ; son filet crème le détache du
-              fond encre, où le bleu seul ne tiendrait que 2.5:1. */}
-          <g>
-            <rect
-              x="150"
-              y="118"
-              width="28"
-              height="28"
-              fill="var(--action)"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-            <text
-              x="164"
-              y="137"
-              fill="var(--sur-action)"
-              fontSize="15"
-              fontWeight="700"
-              textAnchor="middle"
-            >
-              C
-            </text>
-          </g>
-        </svg>
-      </a>
-
-      <figcaption className="t-label" style={{ color: 'var(--fg-muted)' }}>
-        Plan de situation — {ADRESSE_UNE_LIGNE}
+      {/* Le lien n'est pas décoratif : si la carte ne se charge pas —
+          réseau coupé, bloqueur de contenu —, l'adresse et l'itinéraire
+          restent atteignables d'un seul clic. */}
+      <figcaption className="slot__legende t-label">
+        <a className="lien" href={LIEN_ITINERAIRE} target="_blank" rel="noopener noreferrer">
+          {ADRESSE_UNE_LIGNE}
+          <span aria-hidden="true"> ↗</span>
+        </a>
       </figcaption>
     </figure>
   );

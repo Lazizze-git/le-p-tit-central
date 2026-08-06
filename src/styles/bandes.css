@@ -179,6 +179,53 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* ---------- Le pied de page ----------
+   Même traitement que le reste : une paroi carrelée, et le contenu sur
+   un cartouche crème cerné du double filet gravé. La règle générale est
+   écrite pour `.mur-page > .bande` ; le pied de page vit hors du mur
+   principal (il n'est pas dans `<main>`), elle est donc reprise ici
+   pour lui seul. */
+.pied-mur {
+  padding: var(--joint);
+  border-top: 1px solid var(--pc-encre);
+}
+
+.pied-mur > .bande {
+  width: 100%;
+  max-width: var(--max-content);
+  margin-inline: auto;
+  position: relative;
+  border-bottom: 0;
+  padding: var(--space-block);
+  outline: 1px solid var(--rule);
+  outline-offset: -1px;
+}
+
+.pied-mur > .bande::before {
+  content: '';
+  position: absolute;
+  inset: var(--space-hair);
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+.pied-mur > .bande > .bande__inner {
+  max-width: none;
+  padding-inline: 0;
+}
+
+/* Le nom de la maison, en lettres peintes — mêmes proportions que dans
+   la barre haute (808 x 89), mais à l'échelle d'une signature de fin de
+   page. Peint en masque : la couleur vient du cartouche. */
+.pied-marque {
+  display: block;
+  width: min(100%, 22rem);
+  aspect-ratio: 808 / 89;
+  background: currentColor;
+  -webkit-mask: url('/lettrage-ptit-central.svg') left center / contain no-repeat;
+  mask: url('/lettrage-ptit-central.svg') left center / contain no-repeat;
+}
+
 /* Filet horizontal réutilisable, toujours d'un pixel. */
 .filet {
   border: 0;

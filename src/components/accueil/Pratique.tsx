@@ -42,7 +42,7 @@ export function Pratique(): ReactElement {
         <Reveal
           as="ul"
           rang={2}
-          className="grid gap-x-[var(--space-block)] gap-y-[var(--space-stack)] border-t border-[var(--rule)] pt-[var(--space-block)] sm:grid-cols-2 lg:grid-cols-4"
+          className="grid gap-x-[var(--space-block)] gap-y-[var(--space-stack)] sm:grid-cols-2 lg:grid-cols-4"
         >
           {CONTACT.transports.map((transport) => (
             <li key={transport.moyen} className="flex flex-col gap-[var(--space-hair)]">
