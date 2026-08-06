@@ -109,7 +109,7 @@ export const MOMENTS: readonly Moment[] = [
       'Tout commence par le choix des ingrédients. La maison privilégie des produits frais, sélectionnés un par un, pour une cuisine moderne et sincère.',
       '*Chaque plat est pensé avec simplicité et exigence.* La carte reste courte — c’est la condition pour qu’elle soit bonne.',
     ],
-    medias: ['salle-soir', 'entrecote'],
+    medias: ['salle-soir'],
     categories: [
       {
         titre: 'Pour commencer',

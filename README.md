@@ -147,11 +147,11 @@ vous n'avez pas à y penser.
 
 ### Où en sont les photos
 
-**Sept emplacements sur onze portent une vraie photo de la maison.** Elles
+**Sept emplacements sur dix portent une vraie photo de la maison.** Elles
 viennent du compte Instagram du P'tit Central : l'habillage de l'application a
 été détouré et chaque image est servie en `.webp` sous 200 Ko.
 
-Les quatre autres affichent **le « C » de Central**. Ce ne sont pas des trous :
+Les trois autres affichent **le « C » de Central**. Ce ne sont pas des trous :
 ce sont les vues qui manquent encore au fonds. Mieux vaut le panneau qu'une
 photo qui ne montre pas ce que la légende annonce.
 
@@ -165,7 +165,6 @@ photo qui ne montre pas ce que la légende annonce.
 | `salle-soir` | Une assiette de poisson et légumes rôtis | ✅ en place — 1280 × 1750 px |
 | `perche` | Les filets de perche du vendredi | ✅ en place — 1274 × 1738 px |
 | `comptoir` | Le bar au petit matin | ⬜ manque — carré, 1600 × 1600 px |
-| `entrecote` | Une assiette du soir | ⬜ manque — paysage, 1800 × 1200 px |
 | `salle-privee` | La salle privée dressée | ⬜ manque — paysage, 1800 × 1200 px |
 | `salle-azulejos` | Une table le long des fresques | ⬜ manque — portrait, 1600 × 2000 px |
 

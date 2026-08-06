@@ -26,17 +26,18 @@
  *   3. Relisez `alt` : il doit décrire la photo réellement déposée.
  * Rien d'autre à toucher.
  *
- * SEPT EMPLACEMENTS SUR ONZE PORTENT UNE VRAIE PHOTO de la maison.
+ * SEPT EMPLACEMENTS SUR DIX PORTENT UNE VRAIE PHOTO de la maison.
  * Elles viennent du compte Instagram du P'tit Central : l'habillage de
  * l'application a été détouré, et chaque image est servie en .webp sous
  * 200 Ko. Toutes sont en portrait — c'est le format d'Instagram, pas un
  * choix de mise en page : le jour d'un vrai reportage, on pourra enfin
  * cadrer une terrasse en paysage.
  *
- * LES QUATRE RESTANTS AFFICHENT LE « C » DE CENTRAL. Ce ne sont pas des
- * trous : ce sont les vues qui manquent encore au fonds — la devanture,
- * la salle vide, la salle privée dressée. Mieux vaut le panneau qu'une
- * photo qui ne montre pas ce que la légende annonce.
+ * LES TROIS RESTANTS AFFICHENT LE « C » DE CENTRAL. Ce ne sont pas des
+ * trous : ce sont les vues qui manquent encore au fonds — le comptoir au
+ * petit matin, la salle le long des fresques, la salle privée dressée.
+ * Mieux vaut le panneau qu'une photo qui ne montre pas ce que la légende
+ * annonce.
  *
  * RÈGLE SUR `ton` : la couleur d'un panneau ne doit jamais être celle
  * de la bande qui l'accueille, sinon le cadre disparaît dans le fond.
@@ -114,13 +115,6 @@ export const MEDIAS = {
     alt: 'Une assiette de poisson et légumes rôtis, roquette et oignons frits, posée sur une table de la salle.',
     legende: 'En salle',
     ratio: '1280/1750',
-    ton: 'creme',
-  },
-  entrecote: {
-    src: null,
-    alt: 'Une assiette d’entrecôte tranchée avec crevettes grillées, sauce et purée.',
-    legende: 'Un plat du soir',
-    ratio: '1800/1200',
     ton: 'creme',
   },
   perche: {

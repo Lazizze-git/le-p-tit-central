@@ -90,7 +90,6 @@ export type IdMedia =
   | 'comptoir'
   | 'salle-midi'
   | 'salle-soir'
-  | 'entrecote'
   | 'perche'
   | 'salle-privee'
   | 'salle-azulejos';
