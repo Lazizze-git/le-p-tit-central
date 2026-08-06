@@ -66,7 +66,12 @@ export function PiedDePage(): ReactElement {
 
             <Colonne titre="Contact">
               <>
-                <a className="t-label lien lien--tenu" href={tel}>
+                {/* Pas de soulignement tenu ici, contrairement à la barre
+                    haute : dans cette colonne, le numéro est déjà sous un
+                    titre souligné, et l'e-mail juste en dessous n'en a
+                    pas. Trois traits parallèles à quelques pixels d'écart,
+                    ça ne signale plus rien — ça encombre. */}
+                <a className="t-label lien" href={tel}>
                   {SITE.telephone.affichage}
                 </a>
                 <a className="t-label lien" href={`mailto:${SITE.email}`}>
