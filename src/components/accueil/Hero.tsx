@@ -74,7 +74,7 @@ export function Hero(): ReactElement {
             repousserait hors de l'écran les deux seules informations
             qu'on vient chercher sur un site de restaurant. */}
           <div className="hidden lg:block lg:w-[38%]">
-            <MediaSlot id="devanture" />
+            <MediaSlot id="comptoir-azulejos" />
           </div>
         </div>
 
@@ -84,7 +84,7 @@ export function Hero(): ReactElement {
             pour rien. */}
         <div className="planche planche--pied">
           <MediaSlot id="terrasse" prioritaire />
-          <MediaSlot id="portemanteau" />
+          <MediaSlot id="assiette-salade" />
         </div>
       </div>
     </Bande>

@@ -83,10 +83,10 @@ export type Dimensions = `${number}/${number}`;
  * production.
  */
 export type IdMedia =
-  | 'devanture'
+  | 'comptoir-azulejos'
   | 'ardoise-du-jour'
   | 'terrasse'
-  | 'portemanteau'
+  | 'assiette-salade'
   | 'comptoir'
   | 'salle-midi'
   | 'salle-soir'

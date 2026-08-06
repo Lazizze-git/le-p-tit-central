@@ -145,70 +145,43 @@ vous n'avez pas à y penser.
 
 ## 6. Les photos
 
-### ⚠️ À lire en premier : il n'y a plus aucune photo sur le site
+### Où en sont les photos
 
-C'est volontaire, et c'est une bonne nouvelle.
+**Sept emplacements sur onze portent une vraie photo de la maison.** Elles
+viennent du compte Instagram du P'tit Central : l'habillage de l'application a
+été détouré et chaque image est servie en `.webp` sous 200 Ko.
 
-Le site affichait jusqu'ici sept photos venues de votre **fiche Google**.
-C'étaient des **vignettes** : de toutes petites images, faites pour être vues
-en timbre-poste dans un résultat de recherche. La plus petite (l'assiette
-d'entrecôte) faisait **186 pixels de large**, quand un écran de téléphone en
-fait environ 1200. Étirée sur toute la largeur, elle serait devenue une
-bouillie de pixels — pire que pas de photo du tout.
+Les quatre autres affichent **le « C » de Central**. Ce ne sont pas des trous :
+ce sont les vues qui manquent encore au fonds. Mieux vaut le panneau qu'une
+photo qui ne montre pas ce que la légende annonce.
 
-Elles ont donc été **retirées**, en attendant de vraies photos.
-
-En attendant, chaque emplacement affiche **le « C » de Central**. Ce n'est pas
-un trou : c'est un bloc graphique qui tient debout tout seul, et le site reste
-entièrement présentable en l'état.
-
-Ces panneaux occupent **exactement la place prévue pour la photo**. Le jour où
-vous déposez une image, elle prend ce cadre-là, à la virgule près : **la mise en
-page ne bouge pas d'un pixel.**
-
-> **Un reportage photo reste la seule chose qui sépare ce site de sa pleine
-> mesure.** Une demi-journée avec un photographe suffit : la terrasse, le
-> comptoir au petit matin, une table de midi, les fresques d'azulejos, une
-> assiette de filets de perche. La place est déjà réservée, au bon format.
-
-### Les onze emplacements qui attendent une photo
-
-Le format indiqué est le **sens de cadrage** à donner au photographe. Le
-cadre a déjà cette proportion à l'écran.
-
-| Emplacement | Ce qu'il faut photographier | Format cible |
+| Emplacement | Ce qu'on y voit | État |
 |---|---|---|
-| `devanture` | La devanture, l'enseigne, les vitres | portrait — 1600 × 2000 px |
-| `terrasse` | La terrasse en été, rue Centrale | paysage — 1800 × 1200 px |
-| `portemanteau` | L'entrée, le fer forgé, les azulejos | portrait — 900 × 1200 px |
-| `ardoise-du-jour` | L'ardoise du menu, écrite à la craie | portrait — 1600 × 2000 px |
-| `comptoir` | Le bar, les bouteilles, les ardoises | carré — 1600 × 1600 px |
-| `salle-midi` | La salle avant le service | portrait — 1600 × 2000 px |
-| `salle-soir` | La salle en soirée, tables dressées | portrait — 1600 × 2000 px |
-| `entrecote` | Une assiette du soir | paysage — 1800 × 1200 px |
-| `perche` | Les filets de perche du vendredi | paysage — 1800 × 1200 px |
-| `salle-privee` | La salle privée dressée | paysage — 1800 × 1200 px |
-| `salle-azulejos` | Une table le long des fresques | portrait — 1600 × 2000 px |
+| `comptoir-azulejos` | Le café du matin devant les fresques du comptoir | ✅ en place — 1286 × 1746 px |
+| `terrasse` | Un burger et un mojito en terrasse, plein soleil | ✅ en place — 1286 × 1748 px |
+| `assiette-salade` | Une assiette de salade au poulet pané | ✅ en place — 1196 × 1750 px |
+| `ardoise-du-jour` | La carte de la maison, posée près d'un renversé | ✅ en place — 1282 × 1738 px |
+| `salle-midi` | Une table de midi vue de dessus | ✅ en place — 1282 × 1740 px |
+| `salle-soir` | Une assiette de poisson et légumes rôtis | ✅ en place — 1280 × 1750 px |
+| `perche` | Les filets de perche du vendredi | ✅ en place — 1274 × 1738 px |
+| `comptoir` | Le bar au petit matin | ⬜ manque — carré, 1600 × 1600 px |
+| `entrecote` | Une assiette du soir | ⬜ manque — paysage, 1800 × 1200 px |
+| `salle-privee` | La salle privée dressée | ⬜ manque — paysage, 1800 × 1200 px |
+| `salle-azulejos` | Une table le long des fresques | ⬜ manque — portrait, 1600 × 2000 px |
 
-**Trois formats seulement**, et c'est ce qui tient l'ensemble : portrait
-(1600 × 2000), paysage (1800 × 1200), carré (1600 × 1600).
+**Toutes les photos en place sont en portrait.** C'est le format d'Instagram,
+pas un choix de mise en page. Le jour d'un vrai reportage, on pourra enfin
+cadrer une terrasse en paysage et une salle en largeur.
 
-En haut de la page d'accueil, `devanture` se place **à droite du logo, et
-seulement sur grand écran** : sur téléphone la colonne n'existe pas, pour ne
-pas repousser hors de l'écran le « ouvert » et le bouton d'appel. En dessous,
-les deux cadres se partagent la largeur : la terrasse sur **deux tiers**,
-l'entrée sur **un tiers**. L'écart est voulu — c'est lui qui donne son rythme
-au haut de page. À conserver.
+> **Ce qui reste à photographier**, par ordre d'utilité : la **devanture** rue
+> Centrale, le **comptoir au petit matin** avant le service, la **salle** le
+> long des fresques, et la **salle privée dressée** pour un événement. Une
+> demi-journée suffit.
 
-**La terrasse se photographie en paysage**, pas en portrait : sur deux tiers de
-la colonne, un cadre portrait devient plus haut qu'un écran.
-
-**Le réglage de température des photos est désormais à zéro.** Il avait été
-monté à 0.12 pour réaccorder les vignettes Google, prises à des heures et sous
-des lumières très différentes. Un reportage fait en une fois n'en a pas
-besoin : les photos s'afficheront telles quelles. Si les nouvelles images
-viennent malgré tout de sources mélangées, remontez `--photo-ton` à `0.12`
-dans `src/app/globals.css`.
+**Le réglage de température des photos est à zéro.** Les images actuelles
+viennent toutes de la même source et n'ont pas besoin d'être réaccordées. Si un
+prochain lot vient de sources mélangées, remontez `--photo-ton` à `0.12` dans
+`src/app/globals.css`.
 
 ### Le mur d'azulejos
 

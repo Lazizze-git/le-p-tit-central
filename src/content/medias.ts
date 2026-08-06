@@ -26,19 +26,17 @@
  *   3. Relisez `alt` : il doit décrire la photo réellement déposée.
  * Rien d'autre à toucher.
  *
- * ⚠️  AUCUNE PHOTO N'EST EN PLACE POUR L'INSTANT, ET C'EST VOULU.
- * Les vignettes basse définition de la fiche Google ont été retirées :
- * un reportage photo va les remplacer. Chaque emplacement affiche donc
- * le « C » de Central en très grand — un bloc graphique qui tient
- * debout tout seul, et non un trou en attente.
+ * SEPT EMPLACEMENTS SUR ONZE PORTENT UNE VRAIE PHOTO de la maison.
+ * Elles viennent du compte Instagram du P'tit Central : l'habillage de
+ * l'application a été détouré, et chaque image est servie en .webp sous
+ * 200 Ko. Toutes sont en portrait — c'est le format d'Instagram, pas un
+ * choix de mise en page : le jour d'un vrai reportage, on pourra enfin
+ * cadrer une terrasse en paysage.
  *
- * LES `ratio` CI-DESSOUS SONT DONC DES FORMATS CIBLES, pas les
- * dimensions d'un fichier existant : ils disent au photographe dans
- * quel sens cadrer, et ils donnent dès aujourd'hui au cadre la place
- * exacte que la photo occupera. Trois formats, et pas un de plus :
- *   1600 × 2000  portrait      1800 × 1200  paysage      1600 × 1600  carré
- * Le jour du dépôt, ces nombres sont remplacés par les dimensions
- * réelles du fichier et la mise en page ne bouge pas d'un pixel.
+ * LES QUATRE RESTANTS AFFICHENT LE « C » DE CENTRAL. Ce ne sont pas des
+ * trous : ce sont les vues qui manquent encore au fonds — la devanture,
+ * la salle vide, la salle privée dressée. Mieux vaut le panneau qu'une
+ * photo qui ne montre pas ce que la légende annonce.
  *
  * RÈGLE SUR `ton` : la couleur d'un panneau ne doit jamais être celle
  * de la bande qui l'accueille, sinon le cadre disparaît dans le fond.
@@ -59,32 +57,30 @@ export const MEDIAS = {
      qu'un écran : on ne voit plus la photo, on la traverse. Le paysage
      la ramène à une hauteur qu'on embrasse d'un coup d'œil — et c'est
      de toute façon le cadrage naturel d'une terrasse. */
-  /* Le grand tirage à droite du logo, en haut de page. Portrait, parce
-     qu'il tient dans une colonne d'un tiers à côté du cartouche peint.
-     IL NE S'AFFICHE QU'À PARTIR DU GRAND ÉCRAN : sur téléphone, la
+  /* Le tirage à droite du logo. C'est LA photo qui montre d'où vient le
+     bleu de tout ce site : les fresques du comptoir sont là, derrière le
+     café du matin. Placée là exprès, à hauteur du cartouche peint.
+     ELLE NE S'AFFICHE QU'À PARTIR DU GRAND ÉCRAN : sur téléphone, la
      colonne n'existe pas et le logo occupe déjà toute la largeur. */
-  devanture: {
-    src: null,
-    alt: 'La devanture du P’tit Central rue Centrale : l’enseigne, les grandes vitres et les tables de la terrasse.',
-    legende: 'Rue Centrale, la devanture',
-    ratio: '1600/2000',
+  'comptoir-azulejos': {
+    src: '/photos/comptoir-azulejos.webp',
+    alt: 'Un cappuccino et deux croissants sur une table du café ; derrière, le comptoir et les grandes fresques d’azulejos bleu et blanc.',
+    legende: 'Le comptoir, sous les azulejos',
+    ratio: '1286/1746',
     ton: 'bleu',
   },
   terrasse: {
-    src: null,
-    alt: 'Deux clientes attablées en terrasse rue Centrale, boissons fraîches et café, la rue et ses arbres en arrière-plan.',
-    legende: 'La terrasse, rue Centrale',
-    ratio: '1800/1200',
+    src: '/photos/terrasse.webp',
+    alt: 'Un burger au pain noir, une salade de saison et un mojito sur une table en terrasse, en plein soleil.',
+    legende: 'En terrasse, rue Centrale',
+    ratio: '1286/1748',
     ton: 'encre',
   },
-  // Nommé d'après ce qu'on y voit, et non « azulejos » : ce nom-là
-  // désigne désormais le mur carrelé de /photos/azulejos.webp, qui
-  // n'est pas un emplacement photo mais une matière de fond.
-  portemanteau: {
-    src: null,
-    alt: 'Un portemanteau en fer forgé devant une fresque d’azulejos bleu et blanc, sous des ampoules à filament.',
-    legende: 'En entrant',
-    ratio: '900/1200',
+  'assiette-salade': {
+    src: '/photos/assiette-salade.webp',
+    alt: 'Une assiette bleue de salade au poulet pané, copeaux de fromage, tomates et crème de balsamique, apportée en salle.',
+    legende: 'Une assiette de midi',
+    ratio: '1196/1750',
     ton: 'bleu',
   },
 
@@ -93,10 +89,10 @@ export const MEDIAS = {
      cartouche de la carte n'est qu'une colonne de texte et la moitié
      droite reste vide. Portrait, parce que c'est une colonne. */
   'ardoise-du-jour': {
-    src: null,
-    alt: 'L’ardoise du menu du jour, écrite à la craie et accrochée au mur de la salle.',
-    legende: 'L’ardoise du jour',
-    ratio: '1600/2000',
+    src: '/photos/ardoise-du-jour.webp',
+    alt: 'La carte du P’tit Central posée sur une table, à côté d’un renversé, d’un journal et d’un appareil photo.',
+    legende: 'La carte, au café du matin',
+    ratio: '1282/1738',
     ton: 'bleu',
   },
   comptoir: {
@@ -107,17 +103,17 @@ export const MEDIAS = {
     ton: 'encre',
   },
   'salle-midi': {
-    src: null,
-    alt: 'La salle vue depuis une table : le bar, le grand mur d’ardoises manuscrites et les chaises bistrot en bois courbé.',
-    legende: 'La salle, avant le service',
-    ratio: '1600/2000',
+    src: '/photos/salle-midi.webp',
+    alt: 'Une table de midi vue de dessus : filets de perche et frites dans leur panier, sauce tartare, corbeille de pain et carafe d’eau.',
+    legende: 'Une table, à midi',
+    ratio: '1282/1740',
     ton: 'creme',
   },
   'salle-soir': {
-    src: null,
-    alt: 'La salle en soirée, tables dressées et fresque d’azulejos au mur.',
-    legende: 'Le soir, en salle',
-    ratio: '1600/2000',
+    src: '/photos/salle-soir.webp',
+    alt: 'Une assiette de poisson et légumes rôtis, roquette et oignons frits, posée sur une table de la salle.',
+    legende: 'En salle',
+    ratio: '1280/1750',
     ton: 'creme',
   },
   entrecote: {
@@ -128,10 +124,10 @@ export const MEDIAS = {
     ton: 'creme',
   },
   perche: {
-    src: null,
-    alt: 'Assiette de filets de perche meunière, sauce tartare, frites et légumes.',
+    src: '/photos/perche.webp',
+    alt: 'Filets de perche dorés au beurre et au persil sur une assiette bleue, avec un panier de frites et des légumes.',
     legende: 'Filets de perche, vendredi midi',
-    ratio: '1800/1200',
+    ratio: '1274/1738',
     ton: 'bleu',
   },
 
