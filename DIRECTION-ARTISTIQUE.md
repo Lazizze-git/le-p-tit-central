@@ -1,9 +1,45 @@
 # Direction Artistique — Le P'tit Central
 
 **Restaurant-café, Lausanne (CH)** · Client WeAreBrothers
-Document de cadrage DA · **v4 · 6 août 2026**
+Document de cadrage DA · **v5 · 27 août 2026**
 Établi à partir de 9 inspirations (1 lien + 8 captures mobiles), recalé sur des
 photographies du lieu réel, puis **refondu autour du logo peint de la maison**.
+
+> **Ce qui a changé en v5 — les objets réels sont arrivés, et ils ont tranché**
+>
+> La v4 se terminait sur une leçon : *réclamer les objets réels de la marque
+> AVANT d'écrire la DA.* Ils sont arrivés — les **fichiers d'origine du
+> reportage** et les **deux cartes imprimées** de la maison. Ils n'ont pas
+> renversé la DA cette fois : ils l'ont refermée.
+>
+> 1. **Onze emplacements, onze photos. Plus un seul panneau « C » en ligne.**
+>    Le comptoir, la table dressée, la devanture et la truite complètent le
+>    fonds. La règle du panneau reste écrite — elle ne s'applique simplement
+>    plus nulle part. Voir §6 bis, réécrite.
+> 2. **Trois orientations au lieu d'une.** Le format portrait n'était pas un
+>    parti pris, c'était la contrainte d'Instagram. Les fichiers d'origine ont
+>    permis un cadrage éditorial : le comptoir en **carré**, la table dressée
+>    en **paysage**. C'est ce qui casse la suite de colonnes identiques.
+> 3. **`--photo-ton` retombe à 0.** Le virage bleu réaccordait un fonds
+>    hétérogène ; les onze images viennent d'une même journée. Un filtre existe
+>    pour réparer un défaut — sans défaut, il ne reste que le coût.
+> 4. **La carte porte enfin de vrais prix.** Vingt-six plats, saisis d'après
+>    les cartes imprimées. Restent au tiret ce qui n'est écrit sur aucune
+>    carte : boissons, plat du jour, verres, perches du vendredi. Le bandeau
+>    d'explication a été réécrit pour parler *des lignes au tiret*, pas de la
+>    carte entière — il doit rester vrai le jour où il n'en restera qu'une.
+> 5. **La provenance des viandes entre dans la page.** Elle est obligatoire sur
+>    une carte en Suisse : elle est donc sur le site comme sur le papier, en
+>    monospace, en bas — avec la mention allergènes.
+> 6. **Une seule règle a servi d'arbitre, partout : la légende dit ce qu'on
+>    voit.** C'est elle qui a fait renommer `salle-azulejos` en `devanture`, et
+>    qui interdit d'écrire « La salle privée » sous une table de terrasse.
+>
+> **La leçon de la v5** : quand les objets réels arrivent enfin, ils ne
+> demandent pas qu'on invente — ils demandent qu'on renonce. Un filtre, une
+> légende flatteuse, un plat imaginé pour remplir une colonne : tout ce qui
+> avait été mis là pour tenir en l'absence du réel doit sortir le jour où le
+> réel entre.
 
 > **Ce qui a changé en v4 — l'arrivée du logo a fait tomber la typographie**
 >
@@ -738,63 +774,72 @@ improvisée.
 
 ### 6 bis. Les photos réellement disponibles — et ce qu'on en fait
 
-Le shooting n'a pas eu lieu. Ce dont on dispose, ce sont **sept vignettes
-récupérées sur la fiche Google Business**. Leurs dimensions réelles :
+**Réécrite en v5. Le fonds a changé deux fois, et cette section avec lui.**
+Elle décrivait sept vignettes de 186 à 736 px récupérées sur la fiche Google
+Business ; puis sept tirages Instagram détourés ; elle décrit maintenant l'état
+livré. Les emplacements `portemanteau` et `entrecote` qu'elle citait n'existent
+plus.
 
-| Emplacement | Fichier | Dimensions | Sujet |
-|---|---|---|---|
-| `terrasse` | `terrasse.webp` | **736 × 928** | Deux clientes en terrasse, rue Centrale |
-| `comptoir` | `comptoir.webp` | 289 × 312 | Le bar, les bouteilles, les azulejos |
-| `portemanteau` | `portemanteau.webp` | 186 × 311 | L'entrée, fer forgé devant une fresque |
-| `salle-midi` | `salle-midi.webp` | 186 × 311 | La salle et le mur d'ardoises |
-| `salle-azulejos` | `salle-azulejos.webp` | 186 × 311 | Une table le long des fresques |
-| `salle-soir` | `salle-soir.webp` | 186 × 233 | La salle en soirée |
-| `entrecote` | `entrecote.webp` | **186 × 133** | Une assiette |
+**Onze emplacements, onze photos. Plus un seul panneau « C » en ligne.**
 
-**Un seul recadrage, et il est éditorial.** La terrasse arrive en
-736 × 1308 et repart en **736 × 928** : le tiers inférieur est coupé. Ce
-n'est pas un ajustement de format, c'est un tri — on y voyait les jambes de
-la personne qui photographie et un tas de sacs posés au sol. La scène
-utile (les deux clientes, la table, la rue, le store) tient entière
-au-dessus. **Aucune autre photo n'est recadrée** : les six autres sont trop
-petites pour qu'on leur retire un pixel, et leur cadre épouse exactement
-leur fichier.
+| Emplacement | Fichier | Dimensions | Sujet | Source |
+|---|---|---|---|---|
+| `comptoir-azulejos` | `comptoir-azulejos.webp` | 1286 × 1746 | Le café du matin devant les fresques | Instagram |
+| `terrasse` | `terrasse.webp` | 1286 × 1748 | Un burger et un mojito, plein soleil | Instagram |
+| `assiette-salade` | `assiette-salade.webp` | 1196 × 1750 | Une salade au poulet pané | Instagram |
+| `ardoise-du-jour` | `ardoise-du-jour.webp` | 1282 × 1738 | La carte, près d'un renversé | Instagram |
+| `comptoir` | `comptoir.webp` | **1290 × 1290** | Le bar, les bouteilles, les azulejos | Original |
+| `salle-midi` | `salle-midi.webp` | 1282 × 1740 | Une table de midi vue de dessus | Instagram |
+| `truite` | `truite.webp` | 1290 × 1612 | Le filet de truite saumonée | Original |
+| `salle-soir` | `salle-soir.webp` | 1280 × 1750 | Une assiette de poisson et légumes | Instagram |
+| `perche` | `perche.webp` | 1274 × 1738 | Les filets de perche du vendredi | Instagram |
+| `salle-privee` | `salle-privee.webp` | **1290 × 860** | Une table dressée avant le service | Original |
+| `devanture` | `devanture.webp` | 1290 × 1720 | L'enseigne CENTRAL, rue Centrale | Original |
 
-**La DA prévoyait des cadres en 1200 × 1500 et 1920 × 1080. C'est
-inapplicable.** Une image de 186 px de large étirée sur la largeur d'un écran
-est une bouillie de pixels — ce serait pire que l'absence de photo. Les
-emplacements ont donc été **redessinés pour la définition réellement
-disponible**, et non l'inverse.
+**La règle cardinale n'a pas bougé, elle a simplement cessé de mordre.**
+`ratio` porte les **dimensions du fichier en pixels**, et ces deux nombres font
+tout le travail d'un coup : ils donnent au cadre la proportion exacte du
+fichier — donc aucune photo rognée de travers —, réservent la place avant le
+chargement, et plafonnent la largeur d'affichage. À 1290 px de large, ce
+plafond ne limite plus rien : **c'est la mise en page qui décide**, comme la DA
+le prévoyait. Les vignettes assumées de la v2 étaient un pis-aller ; elles ne
+sont plus nécessaires.
 
-**Règle cardinale : une photo n'est jamais affichée plus large que sa
-définition réelle.** `ratio` porte désormais les **dimensions du fichier en
-pixels** (`'736/928'`, `'186/133'`), et ces deux nombres font tout le travail
-d'un coup : ils donnent au cadre la proportion exacte du fichier — donc
-aucune photo rognée de travers —, réservent la place avant le chargement, et
-plafonnent la largeur d'affichage. Le jour d'un vrai shooting en 1600 px, le
-plafond monte tout seul avec le fichier et ne limite plus rien. **Une seule
-ligne à changer.**
+**Trois orientations, et c'est une décision de composition.** Les tirages
+Instagram sont tous en portrait — c'est le format de la source, pas un choix.
+Les quatre fichiers d'origine, eux, ont été recadrés :
 
-**Tailles maximales d'affichage** : `terrasse` 736 px, `comptoir` 289 px,
-les cinq autres 186 px. Sur un écran à 2×, cela reste net jusqu'à ces mêmes
-valeurs en points CSS. Ce sont donc des **vignettes assumées, cadrées, posées
-dans la grille comme des tirages sur une planche contact** — cohérent avec le
-« zéro effet, coins vifs » du reste du site. La classe `.planche` les aligne
-côte à côte à leur taille réelle, avec `flex: 0 1` : un tirage ne grandit
-jamais pour combler la ligne, il laisse du vide. C'est le vide qui fait la
-planche.
+- `comptoir` en **carré**. Un bar est un objet horizontal dans une image
+  verticale : le carré prend les bouteilles, la frise d'azulejos et le zinc, et
+  laisse tomber le reflet du trottoir. C'est le seul cadre carré du site, et il
+  ouvre la carte — dans une colonne étroite, un troisième portrait de suite
+  aurait fait une page en accordéon.
+- `salle-privee` en **paysage**. Une table ronde se lit en largeur ; en
+  portrait, on n'aurait vu que la nappe.
+- `devanture` et `truite` en **portrait**, parce que le sujet l'est :
+  l'enseigne est au-dessus de la table, et l'assiette au-dessous de la main.
 
-**Sont interdits** — et ce sont les vraies tentations ici : upscaler, flouter
-pour masquer, ajouter du grain pour « faire exprès », étirer hors ratio, ou
-toute astuce qui maquille le manque de définition en prétendant que c'est un
-parti pris.
+**Restent interdits** — et ce sont les vraies tentations ici : upscaler,
+flouter pour masquer, ajouter du grain pour « faire exprès », étirer hors
+ratio, ou toute astuce qui maquille le manque de définition en prétendant que
+c'est un parti pris. **Le reflet de la vitrine dans `comptoir` n'a pas été
+retiré** : c'est ce qu'on voit du bar depuis la salle, et le retoucher aurait
+été inventer une prise de vue qui n'a pas eu lieu.
 
-**Deux emplacements restent sans photo** — `perche` (les filets de perche) et
-`salle-privee`. Aucune image disponible n'était juste pour eux, et le panneau
-« C » vaut mieux qu'une vignette approximative. **On ne dégrade pas le site
-pour remplir des cases.**
+**La légende dit ce qu'on voit — toujours.** C'est la règle qui a survécu à la
+disparition des panneaux « C », et c'est la même règle. `salle-privee` porte
+une table dressée en terrasse : sa légende annonce **« Une table dressée,
+avant le service »**, pas « La salle privée ». La vraie salle privée n'a
+toujours pas été photographiée ; le jour où elle le sera, on changera la photo
+**et** la légende, ensemble. Une légende qui promet plus que l'image est le
+seul mensonge qu'un site de restaurant paie comptant, à la porte.
 
 ### Le panneau « C », toujours valable
+
+**Plus aucun emplacement ne l'affiche depuis la v5 — et la règle reste écrite.**
+Le mécanisme est vivant dans le code (`src: null` dans `medias.ts`), et il
+servira au premier retrait de photo. Une règle qu'on efface le jour où elle ne
+sert plus est une règle qu'il faut réinventer le jour où elle resert.
 
 **1. Un emplacement sans photo n'est pas un trou, c'est un panneau.**
 Le cadre affiche le « C » de Central en contour 1,5 px, calé sur la dimension
@@ -807,33 +852,30 @@ qu'il n'y a pas de photo.
 
 ### Le traitement — un seul réglage, réversible en une ligne
 
-Les sept photos sont hétérogènes : une en plein soleil de terrasse, les
-autres en intérieur sous tungstène jaune. Aucune ne correspond au « flash
-direct » commandé plus haut. Elles sont harmonisées **en CSS, jamais dans les
-fichiers** :
+**Réglage livré : `--photo-ton: 0`.** Le filtre est neutre, les fichiers
+passent tels quels.
 
 ```css
---photo-ton: 0.12;   /* passer à 0 pour retrouver les fichiers d'origine */
+--photo-ton: 0;      /* 0.12 pour réaccorder un lot hétérogène */
 ```
 
-Ce nombre pilote deux choses à la fois : une désaturation légère avec un
-gain de contraste (`saturate(0.88) contrast(1.06)`) et un calque bleu en
-`mix-blend-mode: color` à 12 %. Le calque **ne recolorie pas** l'image, il
-n'en déplace que la teinte : une terrasse en plein soleil et une salle en
-tungstène se retrouvent à la même température, celle des azulejos. On
-reconnaît toujours le lieu.
+Ce nombre pilote deux choses à la fois : une désaturation légère avec un gain
+de contraste (`saturate(0.88) contrast(1.06)`) et un calque bleu en
+`mix-blend-mode: color` à 12 %. Le calque **ne recolorie pas** l'image, il n'en
+déplace que la teinte : une terrasse en plein soleil et une salle en tungstène
+se retrouvent à la même température, celle des azulejos.
 
-**Effet de bord utile, vérifié à l'écran** : le logo orange du restaurant,
-visible au mur sur la photo du comptoir, était la seule tache de couleur du
-site contredisant le passage au bleu seul. À 12 % de virage, il retombe sur
-un brun sourd et cesse de se lire comme une seconde couleur de marque. Il n'a
-donc **pas été recadré** — le bois du bar, chaud par nature, occupait de
-toute façon la moitié de l'image et ne pouvait pas être « corrigé » sans
-mentir sur le lieu.
+**Pourquoi il est à zéro aujourd'hui.** Il avait été monté à 0.12 quand le
+fonds mélangeait des vignettes Google Business et des captures Instagram
+recompressées, à des températures incompatibles. Les onze images actuelles
+viennent **d'un même reportage, d'une même journée, d'une même lumière** : le
+virage ne corrigeait plus rien et coûtait de la matière. Un filtre existe pour
+réparer un défaut ; sans défaut, il ne reste que le coût.
 
-**Le jour du vrai shooting** : `--photo-ton: 0`, et les deux séries de la §6
-redeviennent la commande — jour au flash couleur, soir en noir et blanc
-contrasté.
+**Quand le remonter.** Le jour où un lot arrive de sources mélangées —
+un shooting professionnel mêlé aux photos du téléphone, par exemple. Une seule
+ligne, et rien d'autre à toucher. Les deux séries de la §6 restent la commande
+pour ce jour-là : jour au flash couleur, soir en noir et blanc contrasté.
 
 ---
 

@@ -5,35 +5,59 @@ LES IMAGES DU SITE
 OÙ EN SONT LES PHOTOS
 ------------------------------------------------------------------
 
-SEPT EMPLACEMENTS SUR DIX portent une vraie photo de la maison.
-Elles viennent de votre compte Instagram : l'habillage de
-l'application a été détouré, et chaque image est allégée pour le web.
+LES ONZE EMPLACEMENTS DU SITE PORTENT UNE VRAIE PHOTO DE LA MAISON.
+Il n'y a plus un seul panneau « C » en ligne.
 
-Les trois autres affichent le « C » de Central. Ce ne sont pas des
-trous : ce sont les vues qui manquent encore. Mieux vaut le panneau
-qu'une photo qui ne montre pas ce que la légende annonce.
+Sept viennent de votre compte Instagram : l'habillage de
+l'application a été détouré, elles sont donc toutes en portrait.
 
-  EN PLACE
-  comptoir-azulejos   le café du matin devant les fresques
-  terrasse            un burger et un mojito, plein soleil
-  assiette-salade     une assiette de salade au poulet pané
-  ardoise-du-jour     la carte, posée près d'un renversé
-  salle-midi          une table de midi vue de dessus
-  salle-soir          une assiette de poisson et légumes rôtis
-  perche              les filets de perche du vendredi
+Quatre viennent des fichiers d'origine du reportage, livrés en
+août 2026. Elles sont plus nettes, et surtout elles ne sont plus
+prisonnières du format Instagram : on a pu les recadrer sur ce que
+la légende annonce.
 
-  IL MANQUE ENCORE                    FORMAT À DEMANDER
-  comptoir            le bar au petit matin        carré 1600 x 1600
-  salle-privee        la salle privée dressée      paysage 1800 x 1200
-  salle-azulejos      une table le long des fresques  portrait 1600 x 2000
+  FICHIER                DIMENSIONS   CE QU'ON Y VOIT
+  comptoir-azulejos      1286 x 1746  le café du matin, les fresques
+  terrasse               1286 x 1748  un burger et un mojito, plein soleil
+  assiette-salade        1196 x 1750  une salade au poulet pané
+  ardoise-du-jour        1282 x 1738  la carte, près d'un renversé
+  comptoir               1290 x 1290  le bar, les bouteilles, les azulejos
+  salle-midi             1282 x 1740  une table de midi vue de dessus
+  truite                 1290 x 1612  le filet de truite saumonée
+  salle-soir             1280 x 1750  une assiette de poisson et légumes
+  perche                 1274 x 1738  les filets de perche du vendredi
+  salle-privee           1290 x  860  une table dressée avant le service
+  devanture              1290 x 1720  l'enseigne CENTRAL, rue Centrale
 
-Toutes les photos en place sont EN PORTRAIT. C'est le format
-d'Instagram, pas un choix de mise en page. Le jour d'un vrai reportage,
-on pourra enfin cadrer une terrasse en paysage et une salle en largeur.
+TROIS FORMATS, ET C'EST VOULU. Le comptoir est CARRÉ : un bar tient
+dans un carré, pas dans une colonne. La table dressée est en
+PAYSAGE : une table ronde se lit en largeur. Tout le reste est en
+portrait. C'est ce qui empêche la page d'être une suite de colonnes
+identiques.
 
-À PHOTOGRAPHIER EN PRIORITÉ : la devanture rue Centrale, le comptoir au
-petit matin avant le service, la salle le long des fresques, et la
-salle privée dressée pour un événement. Une demi-journée suffit.
+
+CE QUI RESTE À PHOTOGRAPHIER — LE JOUR D'UN VRAI REPORTAGE
+------------------------------------------------------------------
+
+Rien n'est en attente : le site est complet. Ces quatre vues
+REMPLACERAIENT une image déjà en place par une meilleure.
+
+  LA SALLE PRIVÉE, DRESSÉE. C'est la seule vraie absence. La photo
+  actuelle de cet emplacement montre une table dressée en terrasse,
+  et sa légende le dit — « Une table dressée, avant le service ».
+  Le jour où la salle privée sera photographiée, changez la photo
+  ET remettez la légende « La salle privée ».
+
+  LE COMPTOIR AU PETIT MATIN, avant le service, depuis l'intérieur.
+  L'image actuelle est prise à travers la vitrine : les reflets sont
+  dedans. Ils ne gênent pas, mais une prise de vue depuis la salle
+  serait plus nette.
+
+  LA SALLE LE LONG DES FRESQUES, une table de quatre dressée.
+
+  LA TERRASSE EN PAYSAGE. Le haut de page est dessiné pour un grand
+  cadre horizontal à gauche et un petit portrait à droite ; avec deux
+  portraits, les deux tirages sont à égalité et l'effet se perd.
 
 
 LE MUR D'AZULEJOS — CE N'EST PAS UN EMPLACEMENT PHOTO
@@ -64,12 +88,14 @@ DÉPOSER UNE PHOTO — EN TROIS ÉTAPES
 
 3. Ouvrez src/content/medias.ts et changez DEUX lignes :
 
-       src:   null           devient   '/photos/terrasse.webp'
-       ratio: '1800/1200'    devient   les dimensions exactes
+       src:   '/photos/terrasse.webp'   devient   votre fichier
+       ratio: '1286/1748'               devient   vos dimensions
 
    Relisez au passage la ligne « alt » : elle décrit l'image pour les
-   personnes non voyantes et pour Google. Si la photo déposée ne montre
-   pas ce qui y est écrit, corrigez la phrase.
+   personnes non voyantes et pour Google. Et relisez « legende » : si
+   la photo déposée ne montre pas ce qui y est écrit, corrigez la
+   phrase. C'est la règle du site — jamais une légende qui promet
+   autre chose que ce qu'on voit.
 
 C'est tout. Le cadre prend la proportion du fichier et la page se
 recalcule seule.

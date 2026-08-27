@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import type { ReactElement } from 'react';
 
-import { DATE_MISE_A_JOUR, MOMENTS } from '@/content/carte';
+import { DATE_MISE_A_JOUR, MENTION_ALLERGENES, MOMENTS, PROVENANCES } from '@/content/carte';
 import { COMMUN } from '@/content/textes';
 import { SITE } from '@/content/site';
-import { lienTelephone } from '@/lib/format';
+import { lienTelephone, typographieFr } from '@/lib/format';
 import { jsonLdFilAriane } from '@/lib/jsonld';
 import type { TonBande } from '@/components/ui/Bande';
 import { Bande, SurTitre } from '@/components/ui/Bande';
@@ -16,7 +16,7 @@ import { MediaSlot } from '@/components/ui/MediaSlot';
 export const metadata: Metadata = {
   title: 'La carte',
   description:
-    'La carte du P’tit Central à Lausanne : café du matin, menu du jour, repas du soir et les filets de perche du vendredi midi. Rue Centrale 9.',
+    'La carte du P’tit Central à Lausanne : menu du jour, salades et tartares, burger, tapas à partager et les filets de perche du vendredi midi. Rue Centrale 9.',
   alternates: { canonical: '/carte/' },
 };
 
@@ -95,14 +95,39 @@ export default function PageCarte(): ReactElement {
         <MomentCarte key={moment.id} moment={moment} ton={TONS[moment.id] ?? 'creme'} />
       ))}
 
+      {/* La provenance des viandes et des poissons est obligatoire sur
+          une carte en Suisse. Elle est donc sur le site comme elle est
+          sur la carte imprimée : en bas, en petit, mais écrite — et
+          composée en monospace, comme tout ce qui se relève plutôt que
+          se lit. */}
       <Bande serree>
-        <div className="flex flex-col gap-[var(--space-stack)] sm:flex-row sm:items-center sm:justify-between">
-          <p className="t-label" style={{ color: 'var(--fg-muted)' }}>
-            {COMMUN.mise_a_jour} {DATE_MISE_A_JOUR}
-          </p>
-          <Bouton href={lienTelephone(SITE.telephone.e164)} principal>
-            {COMMUN.reserver}
-          </Bouton>
+        <div className="flex flex-col gap-[var(--space-block)]">
+          <div className="flex flex-col gap-[var(--space-stack)]">
+            <SurTitre>Provenance</SurTitre>
+            <ul className="grid grid-cols-1 gap-[var(--space-hair)] sm:grid-cols-2 lg:grid-cols-3">
+              {PROVENANCES.map((provenance) => (
+                <li
+                  key={provenance.produit}
+                  className="t-label flex flex-wrap gap-x-[0.5em] border-t border-[var(--rule)] pt-[var(--space-hair)]"
+                >
+                  <span>{provenance.produit}</span>
+                  <span style={{ color: 'var(--fg-muted)' }}>{provenance.origine}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="t-small" style={{ color: 'var(--fg-muted)', maxWidth: 'var(--max-text)' }}>
+              {typographieFr(MENTION_ALLERGENES)}
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-[var(--space-stack)] border-t border-[var(--rule)] pt-[var(--space-stack)] sm:flex-row sm:items-center sm:justify-between">
+            <p className="t-label" style={{ color: 'var(--fg-muted)' }}>
+              {COMMUN.mise_a_jour} {DATE_MISE_A_JOUR}
+            </p>
+            <Bouton href={lienTelephone(SITE.telephone.e164)} principal>
+              {COMMUN.reserver}
+            </Bouton>
+          </div>
         </div>
       </Bande>
     </>

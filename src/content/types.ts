@@ -90,9 +90,10 @@ export type IdMedia =
   | 'comptoir'
   | 'salle-midi'
   | 'salle-soir'
+  | 'truite'
   | 'perche'
   | 'salle-privee'
-  | 'salle-azulejos';
+  | 'devanture';
 
 export interface Media {
   /** Chemin du fichier une fois déposé dans /public/photos. `null` = pas encore de photo. */

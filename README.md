@@ -102,6 +102,16 @@ et sans le mot « CHF » :
 d'explication en haut de la carte. C'est volontaire : il vaut mieux pas de
 prix qu'un prix faux.
 
+> **Où en sont les prix.** Tous les plats des deux cartes imprimées sont saisis
+> avec leur prix. Restent à `null`, parce qu'ils ne figurent sur aucune carte :
+> les **boissons du matin**, le **plat du jour**, les **verres** et les
+> **filets de perche du vendredi**. Donnez-nous ces montants et le bandeau
+> d'explication disparaîtra tout seul de la page.
+>
+> **Un chiffre à confirmer** : la *pastèque et burrata* est à **24.-** sur la
+> carte de terrasse et à **25.-** sur la carte pliée du restaurant. Le site
+> affiche 25.- — corrigez `carte.ts` si c'est l'autre.
+
 **Pour ajouter un plat**, copiez une ligne complète et changez le texte :
 
 ```ts
@@ -121,7 +131,7 @@ dans la police d'écriture élégante, comme les filets de perche.
 
 Enfin, en haut du fichier, changez la date :
 ```ts
-export const DATE_MISE_A_JOUR = '05.08.2026';
+export const DATE_MISE_A_JOUR = '27.08.2026';
 ```
 Elle s'affiche en bas de la carte et rassure les visiteurs.
 
@@ -147,35 +157,41 @@ vous n'avez pas à y penser.
 
 ### Où en sont les photos
 
-**Sept emplacements sur dix portent une vraie photo de la maison.** Elles
-viennent du compte Instagram du P'tit Central : l'habillage de l'application a
-été détouré et chaque image est servie en `.webp` sous 200 Ko.
+**Les onze emplacements du site portent une vraie photo de la maison.** Il n'y
+a plus un seul panneau « C » en ligne.
 
-Les trois autres affichent **le « C » de Central**. Ce ne sont pas des trous :
-ce sont les vues qui manquent encore au fonds. Mieux vaut le panneau qu'une
-photo qui ne montre pas ce que la légende annonce.
+Sept viennent du compte Instagram du P'tit Central : l'habillage de
+l'application a été détouré, elles sont donc toutes en portrait. Les quatre
+autres viennent des **fichiers d'origine du reportage**, livrés en août 2026 :
+plus nettes, et surtout libres du format Instagram — on a pu les recadrer sur
+ce que la légende annonce. Chaque image est servie en `.webp` sous 200 Ko.
 
-| Emplacement | Ce qu'on y voit | État |
+| Emplacement | Ce qu'on y voit | Fichier |
 |---|---|---|
-| `comptoir-azulejos` | Le café du matin devant les fresques du comptoir | ✅ en place — 1286 × 1746 px |
-| `terrasse` | Un burger et un mojito en terrasse, plein soleil | ✅ en place — 1286 × 1748 px |
-| `assiette-salade` | Une assiette de salade au poulet pané | ✅ en place — 1196 × 1750 px |
-| `ardoise-du-jour` | La carte de la maison, posée près d'un renversé | ✅ en place — 1282 × 1738 px |
-| `salle-midi` | Une table de midi vue de dessus | ✅ en place — 1282 × 1740 px |
-| `salle-soir` | Une assiette de poisson et légumes rôtis | ✅ en place — 1280 × 1750 px |
-| `perche` | Les filets de perche du vendredi | ✅ en place — 1274 × 1738 px |
-| `comptoir` | Le bar au petit matin | ⬜ manque — carré, 1600 × 1600 px |
-| `salle-privee` | La salle privée dressée | ⬜ manque — paysage, 1800 × 1200 px |
-| `salle-azulejos` | Une table le long des fresques | ⬜ manque — portrait, 1600 × 2000 px |
+| `comptoir-azulejos` | Le café du matin devant les fresques du comptoir | 1286 × 1746 px |
+| `terrasse` | Un burger et un mojito en terrasse, plein soleil | 1286 × 1748 px |
+| `assiette-salade` | Une assiette de salade au poulet pané | 1196 × 1750 px |
+| `ardoise-du-jour` | La carte de la maison, posée près d'un renversé | 1282 × 1738 px |
+| `comptoir` | Le bar, les bouteilles, les azulejos | **carré** 1290 × 1290 px |
+| `salle-midi` | Une table de midi vue de dessus | 1282 × 1740 px |
+| `truite` | Le filet de truite saumonée | 1290 × 1612 px |
+| `salle-soir` | Une assiette de poisson et légumes rôtis | 1280 × 1750 px |
+| `perche` | Les filets de perche du vendredi | 1274 × 1738 px |
+| `salle-privee` | Une table dressée avant le service | **paysage** 1290 × 860 px |
+| `devanture` | L'enseigne CENTRAL, rue Centrale | 1290 × 1720 px |
 
-**Toutes les photos en place sont en portrait.** C'est le format d'Instagram,
-pas un choix de mise en page. Le jour d'un vrai reportage, on pourra enfin
-cadrer une terrasse en paysage et une salle en largeur.
+**Trois formats, et c'est voulu.** Le comptoir est carré — un bar tient dans un
+carré, pas dans une colonne. La table dressée est en paysage — une table ronde
+se lit en largeur. Tout le reste est en portrait. C'est ce qui empêche les
+pages d'être une suite de colonnes identiques.
 
-> **Ce qui reste à photographier**, par ordre d'utilité : la **devanture** rue
-> Centrale, le **comptoir au petit matin** avant le service, la **salle** le
-> long des fresques, et la **salle privée dressée** pour un événement. Une
-> demi-journée suffit.
+> **Ce qui reste à photographier** — rien n'est en attente, le site est
+> complet ; ces vues *remplaceraient* une image déjà en place par une
+> meilleure. Par ordre d'utilité : la **salle privée dressée** (c'est la seule
+> vraie absence — l'emplacement porte aujourd'hui une table dressée en
+> terrasse, et sa légende le dit) ; le **comptoir au petit matin** vu depuis la
+> salle plutôt qu'à travers la vitrine ; la **salle** le long des fresques ; et
+> une **terrasse en paysage** pour le haut de page. Une demi-journée suffit.
 
 **Le réglage de température des photos est à zéro.** Les images actuelles
 viennent toutes de la même source et n'ont pas besoin d'être réaccordées. Si un
@@ -203,10 +219,10 @@ recadrer : c'est vous qui donnez sa proportion au cadre, à l'étape 3.
 
 ```ts
 terrasse: {
-  src: '/photos/terrasse.webp',   ← remplace `null` : le nom de votre fichier
-  alt: 'Deux clientes attablées en terrasse rue Centrale…',
-  legende: 'La terrasse, rue Centrale',
-  ratio: '1800/1200',              ← les dimensions EXACTES, en pixels
+  src: '/photos/terrasse.webp',   ← le nom de votre fichier
+  alt: 'Un burger au pain noir, une salade de saison et un mojito…',
+  legende: 'En terrasse, rue Centrale',
+  ratio: '1286/1748',              ← les dimensions EXACTES, en pixels
   ton: 'encre',
 },
 ```
@@ -216,7 +232,11 @@ terrasse: {
   C'est ce chiffre qui réserve la place et empêche la page de sursauter.
 - **`alt`** décrit l'image pour les personnes non voyantes **et pour Google**.
   Décrivez ce qu'on voit, en une phrase, sans écrire « photo de… ».
-- **`legende`** est le petit texte affiché sous l'image.
+- **`legende`** est le petit texte affiché sous l'image. **Elle doit dire ce
+  qu'on voit, pas ce qu'on aurait voulu voir.** C'est la règle de ce site :
+  l'emplacement `salle-privee` porte aujourd'hui une table dressée en terrasse
+  et sa légende annonce « Une table dressée » — pas « La salle privée ». Le
+  jour où la vraie salle sera photographiée, on changera les deux ensemble.
 - Ne touchez pas à `ton`.
 
 **Le premier chiffre de `ratio` sert aussi de limite** : le site n'affichera

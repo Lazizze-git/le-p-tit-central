@@ -25,8 +25,11 @@ export const COMMUN = {
   voir_la_carte: 'Voir la carte',
   horaires: 'Horaires',
   reserver: 'Réserver par téléphone',
+  // Ce bandeau ne s'affiche que s'il reste au moins un `prix: null` dans
+  // carte.ts. Il doit donc rester vrai quel que soit le plat concerné :
+  // il parle des lignes au tiret, pas de la carte entière.
   prix_indisponibles:
-    'Les prix sont en cours de mise à jour avec la maison. En attendant, ils vous sont communiqués sur place et par téléphone.',
+    'Les lignes suivies d’un tiret ne sont pas chiffrées ici : le menu du jour et les boissons s’annoncent au comptoir, et changent. Pour les demander avant de venir :',
   mise_a_jour: 'Carte mise à jour le',
   credit: 'Site — WeAreBrothers',
 } as const;

@@ -26,22 +26,27 @@
  *   3. Relisez `alt` : il doit décrire la photo réellement déposée.
  * Rien d'autre à toucher.
  *
- * SEPT EMPLACEMENTS SUR DIX PORTENT UNE VRAIE PHOTO de la maison.
- * Elles viennent du compte Instagram du P'tit Central : l'habillage de
- * l'application a été détouré, et chaque image est servie en .webp sous
- * 200 Ko. Toutes sont en portrait — c'est le format d'Instagram, pas un
- * choix de mise en page : le jour d'un vrai reportage, on pourra enfin
- * cadrer une terrasse en paysage.
+ * LES ONZE EMPLACEMENTS PORTENT UNE VRAIE PHOTO DE LA MAISON.
+ * Il n'y a plus un seul panneau « C » sur le site. Les sept premiers
+ * tirages viennent du compte Instagram — l'habillage de l'application a
+ * été détouré. Les quatre derniers (le comptoir, la truite, la table
+ * dressée, la devanture) viennent des fichiers d'origine du reportage,
+ * livrés en août 2026 : même lumière, même journée, mais une définition
+ * propre et aucun recadrage subi. Chaque image est servie en .webp sous
+ * 200 Ko.
  *
- * LES TROIS RESTANTS AFFICHENT LE « C » DE CENTRAL. Ce ne sont pas des
- * trous : ce sont les vues qui manquent encore au fonds — le comptoir au
- * petit matin, la salle le long des fresques, la salle privée dressée.
- * Mieux vaut le panneau qu'une photo qui ne montre pas ce que la légende
- * annonce.
+ * TROIS FORMATS, ET C'EST VOULU. Les tirages Instagram sont tous en
+ * portrait, c'est le format de la source. Les nouveaux ont été recadrés
+ * à la main sur ce que la légende annonce : le comptoir en carré (le
+ * bar tient dans un carré, pas dans une colonne), la table dressée en
+ * paysage (une table ronde se lit en largeur), la devanture en portrait
+ * (l'enseigne est au-dessus de la table, il faut la hauteur). Ce sont
+ * eux qui cassent la monotonie des colonnes.
  *
  * RÈGLE SUR `ton` : la couleur d'un panneau ne doit jamais être celle
  * de la bande qui l'accueille, sinon le cadre disparaît dans le fond.
- * Cette valeur ne sert que tant qu'il n'y a pas de photo.
+ * Cette valeur ne sert que tant qu'il n'y a pas de photo — elle est
+ * conservée pour le jour où l'on retirerait une image.
  */
 
 import type { IdMedia, Media } from './types';
@@ -96,11 +101,16 @@ export const MEDIAS = {
     ratio: '1282/1738',
     ton: 'bleu',
   },
+  /* LE SEUL CADRE CARRÉ DU SITE, et c'est le bon endroit pour lui : il
+     ouvre la carte sur « En matinée », dans une colonne étroite où un
+     portrait de plus aurait fait une troisième colonne de suite. Le bar
+     est photographié depuis la salle, à travers la vitrine — les
+     reflets sont dans l'image, on ne les a pas retirés. */
   comptoir: {
-    src: null,
-    alt: 'Le comptoir en bois et laiton : bouteilles, piles d’assiettes, ardoises manuscrites au plafond et azulejos bleus au mur.',
+    src: '/photos/comptoir.webp',
+    alt: 'Le comptoir derrière la vitrine : les étagères de bouteilles, la frise d’azulejos bleu et blanc qui court au-dessus, et un grand bouquet posé sur le bar.',
     legende: 'Le comptoir',
-    ratio: '1600/1600',
+    ratio: '1290/1290',
     ton: 'encre',
   },
   'salle-midi': {
@@ -117,6 +127,19 @@ export const MEDIAS = {
     ratio: '1280/1750',
     ton: 'creme',
   },
+  /* Le second tirage de « Repas de midi ». La carte réelle a rendu la
+     section trois fois plus longue qu'avant : un seul cadre en tête de
+     colonne laissait ensuite deux mille pixels de vide à droite des
+     mets. Deux tirages empilés tiennent la colonne — et celui-ci
+     montre un plat qui est vraiment à la carte, pas une vue d'ambiance
+     de plus. */
+  truite: {
+    src: '/photos/truite.webp',
+    alt: 'Une main presse un quartier de citron au-dessus d’un filet de truite saumonée snacké, servi avec semoule, oignons frits, brocolis et légumes d’été.',
+    legende: 'Filet de truite saumonée',
+    ratio: '1290/1612',
+    ton: 'creme',
+  },
   perche: {
     src: '/photos/perche.webp',
     alt: 'Filets de perche dorés au beurre et au persil sur une assiette bleue, avec un panier de frites et des légumes.',
@@ -125,19 +148,33 @@ export const MEDIAS = {
     ton: 'bleu',
   },
 
-  /* ---------- Le lieu ---------- */
+  /* ---------- Le lieu ----------
+     Deux tirages, deux orientations : la devanture en portrait face à
+     l'histoire de la maison, la table dressée en paysage face à la
+     privatisation. Deux portraits l'un sous l'autre dans la même
+     colonne de 45 % auraient donné une page en accordéon. */
+  /* Ce que montre vraiment la photo de la salle privée, c'est UNE TABLE
+     DRESSÉE — et la légende le dit. La salle privée elle-même n'a pas
+     encore été photographiée ; écrire « La salle privée » sous une
+     table de terrasse aurait été un mensonge de légende, exactement ce
+     que ce site s'interdit. */
   'salle-privee': {
-    src: null,
-    alt: 'La salle privée du P’tit Central, dressée pour un événement.',
-    legende: 'La salle privée',
-    ratio: '1800/1200',
+    src: '/photos/salle-privee.webp',
+    alt: 'Une table ronde dressée sur un set Le P’tit Central : couverts, serviettes bleues, carton de réservation et un bouquet dans un pot en faïence portugaise, entre deux chaises de velours rouge.',
+    legende: 'Une table dressée, avant le service',
+    ratio: '1290/860',
     ton: 'bleu',
   },
-  'salle-azulejos': {
-    src: null,
-    alt: 'Une table de quatre dressée le long d’une grande fresque d’azulejos figurant un village portugais.',
-    legende: 'La maison, le long des azulejos',
-    ratio: '1600/2000',
+  /* Anciennement `salle-azulejos`. L'emplacement a changé de nom en même
+     temps que de photo : la page s'ouvre déjà sur un mur d'azulejos en
+     pleine largeur, et un deuxième carrelage vingt centimètres plus bas
+     ne racontait rien de neuf. L'enseigne, elle, dit « rue Centrale » —
+     c'est-à-dire exactement le titre de la section qu'elle accompagne. */
+  devanture: {
+    src: '/photos/devanture.webp',
+    alt: 'Une cliente, appareil photo à la main, à une table en terrasse sous l’enseigne CENTRAL ; sur la table, une bouteille de merlot de la maison, une assiette et une corbeille de pain.',
+    legende: 'L’enseigne, rue Centrale',
+    ratio: '1290/1720',
     ton: 'creme',
   },
   // `satisfies Record<IdMedia, Media>` : il manque une clé, ou il y en a

@@ -54,7 +54,7 @@ export default function PageLieu(): ReactElement {
           </Reveal>
 
           <Reveal rang={1} className="lg:w-[45%]">
-            <MediaSlot id="salle-azulejos" />
+            <MediaSlot id="devanture" />
           </Reveal>
         </div>
       </Bande>
