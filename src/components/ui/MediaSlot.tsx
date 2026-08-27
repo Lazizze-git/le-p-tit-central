@@ -63,8 +63,14 @@ export function MediaSlot({
   // « encre » posé sur une bande crème serait crème, donc invisible.
   const classesCadre = media.src ? 'slot slot--photo' : `slot slot--panneau bande--${media.ton}`;
 
+  // Un tirage secondaire s'arrête avant le bord de sa colonne : c'est
+  // l'écart de taille qui hiérarchise deux cadres empilés, pas l'ordre.
+  const classesFigure = ['slot-figure', media.petit ? 'slot-figure--petit' : '', className]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <figure className={`slot-figure ${className}`.trim()} style={style}>
+    <figure className={classesFigure} style={style}>
       <div className={classesCadre}>
         {media.src ? (
           <img

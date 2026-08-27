@@ -107,4 +107,13 @@ export interface Media {
   readonly ratio: Dimensions;
   /** Ambiance du bloc tant que la photo n'est pas là. Sans effet ensuite. */
   readonly ton: 'creme' | 'bleu' | 'encre';
+  /**
+   * TIRAGE SECONDAIRE : le cadre ne remplit pas toute sa colonne, il
+   * s'arrête aux trois quarts et se cale à gauche. À réserver au second
+   * tirage d'une planche — celui qui accompagne, pas celui qu'on est
+   * venu voir. Deux cadres de même largeur l'un sous l'autre se valent ;
+   * c'est l'écart de taille qui dit lequel des deux compte.
+   * Sans effet sur un cadre seul dans sa colonne.
+   */
+  readonly petit?: boolean;
 }

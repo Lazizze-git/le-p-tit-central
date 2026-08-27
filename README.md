@@ -240,6 +240,10 @@ terrasse: {
   l'emplacement `salle-privee` porte aujourd'hui une table dressée en terrasse
   et sa légende annonce « Une table dressée » — pas « La salle privée ». Le
   jour où la vraie salle sera photographiée, on changera les deux ensemble.
+- **`petit: true`** (facultatif) affiche le tirage aux trois quarts de sa
+  colonne au lieu de la remplir. Réservé au *second* tirage d'une planche —
+  celui qui accompagne. Aujourd'hui, seul le verre de merlot le porte. Retirez
+  la ligne et il reprend toute la largeur.
 - Ne touchez pas à `ton`.
 
 **Le premier chiffre de `ratio` sert aussi de limite** : le site n'affichera

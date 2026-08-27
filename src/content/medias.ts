@@ -157,6 +157,7 @@ export const MEDIAS = {
     legende: 'Le merlot de la maison, au verre',
     ratio: '1290/1740',
     ton: 'bleu',
+    petit: true,
   },
 
   /* Le second tirage de « Repas de midi ». La carte réelle a rendu la

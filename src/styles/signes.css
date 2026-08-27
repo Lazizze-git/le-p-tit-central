@@ -136,6 +136,21 @@
   max-width: var(--slot-max, 100%);
 }
 
+/* TIRAGE SECONDAIRE — voir `petit` dans content/types.ts.
+   Le cadre s'arrête aux trois quarts de sa colonne et se cale à gauche,
+   donc sur le bord du grand tirage qui le surmonte. Deux cadres de même
+   largeur empilés se valent ; l'écart de taille dit lequel des deux on
+   est venu voir.
+
+   `min()` et non une valeur sèche : la règle cardinale passe toujours
+   avant. Une image de 400 px ne sera pas étirée à 75 % d'une colonne de
+   800 sous prétexte qu'on la voulait petite — c'est le plus petit des
+   deux plafonds qui gagne. */
+.slot-figure--petit {
+  max-width: min(var(--slot-max, 100%), 75%);
+  margin-right: auto;
+}
+
 .slot {
   position: relative;
   overflow: hidden;
