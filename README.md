@@ -160,8 +160,8 @@ vous n'avez pas à y penser.
 **Les onze emplacements du site portent une vraie photo de la maison.** Il n'y
 a plus un seul panneau « C » en ligne.
 
-Sept viennent du compte Instagram du P'tit Central : l'habillage de
-l'application a été détouré, elles sont donc toutes en portrait. Les quatre
+Cinq viennent du compte Instagram du P'tit Central : l'habillage de
+l'application a été détouré, elles sont donc toutes en portrait. Les six
 autres viennent des **fichiers d'origine du reportage**, livrés en août 2026 :
 plus nettes, et surtout libres du format Instagram — on a pu les recadrer sur
 ce que la légende annonce. Chaque image est servie en `.webp` sous 200 Ko.
@@ -172,25 +172,27 @@ ce que la légende annonce. Chaque image est servie en `.webp` sous 200 Ko.
 | `terrasse` | Un burger et un mojito en terrasse, plein soleil | 1286 × 1748 px |
 | `assiette-salade` | Une assiette de salade au poulet pané | 1196 × 1750 px |
 | `ardoise-du-jour` | La carte de la maison, posée près d'un renversé | 1282 × 1738 px |
-| `comptoir` | Le bar, les bouteilles, les azulejos | **carré** 1290 × 1290 px |
-| `salle-midi` | Une table de midi vue de dessus | 1282 × 1740 px |
+| `cafe-du-matin` | Un latte et un expresso sur une table ronde | **carré** 1290 × 1290 px |
+| `salle-midi` | Deux clientes attablées, à midi | 1290 × 1740 px |
 | `truite` | Le filet de truite saumonée | 1290 × 1612 px |
 | `salle-soir` | Une assiette de poisson et légumes rôtis | 1280 × 1750 px |
 | `perche` | Les filets de perche du vendredi | 1274 × 1738 px |
 | `salle-privee` | Une table dressée avant le service | **paysage** 1290 × 860 px |
 | `devanture` | L'enseigne CENTRAL, rue Centrale | 1290 × 1720 px |
 
-**Trois formats, et c'est voulu.** Le comptoir est carré — un bar tient dans un
-carré, pas dans une colonne. La table dressée est en paysage — une table ronde
-se lit en largeur. Tout le reste est en portrait. C'est ce qui empêche les
+**Trois formats, et c'est voulu.** Le café du matin est carré — une table ronde
+tient dans un carré, pas dans une colonne. La table dressée est en paysage —
+une table ronde se lit en largeur. Tout le reste est en portrait. C'est ce qui empêche les
 pages d'être une suite de colonnes identiques.
 
 > **Ce qui reste à photographier** — rien n'est en attente, le site est
 > complet ; ces vues *remplaceraient* une image déjà en place par une
 > meilleure. Par ordre d'utilité : la **salle privée dressée** (c'est la seule
 > vraie absence — l'emplacement porte aujourd'hui une table dressée en
-> terrasse, et sa légende le dit) ; le **comptoir au petit matin** vu depuis la
-> salle plutôt qu'à travers la vitrine ; la **salle** le long des fresques ; et
+> terrasse, et sa légende le dit) ; le **comptoir au petit matin**, vu depuis la
+> salle (aucune prise de vue du bar n'existe aujourd'hui : celle du fonds était
+> prise à travers la vitrine, illisible, et a été écartée) ; la **salle** le
+> long des fresques ; et
 > une **terrasse en paysage** pour le haut de page. Une demi-journée suffit.
 
 **Le réglage de température des photos est à zéro.** Les images actuelles

@@ -8,10 +8,10 @@ OÙ EN SONT LES PHOTOS
 LES ONZE EMPLACEMENTS DU SITE PORTENT UNE VRAIE PHOTO DE LA MAISON.
 Il n'y a plus un seul panneau « C » en ligne.
 
-Sept viennent de votre compte Instagram : l'habillage de
+Cinq viennent de votre compte Instagram : l'habillage de
 l'application a été détouré, elles sont donc toutes en portrait.
 
-Quatre viennent des fichiers d'origine du reportage, livrés en
+Six viennent des fichiers d'origine du reportage, livrés en
 août 2026. Elles sont plus nettes, et surtout elles ne sont plus
 prisonnières du format Instagram : on a pu les recadrer sur ce que
 la légende annonce.
@@ -21,16 +21,16 @@ la légende annonce.
   terrasse               1286 x 1748  un burger et un mojito, plein soleil
   assiette-salade        1196 x 1750  une salade au poulet pané
   ardoise-du-jour        1282 x 1738  la carte, près d'un renversé
-  comptoir               1290 x 1290  le bar, les bouteilles, les azulejos
-  salle-midi             1282 x 1740  une table de midi vue de dessus
+  cafe-du-matin          1290 x 1290  un latte et un expresso, en terrasse
+  salle-midi             1290 x 1740  deux clientes attablées, à midi
   truite                 1290 x 1612  le filet de truite saumonée
   salle-soir             1280 x 1750  une assiette de poisson et légumes
   perche                 1274 x 1738  les filets de perche du vendredi
   salle-privee           1290 x  860  une table dressée avant le service
   devanture              1290 x 1720  l'enseigne CENTRAL, rue Centrale
 
-TROIS FORMATS, ET C'EST VOULU. Le comptoir est CARRÉ : un bar tient
-dans un carré, pas dans une colonne. La table dressée est en
+TROIS FORMATS, ET C'EST VOULU. Le café du matin est CARRÉ : une table
+ronde tient dans un carré, pas dans une colonne. La table dressée est en
 PAYSAGE : une table ronde se lit en largeur. Tout le reste est en
 portrait. C'est ce qui empêche la page d'être une suite de colonnes
 identiques.
@@ -49,9 +49,12 @@ REMPLACERAIENT une image déjà en place par une meilleure.
   ET remettez la légende « La salle privée ».
 
   LE COMPTOIR AU PETIT MATIN, avant le service, depuis l'intérieur.
-  L'image actuelle est prise à travers la vitrine : les reflets sont
-  dedans. Ils ne gênent pas, mais une prise de vue depuis la salle
-  serait plus nette.
+  Aucune photo du bar n'est en ligne : la seule du fonds était prise à
+  travers la vitrine, les reflets mangeaient l'image, elle a été
+  écartée. On voit le comptoir en haut de l'accueil, derrière le
+  cappuccino — c'est tout. L'emplacement de la carte s'appelle
+  aujourd'hui `cafe-du-matin` ; le jour d'une vraie prise de vue du
+  bar, il reprendra son nom.
 
   LA SALLE LE LONG DES FRESQUES, une table de quatre dressée.
 

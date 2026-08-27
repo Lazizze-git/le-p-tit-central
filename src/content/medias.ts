@@ -27,21 +27,19 @@
  * Rien d'autre à toucher.
  *
  * LES ONZE EMPLACEMENTS PORTENT UNE VRAIE PHOTO DE LA MAISON.
- * Il n'y a plus un seul panneau « C » sur le site. Les sept premiers
- * tirages viennent du compte Instagram — l'habillage de l'application a
- * été détouré. Les quatre derniers (le comptoir, la truite, la table
- * dressée, la devanture) viennent des fichiers d'origine du reportage,
- * livrés en août 2026 : même lumière, même journée, mais une définition
- * propre et aucun recadrage subi. Chaque image est servie en .webp sous
- * 200 Ko.
+ * Il n'y a plus un seul panneau « C » sur le site. Cinq tirages viennent
+ * du compte Instagram — l'habillage de l'application a été détouré. Les
+ * six autres viennent des fichiers d'origine du reportage, livrés en
+ * août 2026 : même lumière, même journée, mais une définition propre et
+ * aucun recadrage subi. Chaque image est servie en .webp sous 200 Ko.
  *
  * TROIS FORMATS, ET C'EST VOULU. Les tirages Instagram sont tous en
- * portrait, c'est le format de la source. Les nouveaux ont été recadrés
- * à la main sur ce que la légende annonce : le comptoir en carré (le
- * bar tient dans un carré, pas dans une colonne), la table dressée en
- * paysage (une table ronde se lit en largeur), la devanture en portrait
- * (l'enseigne est au-dessus de la table, il faut la hauteur). Ce sont
- * eux qui cassent la monotonie des colonnes.
+ * portrait, c'est le format de la source. Les fichiers d'origine ont été
+ * recadrés à la main sur ce que la légende annonce : le café du matin en
+ * carré (une table ronde tient dans un carré, pas dans une colonne), la
+ * table dressée en paysage (une table ronde se lit en largeur), la
+ * devanture en portrait (l'enseigne est au-dessus de la table, il faut
+ * la hauteur). Ce sont eux qui cassent la monotonie des colonnes.
  *
  * RÈGLE SUR `ton` : la couleur d'un panneau ne doit jamais être celle
  * de la bande qui l'accueille, sinon le cadre disparaît dans le fond.
@@ -103,21 +101,36 @@ export const MEDIAS = {
   },
   /* LE SEUL CADRE CARRÉ DU SITE, et c'est le bon endroit pour lui : il
      ouvre la carte sur « En matinée », dans une colonne étroite où un
-     portrait de plus aurait fait une troisième colonne de suite. Le bar
-     est photographié depuis la salle, à travers la vitrine — les
-     reflets sont dans l'image, on ne les a pas retirés. */
-  comptoir: {
-    src: '/photos/comptoir.webp',
-    alt: 'Le comptoir derrière la vitrine : les étagères de bouteilles, la frise d’azulejos bleu et blanc qui court au-dessus, et un grand bouquet posé sur le bar.',
-    legende: 'Le comptoir',
+     portrait de plus aurait fait une troisième colonne de suite. La
+     table ronde tient dans le carré comme le bar y tenait.
+
+     ANCIENNEMENT `comptoir`, et le nom a suivi la photo. Le premier
+     tirage montrait le bar à travers la vitrine : les reflets mangeaient
+     l'image et on ne lisait plus rien. Il n'existe pas, dans le fonds,
+     de prise de vue du comptoir depuis la salle — le jour où elle sera
+     faite, cet emplacement redeviendra `comptoir`. En attendant, il
+     porte ce que la section raconte vraiment : le café de sept heures.
+     Le comptoir, lui, reste visible en haut de l'accueil, derrière le
+     cappuccino de `comptoir-azulejos`. */
+  'cafe-du-matin': {
+    src: '/photos/cafe-du-matin.webp',
+    alt: 'Un latte macchiato et un expresso sur une table ronde en terrasse, à côté d’un appareil photo posé sur un journal et d’un bouquet dans un pot en faïence portugaise.',
+    legende: 'Le café du matin',
     ratio: '1290/1290',
     ton: 'encre',
   },
+  /* PAS DE PERCHE ICI : elle a sa propre section trois cartouches plus
+     bas, avec son propre tirage. Le premier choix montrait justement une
+     assiette de perches vue de dessus — la même chose, deux fois, à
+     deux écrans d'intervalle. Celui-ci montre ce que « Repas de midi »
+     raconte et qu'aucune autre photo du site ne montre : des gens qui
+     mangent. L'ardoise « MENU DU JOUR » est dans le cadre, derrière,
+     juste en face de la première catégorie de la section. */
   'salle-midi': {
-    src: '/photos/salle-midi.webp',
-    alt: 'Une table de midi vue de dessus : filets de perche et frites dans leur panier, sauce tartare, corbeille de pain et carafe d’eau.',
+    src: '/photos/table-de-midi.webp',
+    alt: 'Deux clientes attablées près de la vitrine, une salade, une corbeille de pain et une bouteille du merlot de la maison ; derrière, l’ardoise du menu du jour et la rue Centrale.',
     legende: 'Une table, à midi',
-    ratio: '1282/1740',
+    ratio: '1290/1740',
     ton: 'creme',
   },
   'salle-soir': {

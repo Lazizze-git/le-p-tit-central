@@ -788,8 +788,8 @@ plus.
 | `terrasse` | `terrasse.webp` | 1286 × 1748 | Un burger et un mojito, plein soleil | Instagram |
 | `assiette-salade` | `assiette-salade.webp` | 1196 × 1750 | Une salade au poulet pané | Instagram |
 | `ardoise-du-jour` | `ardoise-du-jour.webp` | 1282 × 1738 | La carte, près d'un renversé | Instagram |
-| `comptoir` | `comptoir.webp` | **1290 × 1290** | Le bar, les bouteilles, les azulejos | Original |
-| `salle-midi` | `salle-midi.webp` | 1282 × 1740 | Une table de midi vue de dessus | Instagram |
+| `cafe-du-matin` | `cafe-du-matin.webp` | **1290 × 1290** | Un latte et un expresso, en terrasse | Original |
+| `salle-midi` | `table-de-midi.webp` | 1290 × 1740 | Deux clientes attablées, à midi | Original |
 | `truite` | `truite.webp` | 1290 × 1612 | Le filet de truite saumonée | Original |
 | `salle-soir` | `salle-soir.webp` | 1280 × 1750 | Une assiette de poisson et légumes | Instagram |
 | `perche` | `perche.webp` | 1274 × 1738 | Les filets de perche du vendredi | Instagram |
@@ -809,15 +809,25 @@ sont plus nécessaires.
 Instagram sont tous en portrait — c'est le format de la source, pas un choix.
 Les quatre fichiers d'origine, eux, ont été recadrés :
 
-- `comptoir` en **carré**. Un bar est un objet horizontal dans une image
-  verticale : le carré prend les bouteilles, la frise d'azulejos et le zinc, et
-  laisse tomber le reflet du trottoir. C'est le seul cadre carré du site, et il
-  ouvre la carte — dans une colonne étroite, un troisième portrait de suite
-  aurait fait une page en accordéon.
+- `cafe-du-matin` en **carré**. Une table ronde appelle un cadre carré : il
+  prend le latte, l'expresso, l'appareil posé sur le journal et le bouquet, et
+  s'arrête au bord du plateau. C'est le seul cadre carré du site, et il ouvre
+  la carte — dans une colonne étroite, un troisième portrait de suite aurait
+  fait une page en accordéon.
 - `salle-privee` en **paysage**. Une table ronde se lit en largeur ; en
   portrait, on n'aurait vu que la nappe.
-- `devanture` et `truite` en **portrait**, parce que le sujet l'est :
-  l'enseigne est au-dessus de la table, et l'assiette au-dessous de la main.
+- `devanture`, `truite` et `salle-midi` en **portrait**, parce que le sujet
+  l'est : l'enseigne est au-dessus de la table, et l'assiette au-dessous de la
+  main.
+
+**Deux tirages ont été remplacés après la première mise en ligne, et les deux
+fois pour la même raison : ils ne tenaient pas leur place.** Le bar photographié
+à travers la vitrine était illisible — les reflets mangeaient le sujet, et un
+cadre qu'on ne lit pas ne vaut pas mieux qu'un panneau. La table de midi
+montrait une assiette de perches vue de dessus, à deux écrans de la section
+« Filets de perche » qui a son propre tirage : la même chose, deux fois. **Une
+photo ne se juge pas seule, elle se juge dans la page où elle tombe** — voisine
+du cartouche précédent, voisine de la suivante.
 
 **Restent interdits** — et ce sont les vraies tentations ici : upscaler,
 flouter pour masquer, ajouter du grain pour « faire exprès », étirer hors

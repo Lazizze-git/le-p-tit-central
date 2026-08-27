@@ -43,7 +43,7 @@ export const MOMENTS: readonly Moment[] = [
     texte: [
       'Pour l’expresso à l’italienne, la maison a composé son propre mélange : *une sélection des meilleurs cafés du Brésil et d’Amérique centrale.* On le sert au comptoir dès sept heures, debout ou assis, comme vous voulez.',
     ],
-    medias: ['comptoir'],
+    medias: ['cafe-du-matin'],
     categories: [
       {
         titre: 'Le café',
