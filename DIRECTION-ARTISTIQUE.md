@@ -31,7 +31,14 @@ photographies du lieu réel, puis **refondu autour du logo peint de la maison**.
 > 5. **La provenance des viandes entre dans la page.** Elle est obligatoire sur
 >    une carte en Suisse : elle est donc sur le site comme sur le papier, en
 >    monospace, en bas — avec la mention allergènes.
-> 6. **Une seule règle a servi d'arbitre, partout : la légende dit ce qu'on
+> 6. **Les tirages d'une section de carte se répartissent sur la hauteur de
+>    leur liste** (`.planche--colonne`, `align-content: space-around`). Empilés
+>    en haut, ils laissaient jusqu'à dix-sept cents pixels de colonne nue. Ce
+>    n'est pas qu'une affaire de vide : la répartition amène chaque cadre en
+>    face de la catégorie qu'il montre — la truite devant « Mets chauds », le
+>    verre devant « Au verre ». **Un cadre bien placé désigne son plat ; mal
+>    placé, il n'est qu'une illustration.**
+> 7. **Une seule règle a servi d'arbitre, partout : la légende dit ce qu'on
 >    voit.** C'est elle qui a fait renommer `salle-azulejos` en `devanture`, et
 >    qui interdit d'écrire « La salle privée » sous une table de terrasse.
 >

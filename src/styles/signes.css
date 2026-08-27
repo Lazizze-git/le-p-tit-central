@@ -237,6 +237,27 @@
   }
 }
 
+/* VARIANTE COLONNE — les sections de la carte.
+   Là, la planche n'est pas une ligne de tirages : c'est une colonne
+   étroite posée à côté d'une liste de plats, et elle est étirée à la
+   hauteur de cette liste. Empilés par défaut, les tirages se tassaient
+   donc en haut et laissaient jusqu'à dix-sept cents pixels de colonne
+   nue en face du reste de la carte.
+
+   `space-around` les répartit sur toute la hauteur. Ce n'est pas qu'une
+   affaire de vide : à deux tirages, la répartition amène le second en
+   face des « Mets chauds », c'est-à-dire de la ligne du plat qu'il
+   montre. Un cadre bien placé désigne son plat ; mal placé, il n'est
+   qu'une illustration.
+
+   Pas de règle sur `.planche` tout court : le haut de page en est une
+   aussi, mais posée dans un flux vertical où sa hauteur suit son
+   contenu — la répartition n'aurait rien à répartir. Une règle qui ne
+   sert qu'à un endroit se nomme d'après cet endroit. */
+.planche--colonne {
+  align-content: space-around;
+}
+
 /* Variante du haut de page : les tirages s'alignent par le bas, le
    grand et le petit posés sur la même ligne de sol. */
 .planche--pied {

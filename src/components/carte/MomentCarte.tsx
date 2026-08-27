@@ -73,7 +73,7 @@ export function MomentCarte({ moment, ton }: MomentCarteProps): ReactElement {
             ))}
           </div>
 
-          <Reveal rang={1} className="planche lg:w-[38%]">
+          <Reveal rang={1} className="planche planche--colonne lg:w-[38%]">
             {moment.medias.map((media) => (
               <MediaSlot key={media} id={media} />
             ))}
