@@ -12,7 +12,7 @@ photographies du lieu réel, puis **refondu autour du logo peint de la maison**.
 > reportage** et les **deux cartes imprimées** de la maison. Ils n'ont pas
 > renversé la DA cette fois : ils l'ont refermée.
 >
-> 1. **Onze emplacements, onze photos. Plus un seul panneau « C » en ligne.**
+> 1. **Douze emplacements, douze photos. Plus un seul panneau « C » en ligne.**
 >    Le comptoir, la table dressée, la devanture et la truite complètent le
 >    fonds. La règle du panneau reste écrite — elle ne s'applique simplement
 >    plus nulle part. Voir §6 bis, réécrite.
@@ -21,7 +21,7 @@ photographies du lieu réel, puis **refondu autour du logo peint de la maison**.
 >    permis un cadrage éditorial : le comptoir en **carré**, la table dressée
 >    en **paysage**. C'est ce qui casse la suite de colonnes identiques.
 > 3. **`--photo-ton` retombe à 0.** Le virage bleu réaccordait un fonds
->    hétérogène ; les onze images viennent d'une même journée. Un filtre existe
+>    hétérogène ; les douze images viennent d'une même journée. Un filtre existe
 >    pour réparer un défaut — sans défaut, il ne reste que le coût.
 > 4. **La carte porte enfin de vrais prix.** Vingt-six plats, saisis d'après
 >    les cartes imprimées. Restent au tiret ce qui n'est écrit sur aucune
@@ -780,7 +780,7 @@ Business ; puis sept tirages Instagram détourés ; elle décrit maintenant l'é
 livré. Les emplacements `portemanteau` et `entrecote` qu'elle citait n'existent
 plus.
 
-**Onze emplacements, onze photos. Plus un seul panneau « C » en ligne.**
+**Douze emplacements, douze photos. Plus un seul panneau « C » en ligne.**
 
 | Emplacement | Fichier | Dimensions | Sujet | Source |
 |---|---|---|---|---|
@@ -792,6 +792,7 @@ plus.
 | `salle-midi` | `table-de-midi.webp` | 1290 × 1740 | Deux clientes attablées, à midi | Original |
 | `truite` | `truite.webp` | 1290 × 1612 | Le filet de truite saumonée | Original |
 | `salle-soir` | `salle-soir.webp` | 1280 × 1750 | Une assiette de poisson et légumes | Instagram |
+| `verre` | `verre.webp` | 1290 × 1740 | Le merlot de la maison, au verre | Original |
 | `perche` | `perche.webp` | 1274 × 1738 | Les filets de perche du vendredi | Instagram |
 | `salle-privee` | `salle-privee.webp` | **1290 × 860** | Une table dressée avant le service | Original |
 | `devanture` | `devanture.webp` | 1290 × 1720 | L'enseigne CENTRAL, rue Centrale | Original |
@@ -877,7 +878,7 @@ se retrouvent à la même température, celle des azulejos.
 
 **Pourquoi il est à zéro aujourd'hui.** Il avait été monté à 0.12 quand le
 fonds mélangeait des vignettes Google Business et des captures Instagram
-recompressées, à des températures incompatibles. Les onze images actuelles
+recompressées, à des températures incompatibles. Les douze images actuelles
 viennent **d'un même reportage, d'une même journée, d'une même lumière** : le
 virage ne corrigeait plus rien et coûtait de la matière. Un filtre existe pour
 réparer un défaut ; sans défaut, il ne reste que le coût.

@@ -26,8 +26,8 @@
  *   3. Relisez `alt` : il doit décrire la photo réellement déposée.
  * Rien d'autre à toucher.
  *
- * LES ONZE EMPLACEMENTS PORTENT UNE VRAIE PHOTO DE LA MAISON.
- * Il n'y a plus un seul panneau « C » sur le site. Cinq tirages viennent
+ * LES DOUZE EMPLACEMENTS PORTENT UNE VRAIE PHOTO DE LA MAISON.
+ * Il n'y a plus un seul panneau « C » sur le site. Six tirages viennent
  * du compte Instagram — l'habillage de l'application a été détouré. Les
  * six autres viennent des fichiers d'origine du reportage, livrés en
  * août 2026 : même lumière, même journée, mais une définition propre et
@@ -140,6 +140,25 @@ export const MEDIAS = {
     ratio: '1280/1750',
     ton: 'creme',
   },
+  /* Le second tirage de « Repas du soir », en face de « Au verre ».
+     La catégorie n'avait que trois lignes au tiret sous une colonne
+     vide : trois prix qu'on ne connaît pas et rien à regarder. Cette
+     photo est la seule du fonds qui montre un verre en train d'être
+     servi — le geste, pas la bouteille posée. Le merlot de la maison
+     est dans le cadre, c'est-à-dire la première ligne de la catégorie.
+
+     AUCUN VISAGE, C'EST DEMANDÉ. Le cadre s'arrête aux mains : celle
+     qui verse, celle qui tient le verre, celle qui attend avec le sien.
+     C'est aussi la « série A » de la DA au mot près — les mains, la
+     table en désordre, jamais un produit seul en studio. */
+  verre: {
+    src: '/photos/verre.webp',
+    alt: 'Une bouteille du merlot de la maison versée dans un verre de vin rouge tenu à table ; un second verre déjà servi attend à côté.',
+    legende: 'Le merlot de la maison, au verre',
+    ratio: '1290/1740',
+    ton: 'bleu',
+  },
+
   /* Le second tirage de « Repas de midi ». La carte réelle a rendu la
      section trois fois plus longue qu'avant : un seul cadre en tête de
      colonne laissait ensuite deux mille pixels de vide à droite des

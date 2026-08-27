@@ -217,7 +217,7 @@ export const MOMENTS: readonly Moment[] = [
       '*La carte de midi est servie jusqu’à 22h00* — entrées, mets froids, mets chauds et desserts, sans changement.',
       'Le soir y ajoute ce qui se partage : les tapas au milieu de la table, un verre, et le temps de rester. *La carte reste courte — c’est la condition pour qu’elle soit bonne.*',
     ],
-    medias: ['salle-soir'],
+    medias: ['salle-soir', 'verre'],
     categories: [
       {
         titre: 'Les tapas',

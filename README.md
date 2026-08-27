@@ -157,10 +157,10 @@ vous n'avez pas à y penser.
 
 ### Où en sont les photos
 
-**Les onze emplacements du site portent une vraie photo de la maison.** Il n'y
+**Les douze emplacements du site portent une vraie photo de la maison.** Il n'y
 a plus un seul panneau « C » en ligne.
 
-Cinq viennent du compte Instagram du P'tit Central : l'habillage de
+Six viennent du compte Instagram du P'tit Central : l'habillage de
 l'application a été détouré, elles sont donc toutes en portrait. Les six
 autres viennent des **fichiers d'origine du reportage**, livrés en août 2026 :
 plus nettes, et surtout libres du format Instagram — on a pu les recadrer sur
@@ -176,6 +176,7 @@ ce que la légende annonce. Chaque image est servie en `.webp` sous 200 Ko.
 | `salle-midi` | Deux clientes attablées, à midi | 1290 × 1740 px |
 | `truite` | Le filet de truite saumonée | 1290 × 1612 px |
 | `salle-soir` | Une assiette de poisson et légumes rôtis | 1280 × 1750 px |
+| `verre` | Le merlot de la maison versé au verre | 1290 × 1740 px |
 | `perche` | Les filets de perche du vendredi | 1274 × 1738 px |
 | `salle-privee` | Une table dressée avant le service | **paysage** 1290 × 860 px |
 | `devanture` | L'enseigne CENTRAL, rue Centrale | 1290 × 1720 px |

@@ -90,6 +90,7 @@ export type IdMedia =
   | 'cafe-du-matin'
   | 'salle-midi'
   | 'salle-soir'
+  | 'verre'
   | 'truite'
   | 'perche'
   | 'salle-privee'
