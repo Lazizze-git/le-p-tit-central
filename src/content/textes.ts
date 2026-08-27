@@ -29,7 +29,7 @@ export const COMMUN = {
   // carte.ts. Il doit donc rester vrai quel que soit le plat concerné :
   // il parle des lignes au tiret, pas de la carte entière.
   prix_indisponibles:
-    'Les lignes suivies d’un tiret ne sont pas chiffrées ici : le menu du jour et les boissons s’annoncent au comptoir, et changent. Pour les demander avant de venir :',
+    'Les lignes suivies d’un tiret ne sont pas chiffrées ici : le menu du jour, les verres et les perches du vendredi changent, et s’annoncent au comptoir. Pour les demander avant de venir :',
   mise_a_jour: 'Carte mise à jour le',
   credit: 'Site — WeAreBrothers',
 } as const;

@@ -1,9 +1,10 @@
 /**
  * LA CARTE
  * ------------------------------------------------------------------
- * Saisie d'après les deux cartes imprimées de la maison (août 2026) :
- * la carte pliée du restaurant (entrées / mets froids / mets chauds /
- * desserts) et la carte de terrasse, qui ajoute les tapas.
+ * Saisie d'après les cartes imprimées de la maison (août 2026) : la
+ * carte pliée du restaurant (entrées / mets froids / mets chauds /
+ * desserts), la carte de terrasse qui ajoute les tapas, et la carte des
+ * boissons (caféterie / thés et infusions / jus de fruits).
  *
  * Pour ajouter un plat : copiez une ligne existante et changez le texte.
  * Pour changer un prix : écrivez le nombre, avec un point, sans « CHF ».
@@ -11,11 +12,12 @@
  * Tant qu'un prix vaut `null`, le site affiche un tiret et la mention
  *   « communiqués sur place » : jamais un montant inventé.
  *
- * CE QUI RESTE À `null`, ET POURQUOI : les boissons, le plat du jour et
- * les verres ne figurent sur aucune des deux cartes imprimées — ils
- * s'annoncent au comptoir et à l'ardoise. Le jour où la maison nous les
- * donne, il suffit de remplacer les `null` : le bandeau d'explication
- * en haut de la page disparaît tout seul quand il n'en reste plus un.
+ * CE QUI RESTE À `null`, ET POURQUOI : le plat du jour, les verres de
+ * vin et de bière, et les perches du vendredi. Aucun des trois ne figure
+ * sur une carte imprimée — ils changent, et s'annoncent à l'ardoise ou
+ * au comptoir. Le jour où la maison nous les donne, il suffit de
+ * remplacer les `null` : le bandeau d'explication en haut de la page
+ * disparaît tout seul quand il n'en reste plus un.
  *
  * OÙ EST RANGÉE LA CARTE. Les plats ne sont écrits qu'UNE FOIS, sous
  * « Repas de midi », parce que c'est la même carte à midi et le soir et
@@ -43,29 +45,78 @@ export const MOMENTS: readonly Moment[] = [
     texte: [
       'Pour l’expresso à l’italienne, la maison a composé son propre mélange : *une sélection des meilleurs cafés du Brésil et d’Amérique centrale.* On le sert au comptoir dès sept heures, debout ou assis, comme vous voulez.',
     ],
-    medias: ['cafe-du-matin'],
+    medias: ['cafe-du-matin', 'terrasse-matin'],
     categories: [
       {
-        titre: 'Le café',
-        note: 'Mélange maison, torréfaction italienne',
+        titre: 'La caféterie',
+        note: 'Mélange maison, torréfaction italienne. Lait végétal + 0.30',
+        // L'ORDRE EST CELUI DE LA CARTE IMPRIMÉE, y compris le chocolat
+        // et le lait au milieu des cafés : c'est le classement de la
+        // maison, et le remettre « dans l'ordre » ferait croire à une
+        // erreur de saisie là où il n'y en a pas.
         plats: [
           {
-            nom: 'Expresso',
+            nom: 'Café, expresso, ristretto',
             description: 'Le mélange de la maison : Brésil et Amérique centrale.',
-            prix: null,
+            prix: 4,
             mentions: ['maison'],
           },
-          { nom: 'Café crème', prix: null },
-          { nom: 'Cappuccino', prix: null },
-          { nom: 'Café renversé', prix: null },
+          { nom: 'Expresso macchiato', prix: 4.2 },
+          { nom: 'Chocolat chaud ou Ovomaltine', prix: 4.2 },
+          { nom: 'Mocca', prix: 6 },
+          { nom: 'Renversé', prix: 4.6 },
+          { nom: 'Cappuccino', prix: 4.8 },
+          { nom: 'Café ou chocolat viennois', prix: 5.2 },
+          { nom: 'Latte macchiato', prix: 5.5 },
+          { nom: 'Double expresso', prix: 5.5 },
+          { nom: 'Chaï latte', prix: 5.5 },
+          { nom: 'Dirty chaï', prix: 7.5 },
+          { nom: 'Café froid', prix: 5.5 },
+          { nom: 'Flat white', prix: 6.2 },
+          { nom: 'Lait chaud ou froid', prix: 3.8 },
         ],
       },
       {
-        titre: 'À côté',
+        titre: 'Thés et infusions',
+        // QUATORZE PARFUMS AU MÊME PRIX. Écrits un par un, c'est
+        // quatorze lignes qui répètent « CHF 4.20 » et une page deux
+        // fois plus longue pour la même information. Les noms sont donc
+        // dans la description : Google les lit, le visiteur les balaie
+        // d'un coup d'œil, et le prix ne s'écrit qu'une fois.
         plats: [
-          { nom: 'Jus pressé du jour', description: 'Pressé le matin même.', prix: null },
-          { nom: 'Thés et infusions', prix: null },
-          { nom: 'Chocolat chaud', prix: null },
+          {
+            nom: 'Thés',
+            description:
+              'Noir Darjeeling ou Earl Grey, vert oriental, cannelle, thé des Moines, jasmin, vanille, amoureux aux fruits rouges, gingembre.',
+            prix: 4.2,
+          },
+          {
+            nom: 'Infusions',
+            description: 'Cynorrhodon, menthe, tilleul, verveine, camomille, rooibos.',
+            prix: 4.2,
+          },
+          {
+            nom: 'Limonade maison, chaude',
+            description: 'Citron frais pressé, jus de gingembre et miel.',
+            prix: 5.8,
+            mentions: ['maison'],
+          },
+          { nom: 'PomPom chaud', prix: 5 },
+        ],
+      },
+      {
+        titre: 'Jus de fruits',
+        plats: [
+          { nom: 'Jus d’orange frais pressé, 1 dl', prix: 3.5 },
+          { nom: 'Jus d’orange frais pressé, 2 dl', prix: 5.8 },
+          { nom: 'Jus de pomme du marché, 2 dl', prix: 3.5 },
+          { nom: 'Jus de pomme du marché, 3 dl', prix: 4.5 },
+          {
+            nom: 'Jus Granini en bouteille, 2 dl',
+            description: 'Abricot, orange, tomate, ananas, poire ou pêche.',
+            prix: 4.9,
+          },
+          { nom: 'Jus au verre, 2 dl', description: 'Pêche ou orange.', prix: 4 },
         ],
       },
     ],

@@ -102,9 +102,11 @@ et sans le mot « CHF » :
 d'explication en haut de la carte. C'est volontaire : il vaut mieux pas de
 prix qu'un prix faux.
 
-> **Où en sont les prix.** Tous les plats des deux cartes imprimées sont saisis
-> avec leur prix. Restent à `null`, parce qu'ils ne figurent sur aucune carte :
-> les **boissons du matin**, le **plat du jour**, les **verres** et les
+> **Où en sont les prix.** Tout ce qui figure sur les cartes imprimées est
+> saisi avec son prix — les plats, les tapas, les desserts, et depuis la carte
+> des boissons : les cafés, les thés, les infusions et les jus. Restent à
+> `null` les trois choses qui ne sont sur aucune carte parce qu'elles
+> changent : le **plat du jour**, les **verres** (vin, bière, cocktails) et les
 > **filets de perche du vendredi**. Donnez-nous ces montants et le bandeau
 > d'explication disparaîtra tout seul de la page.
 >
@@ -157,11 +159,11 @@ vous n'avez pas à y penser.
 
 ### Où en sont les photos
 
-**Les douze emplacements du site portent une vraie photo de la maison.** Il n'y
+**Les treize emplacements du site portent une vraie photo de la maison.** Il n'y
 a plus un seul panneau « C » en ligne.
 
 Six viennent du compte Instagram du P'tit Central : l'habillage de
-l'application a été détouré, elles sont donc toutes en portrait. Les six
+l'application a été détouré, elles sont donc toutes en portrait. Les sept
 autres viennent des **fichiers d'origine du reportage**, livrés en août 2026 :
 plus nettes, et surtout libres du format Instagram — on a pu les recadrer sur
 ce que la légende annonce. Chaque image est servie en `.webp` sous 200 Ko.
@@ -173,6 +175,7 @@ ce que la légende annonce. Chaque image est servie en `.webp` sous 200 Ko.
 | `assiette-salade` | Une assiette de salade au poulet pané | 1196 × 1750 px |
 | `ardoise-du-jour` | La carte de la maison, posée près d'un renversé | 1282 × 1738 px |
 | `cafe-du-matin` | Un latte et un expresso sur une table ronde | **carré** 1290 × 1290 px |
+| `terrasse-matin` | La terrasse vide, avant le service | 1290 × 1935 px |
 | `salle-midi` | Deux clientes attablées, à midi | 1290 × 1740 px |
 | `truite` | Le filet de truite saumonée | 1290 × 1612 px |
 | `salle-soir` | Une assiette de poisson et légumes rôtis | 1280 × 1750 px |

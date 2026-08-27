@@ -26,10 +26,10 @@
  *   3. Relisez `alt` : il doit décrire la photo réellement déposée.
  * Rien d'autre à toucher.
  *
- * LES DOUZE EMPLACEMENTS PORTENT UNE VRAIE PHOTO DE LA MAISON.
+ * LES TREIZE EMPLACEMENTS PORTENT UNE VRAIE PHOTO DE LA MAISON.
  * Il n'y a plus un seul panneau « C » sur le site. Six tirages viennent
  * du compte Instagram — l'habillage de l'application a été détouré. Les
- * six autres viennent des fichiers d'origine du reportage, livrés en
+ * sept autres viennent des fichiers d'origine du reportage, livrés en
  * août 2026 : même lumière, même journée, mais une définition propre et
  * aucun recadrage subi. Chaque image est servie en .webp sous 200 Ko.
  *
@@ -119,6 +119,25 @@ export const MEDIAS = {
     ratio: '1290/1290',
     ton: 'encre',
   },
+  /* Le second tirage de « En matinée ». La carte des boissons a fait
+     passer la section de deux catégories à trois : le cadre du haut
+     couvrait les cafés, puis seize cents pixels de colonne restaient
+     nus en face des thés et des jus.
+
+     PAS UNE TROISIÈME VUE DE LA MÊME TABLE. Le fonds contient d'autres
+     tasses, mais toutes sur ce même guéridon, déjà montré deux fois sur
+     la page — en tête de page et juste au-dessus. Celle-ci montre ce que
+     personne d'autre ne montre sur la carte : la rue. C'est la seule
+     image du site prise avant que le service commence, et « En matinée »
+     est la seule section qui puisse l'accueillir sans mentir. */
+  'terrasse-matin': {
+    src: '/photos/terrasse-matin.webp',
+    alt: 'Les tables et les chaises en métal de la terrasse, vides avant le service ; derrière, la rue Centrale et les passants.',
+    legende: 'La terrasse, avant le service',
+    ratio: '1290/1935',
+    ton: 'creme',
+  },
+
   /* PAS DE PERCHE ICI : elle a sa propre section trois cartouches plus
      bas, avec son propre tirage. Le premier choix montrait justement une
      assiette de perches vue de dessus — la même chose, deux fois, à

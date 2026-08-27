@@ -12,7 +12,7 @@ photographies du lieu réel, puis **refondu autour du logo peint de la maison**.
 > reportage** et les **deux cartes imprimées** de la maison. Ils n'ont pas
 > renversé la DA cette fois : ils l'ont refermée.
 >
-> 1. **Douze emplacements, douze photos. Plus un seul panneau « C » en ligne.**
+> 1. **Treize emplacements, treize photos. Plus un seul panneau « C » en ligne.**
 >    Le comptoir, la table dressée, la devanture et la truite complètent le
 >    fonds. La règle du panneau reste écrite — elle ne s'applique simplement
 >    plus nulle part. Voir §6 bis, réécrite.
@@ -21,7 +21,7 @@ photographies du lieu réel, puis **refondu autour du logo peint de la maison**.
 >    permis un cadrage éditorial : le comptoir en **carré**, la table dressée
 >    en **paysage**. C'est ce qui casse la suite de colonnes identiques.
 > 3. **`--photo-ton` retombe à 0.** Le virage bleu réaccordait un fonds
->    hétérogène ; les douze images viennent d'une même journée. Un filtre existe
+>    hétérogène ; les treize images viennent d'une même journée. Un filtre existe
 >    pour réparer un défaut — sans défaut, il ne reste que le coût.
 > 4. **La carte porte enfin de vrais prix.** Vingt-six plats, saisis d'après
 >    les cartes imprimées. Restent au tiret ce qui n'est écrit sur aucune
@@ -780,7 +780,7 @@ Business ; puis sept tirages Instagram détourés ; elle décrit maintenant l'é
 livré. Les emplacements `portemanteau` et `entrecote` qu'elle citait n'existent
 plus.
 
-**Douze emplacements, douze photos. Plus un seul panneau « C » en ligne.**
+**Treize emplacements, treize photos. Plus un seul panneau « C » en ligne.**
 
 | Emplacement | Fichier | Dimensions | Sujet | Source |
 |---|---|---|---|---|
@@ -789,6 +789,7 @@ plus.
 | `assiette-salade` | `assiette-salade.webp` | 1196 × 1750 | Une salade au poulet pané | Instagram |
 | `ardoise-du-jour` | `ardoise-du-jour.webp` | 1282 × 1738 | La carte, près d'un renversé | Instagram |
 | `cafe-du-matin` | `cafe-du-matin.webp` | **1290 × 1290** | Un latte et un expresso, en terrasse | Original |
+| `terrasse-matin` | `terrasse-matin.webp` | 1290 × 1935 | La terrasse vide, avant le service | Original |
 | `salle-midi` | `table-de-midi.webp` | 1290 × 1740 | Deux clientes attablées, à midi | Original |
 | `truite` | `truite.webp` | 1290 × 1612 | Le filet de truite saumonée | Original |
 | `salle-soir` | `salle-soir.webp` | 1280 × 1750 | Une assiette de poisson et légumes | Instagram |
@@ -878,7 +879,7 @@ se retrouvent à la même température, celle des azulejos.
 
 **Pourquoi il est à zéro aujourd'hui.** Il avait été monté à 0.12 quand le
 fonds mélangeait des vignettes Google Business et des captures Instagram
-recompressées, à des températures incompatibles. Les douze images actuelles
+recompressées, à des températures incompatibles. Les treize images actuelles
 viennent **d'un même reportage, d'une même journée, d'une même lumière** : le
 virage ne corrigeait plus rien et coûtait de la matière. Un filtre existe pour
 réparer un défaut ; sans défaut, il ne reste que le coût.
