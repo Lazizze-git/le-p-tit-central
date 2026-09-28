@@ -726,8 +726,8 @@ improvisée.
   annonçait « ≥ 44 × 44 px, toujours », ce que le site ne tenait pas et n'a
   pas à tenir.)*
   - **Toute action ≥ 44 × 44 px** : pilules, cellules de la barre mobile,
-    champs de formulaire. Mesuré : `.btn` a `min-height: var(--tap)`, y
-    compris les pilules de la barre mobile. Aucune exception.
+    champs de formulaire. Mesuré : `.btn` a `min-height: var(--tap)`, la
+    barre mobile fait 48 px. Aucune exception.
   - **Un lien secondaire suit la règle d'espacement** (WCAG 2.2 — 2.5.8) :
     au moins 24 px entre deux centres de cible. Mesuré dans le pied de
     page : 27 px sur mobile, 33 px sur grand écran. Conforme.
@@ -740,14 +740,11 @@ improvisée.
 
 ### Navigation
 
-- **Mobile** : barre collante en bas — une **bande crème détachée de la
-  page par un filet 1 px**, où sont posés le statut `○ OUVERT` (texte, lien
-  vers les horaires), une pilule en contour `PLAN ↗` et la pilule pleine
-  `APPELER` (**seul aplat bleu de la barre**, elle prend la place qui
-  reste). Hauteur 60 px (pilules de 44 px + 8 px d'air) + safe-area.
-  *(v4.2 : les cases pleine largeur à filets de la v4 et de la v4.1,
-  collées au double filet du dernier cartouche, faisaient un bloc épais
-  qui se confondait avec la page — retour du client sur iPhone.)*
+- **Mobile** : barre tabulaire collante en bas (repris d'iessi), 3 cellules
+  **égales** séparées par filets 1 px : `○ OUVERT` | `PLAN ↗` | `APPELER`
+  (**seule cellule en aplat bleu** — l'action principale). Hauteur 48 px
+  + safe-area. *(v4.1 : 56 px et un statut étiré sur la moitié de l'écran
+  faisaient un pavé plus lourd que la page — retour du client sur iPhone.)*
 - **Desktop** : barre haute, wordmark à gauche, liens en Martian Mono caps à
   droite, `FR / EN` en bout de ligne, filet 1 px en bas. Pas de fond translucide
   au scroll — la barre passe de transparente à crème pleine, sans blur.
@@ -1281,7 +1278,7 @@ Profile, adresse en texte, images `alt` renseignées en français.
   /* ---------- Forme ---------- */
   --radius-pill: 999px;   /* 0 partout ailleurs, jamais d'intermédiaire */
   --tap: 44px;
-  --barre-h: 60px;        /* la barre d'action mobile ; le contenu passe dessous */
+  --barre-h: 48px;        /* la barre d'action mobile ; le contenu passe dessous */
 
   /* ---------- Motion ---------- */
   --dur-micro: 160ms;  --dur-base: 320ms;

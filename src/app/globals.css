@@ -146,9 +146,8 @@
   /* ---------- Forme ---------- */
   --radius-pill: 999px;
   --tap: 44px;
-  /* Hauteur réservée à la barre d'action mobile : le contenu passe dessous.
-     Une pilule de 44 px (--tap) et 8 px d'air au-dessus et au-dessous. */
-  --barre-h: 60px;
+  /* Hauteur réservée à la barre d'action mobile : le contenu passe dessous. */
+  --barre-h: 48px;
 
   /* ---------- Motion ---------- */
   --dur-micro: 160ms;
