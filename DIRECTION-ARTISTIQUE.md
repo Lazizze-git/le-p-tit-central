@@ -727,7 +727,7 @@ improvisée.
   pas à tenir.)*
   - **Toute action ≥ 44 × 44 px** : pilules, cellules de la barre mobile,
     champs de formulaire. Mesuré : `.btn` a `min-height: var(--tap)`, la
-    barre mobile fait 56 px. Aucune exception.
+    barre mobile fait 48 px. Aucune exception.
   - **Un lien secondaire suit la règle d'espacement** (WCAG 2.2 — 2.5.8) :
     au moins 24 px entre deux centres de cible. Mesuré dans le pied de
     page : 27 px sur mobile, 33 px sur grand écran. Conforme.
@@ -740,10 +740,11 @@ improvisée.
 
 ### Navigation
 
-- **Mobile** : barre tabulaire collante en bas (repris d'iessi), 4 cellules
-  séparées par filets 1 px : `STATUT · OUVERT` | `PLAN` | `APPELER`
-  (**seule cellule en aplat bleu** — l'action principale). Hauteur 56 px
-  + safe-area.
+- **Mobile** : barre tabulaire collante en bas (repris d'iessi), 3 cellules
+  **égales** séparées par filets 1 px : `○ OUVERT` | `PLAN ↗` | `APPELER`
+  (**seule cellule en aplat bleu** — l'action principale). Hauteur 48 px
+  + safe-area. *(v4.1 : 56 px et un statut étiré sur la moitié de l'écran
+  faisaient un pavé plus lourd que la page — retour du client sur iPhone.)*
 - **Desktop** : barre haute, wordmark à gauche, liens en Martian Mono caps à
   droite, `FR / EN` en bout de ligne, filet 1 px en bas. Pas de fond translucide
   au scroll — la barre passe de transparente à crème pleine, sans blur.
@@ -1277,7 +1278,7 @@ Profile, adresse en texte, images `alt` renseignées en français.
   /* ---------- Forme ---------- */
   --radius-pill: 999px;   /* 0 partout ailleurs, jamais d'intermédiaire */
   --tap: 44px;
-  --barre-h: 56px;        /* la barre d'action mobile ; le contenu passe dessous */
+  --barre-h: 48px;        /* la barre d'action mobile ; le contenu passe dessous */
 
   /* ---------- Motion ---------- */
   --dur-micro: 160ms;  --dur-base: 320ms;

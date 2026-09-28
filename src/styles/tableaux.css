@@ -4,8 +4,14 @@
    l'essentiel de ce que les visiteurs viennent réellement lire.
    ================================================================== */
 
-/* ---------- Tableau des horaires ---------- */
-.horaires {
+/* ---------- Tableau des horaires ----------
+   Les lignes débordent de 10 px de chaque côté (marges négatives) : le
+   texte reste aligné sur la colonne, et l'aplat de la ligne du jour a
+   de l'air autour de lui. Le filet du haut est donc porté par la
+   PREMIÈRE LIGNE et non par le tableau : posé sur le tableau, il
+   s'arrêtait 10 px avant les autres filets, et au-dessus d'un lundi
+   surligné il dessinait une barre plus étroite que l'aplat. */
+.horaires__ligne:first-child {
   border-top: 1px solid var(--rule);
 }
 

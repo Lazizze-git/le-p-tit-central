@@ -115,7 +115,17 @@ export function PiedDePage(): ReactElement {
                 {item.libelle}
               </Link>
             ))}
-            <span className="t-label ml-auto">{COMMUN.credit}</span>
+            {/* `noopener` sans `noreferrer` : l'agence voit ainsi dans
+                ses statistiques les visites venues du site. */}
+            <a
+              className="t-label lien ml-auto"
+              href={SITE.agence.url}
+              target="_blank"
+              rel="noopener"
+            >
+              {COMMUN.credit}
+              <span aria-hidden="true"> ↗</span>
+            </a>
           </nav>
         </div>
       </div>

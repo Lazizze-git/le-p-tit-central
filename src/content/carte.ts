@@ -45,10 +45,10 @@ export const MOMENTS: readonly Moment[] = [
     texte: [
       'Pour l’expresso à l’italienne, la maison a composé son propre mélange : *une sélection des meilleurs cafés du Brésil et d’Amérique centrale.* On le sert au comptoir dès sept heures, debout ou assis, comme vous voulez.',
     ],
-    medias: ['cafe-du-matin', 'terrasse-matin'],
     categories: [
       {
         titre: 'La caféterie',
+        tirage: 'cafe-du-matin',
         note: 'Mélange maison, torréfaction italienne. Lait végétal + 0.30',
         // L'ORDRE EST CELUI DE LA CARTE IMPRIMÉE, y compris le chocolat
         // et le lait au milieu des cafés : c'est le classement de la
@@ -78,6 +78,7 @@ export const MOMENTS: readonly Moment[] = [
       },
       {
         titre: 'Thés et infusions',
+        tirage: 'terrasse-matin',
         // QUATORZE PARFUMS AU MÊME PRIX. Écrits un par un, c'est
         // quatorze lignes qui répètent « CHF 4.20 » et une page deux
         // fois plus longue pour la même information. Les noms sont donc
@@ -132,7 +133,6 @@ export const MOMENTS: readonly Moment[] = [
       'Une cuisine fraîche et équilibrée, préparée avec des ingrédients choisis un par un. *Pensée pour une heure de pause* : vous entrez, vous mangez, vous repartez à temps.',
       '*La carte ci-dessous est servie à midi et le soir.* Seul le menu du jour change : il est réécrit chaque matin et annoncé à l’ardoise.',
     ],
-    medias: ['salle-midi', 'truite'],
     categories: [
       {
         titre: 'Le menu du jour',
@@ -154,6 +154,7 @@ export const MOMENTS: readonly Moment[] = [
       },
       {
         titre: 'Mets froids',
+        tirage: 'salle-midi',
         plats: [
           {
             nom: 'Salade de chèvre chaud',
@@ -205,6 +206,7 @@ export const MOMENTS: readonly Moment[] = [
       },
       {
         titre: 'Mets chauds',
+        tirage: 'truite',
         plats: [
           {
             nom: 'Burger du P’tit',
@@ -268,10 +270,10 @@ export const MOMENTS: readonly Moment[] = [
       '*La carte de midi est servie jusqu’à 22h00* — entrées, mets froids, mets chauds et desserts, sans changement.',
       'Le soir y ajoute ce qui se partage : les tapas au milieu de la table, un verre, et le temps de rester. *La carte reste courte — c’est la condition pour qu’elle soit bonne.*',
     ],
-    medias: ['salle-soir', 'verre'],
     categories: [
       {
         titre: 'Les tapas',
+        tirage: 'salle-soir',
         note: 'À partager, servis toute la soirée',
         plats: [
           {
@@ -305,6 +307,7 @@ export const MOMENTS: readonly Moment[] = [
       },
       {
         titre: 'Au verre',
+        tirage: 'verre',
         plats: [
           {
             nom: 'Le merlot de la maison',
@@ -328,10 +331,10 @@ export const MOMENTS: readonly Moment[] = [
       'Pommes frites et légumes du jour. *Tous les vendredis midi depuis plus de vingt-trois ans* — c’est la seule chose ici qui ne change jamais.',
       'Le reste de la semaine, la perche se retrouve en beignets, façon fish & chips, du côté des tapas.',
     ],
-    medias: ['perche'],
     categories: [
       {
         titre: 'Le vendredi',
+        tirage: 'perche',
         note: 'Jusqu’à épuisement. Réservation conseillée.',
         plats: [
           {

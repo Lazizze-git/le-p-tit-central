@@ -26,6 +26,9 @@ export function MomentCarte({ moment, ton }: MomentCarteProps): ReactElement {
   const categoriesRemplies = moment.categories.filter(
     (categorie) => categorie.plats.length > 0,
   );
+  const tirages = categoriesRemplies.flatMap((categorie) =>
+    categorie.tirage ? [categorie.tirage] : [],
+  );
 
   return (
     <Bande ton={ton} id={moment.id}>
@@ -69,12 +72,23 @@ export function MomentCarte({ moment, ton }: MomentCarteProps): ReactElement {
                     <LignePlat key={plat.nom} plat={plat} />
                   ))}
                 </ul>
+
+                {/* Sur téléphone, la photo suit la catégorie qu'elle
+                    montre, au lieu de s'empiler avec l'autre en fin de
+                    section. Sur grand écran, c'est la colonne de droite
+                    qui la porte : ce cadre-ci ne s'affiche pas (et, en
+                    `loading="lazy"`, ne se télécharge pas non plus). */}
+                {categorie.tirage && (
+                  <div className="tirage-en-ligne">
+                    <MediaSlot id={categorie.tirage} />
+                  </div>
+                )}
               </Reveal>
             ))}
           </div>
 
           <Reveal rang={1} className="planche planche--colonne lg:w-[38%]">
-            {moment.medias.map((media) => (
+            {tirages.map((media) => (
               <MediaSlot key={media} id={media} />
             ))}
           </Reveal>

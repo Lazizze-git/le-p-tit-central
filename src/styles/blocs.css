@@ -129,14 +129,20 @@
 
 /* ---------- Barre d'action mobile ----------
    Le téléphone et l'itinéraire restent à un pouce de distance sur
-   toutes les pages : c'est le vrai travail d'un site de restaurant. */
+   toutes les pages : c'est le vrai travail d'un site de restaurant.
+
+   Trois cases ÉGALES, contenu centré, 48 px de haut. La version
+   précédente (56 px, statut sur toute la largeur restante) faisait un
+   pavé : « Fermé » flottait seul dans la moitié de l'écran, et la barre
+   pesait plus lourd que la page. 48 px tient toujours la zone tactile
+   de 44 px. */
 .barre {
   position: fixed;
   inset-inline: 0;
   bottom: 0;
   z-index: 50;
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: repeat(3, 1fr);
   background: var(--pc-creme);
   color: var(--pc-encre);
   border-top: 1px solid var(--pc-encre);
@@ -153,17 +159,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6em;
+  gap: 0.5em;
+  min-width: 0;
   min-height: var(--barre-h);
-  padding-inline: 16px;
+  padding-inline: 8px;
   border-left: 1px solid var(--pc-encre);
+  /* Un cran d'interlettrage en moins que les autres étiquettes : dans
+     une case de 130 px, l'espacement large éparpillait les mots. */
+  letter-spacing: 0.1em;
 }
 
 .barre__cell:first-child {
-  justify-content: flex-start;
-  padding-left: var(--margin);
   border-left: 0;
-  min-width: 0;
 }
 
 /* La seule cellule pleine de la barre : appeler. Le filet d'un pixel

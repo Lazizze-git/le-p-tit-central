@@ -39,6 +39,13 @@ export interface Categorie {
   readonly plats: readonly Plat[];
   /** Précision affichée sous le titre de catégorie. */
   readonly note?: string;
+  /**
+   * La photo qui montre cette catégorie (voir content/medias.ts).
+   * Sur grand écran, elle se range dans la colonne de droite, en face
+   * de la catégorie ; sur téléphone, elle suit sa liste de plats — deux
+   * photos ne s'y suivent donc jamais. Une par catégorie au plus.
+   */
+  readonly tirage?: IdMedia;
 }
 
 /** Identifiants des quatre moments de la journée. Servent aussi d'ancres d'URL. */
@@ -56,13 +63,8 @@ export interface Moment {
   readonly accroche: string;
   /** Paragraphes du chapô. Le gras s'écrit avec des astérisques : *comme ceci*. */
   readonly texte: readonly string[];
+  /** Les photos du moment se déclarent sur ses catégories : voir `tirage`. */
   readonly categories: readonly Categorie[];
-  /**
-   * Emplacements photo associés (voir content/medias.ts).
-   * Un seul le plus souvent ; deux quand le moment mérite une planche
-   * de deux tirages côte à côte.
-   */
-  readonly medias: readonly IdMedia[];
 }
 
 /**

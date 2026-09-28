@@ -147,7 +147,7 @@
   --radius-pill: 999px;
   --tap: 44px;
   /* Hauteur réservée à la barre d'action mobile : le contenu passe dessous. */
-  --barre-h: 56px;
+  --barre-h: 48px;
 
   /* ---------- Motion ---------- */
   --dur-micro: 160ms;

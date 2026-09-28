@@ -230,9 +230,15 @@
 
    `@container` et non `@media` : c'est la seule façon de poser la règle
    au bon endroit, sans que chaque page ait à connaître sa propre mise
-   en page. */
+   en page.
+
+   SAUF LE HAUT DE PAGE (`.planche--pied`). Sur téléphone, empilés, ses
+   deux tirages se suivaient l'un sous l'autre — deux photos à la suite,
+   ce que le site ne fait nulle part ailleurs. Côte à côte, ils restent
+   ce qu'ils sont sur grand écran : une planche, un seul objet. Deux
+   portraits de même proportion y tiennent chacun la moitié de l'écran. */
 @container (max-width: 30rem) {
-  .planche > .slot-figure {
+  .planche:not(.planche--pied) > .slot-figure {
     flex-basis: 100%;
   }
 }
@@ -256,6 +262,31 @@
    sert qu'à un endroit se nomme d'après cet endroit. */
 .planche--colonne {
   align-content: space-around;
+}
+
+/* SUR TÉLÉPHONE, CETTE COLONNE N'EXISTE PAS.
+   Passée sous la liste, elle empilait ses deux tirages en fin de
+   section, sans une ligne de texte entre eux : deux photos à la suite.
+   Chaque tirage suit donc la catégorie qu'il montre (`.tirage-en-ligne`,
+   posé dans la liste), et la colonne ne revient qu'avec la mise en page
+   à deux colonnes — `lg:`, 64rem. Les deux règles sont exactement
+   complémentaires : jamais les deux à la fois, jamais aucune. */
+.planche.planche--colonne {
+  display: none;
+}
+
+.tirage-en-ligne {
+  margin-top: var(--space-stack);
+}
+
+@media (min-width: 64rem) {
+  .planche.planche--colonne {
+    display: flex;
+  }
+
+  .tirage-en-ligne {
+    display: none;
+  }
 }
 
 /* Variante du haut de page : les tirages s'alignent par le bas, le
