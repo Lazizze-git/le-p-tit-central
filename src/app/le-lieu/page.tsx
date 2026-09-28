@@ -100,7 +100,7 @@ export default function PageLieu(): ReactElement {
             <Bouton href={lienTelephone(SITE.telephone.e164)} principal>
               {SITE.telephone.affichage}
             </Bouton>
-            <Bouton href="/contact/#message">Écrire un message</Bouton>
+            <Bouton href="/contact/#ecrire">Écrire un message</Bouton>
           </div>
         </Reveal>
       </Bande>

@@ -104,7 +104,7 @@ export default function PageContact(): ReactElement {
         </div>
       </Bande>
 
-      <Bande id="message">
+      <Bande id="ecrire">
         <div className="flex flex-col gap-[var(--space-block)] lg:flex-row lg:gap-[var(--space-section)]">
           <Reveal className="flex flex-col gap-[var(--space-stack)] lg:w-[38%]">
             <SurTitre>{CONTACT.formulaire_label}</SurTitre>

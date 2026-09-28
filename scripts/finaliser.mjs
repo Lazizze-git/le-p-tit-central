@@ -3,8 +3,9 @@
  *
  * Contrôle que les fichiers indispensables au référencement, au
  * partage et au serveur sont bien présents dans `out/`, et que le
- * .htaccess redirige vers l'adresse du site. Échoue bruyamment sinon :
- * mieux vaut une construction rouge qu'un site en ligne amputé.
+ * .htaccess et le formulaire visent l'adresse et l'e-mail du site.
+ * Échoue bruyamment sinon : mieux vaut une construction rouge qu'un
+ * site en ligne amputé.
  */
 
 import { existsSync, readFileSync, rmSync } from 'node:fs';
@@ -23,6 +24,7 @@ const INDISPENSABLES = [
   'icon.svg',
   'og.png',
   '.htaccess',
+  'contact.php',
 ];
 
 /** Notes de travail rangées à côté des photos : elles n'ont rien à faire en ligne. */
@@ -67,6 +69,20 @@ if (adresses.size !== 1 || !adresses.has(origine) || !reglages.includes(domaine.
     `public/.htaccess doit reconnaître le domaine ${domaine} et rediriger vers ${origine}, ` +
       `l’adresse du site (src/content/site.ts). ` +
       `Adresses qu’il mentionne : ${[...adresses].join(', ') || 'aucune'}.`,
+  );
+}
+
+// Le formulaire écrit à l'adresse de contact.php : ce doit être celle
+// que le site affiche et annonce à Google (`email` dans site.ts).
+const affichee = readFileSync(join(SORTIE, 'index.html'), 'utf8').match(/"email":"([^"]+)"/)?.[1];
+const destinataire = readFileSync(join(SORTIE, 'contact.php'), 'utf8').match(
+  /const DESTINATAIRE = '([^']+)';/,
+)?.[1];
+
+if (!affichee || destinataire !== affichee) {
+  echouer(
+    `public/contact.php envoie les messages à ${destinataire ?? '(introuvable)'}, ` +
+      `mais le site affiche ${affichee ?? '(introuvable)'} (src/content/site.ts). Mettez les deux d’accord.`,
   );
 }
 

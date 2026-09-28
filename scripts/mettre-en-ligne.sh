@@ -4,11 +4,15 @@
 # ------------------------------------------------------------------
 # GitHub le lance à chaque modification de `main`, une fois le site
 # construit (.github/workflows/mise-en-ligne.yml). L'envoi passe par
-# FTP chiffré (FTPES) et lit trois secrets du dépôt :
+# FTP chiffré (FTPES) et lit ces secrets du dépôt :
 #
 #   INFOMANIAK_FTP_SERVEUR        ex. abcd.ftp.infomaniak.com
 #   INFOMANIAK_FTP_UTILISATEUR    un compte FTP limité au dossier du site
 #   INFOMANIAK_FTP_MOT_DE_PASSE
+#
+# Et, pour le formulaire de contact (README, section 7) :
+#   INFOMANIAK_SMTP_UTILISATEUR   la boîte e-mail qui expédie les messages
+#   INFOMANIAK_SMTP_MOT_DE_PASSE
 #
 # Le compte arrive directement dans sites/lepetitcentral.ch : c'est ce
 # dossier, et lui seul, que le script remplace. L'hébergement porte
@@ -91,7 +95,21 @@ else
   echo "Premier envoi dans ce dossier : rien n'y sera effacé."
 fi
 
-# 3. D'abord /_next/ — des fichiers au nom neuf, qui ne remplacent rien —,
+# 3. Les accès de la boîte qui expédie les messages du formulaire de
+#    contact (contact.php). Ils ne vivent que dans les secrets GitHub et
+#    sur le serveur : jamais dans le code, ni dans l'archive téléchargeable,
+#    gardée avant cette étape. Sans eux, le formulaire propose l'e-mail.
+if [[ -n "${INFOMANIAK_SMTP_UTILISATEUR:-}" && -n "${INFOMANIAK_SMTP_MOT_DE_PASSE:-}" ]]; then
+  php_texte() { local v="${1//\\/\\\\}"; printf "'%s'" "${v//\'/\\\'}"; }
+  printf '<?php\nreturn [\n  %s => %s,\n  %s => %s,\n];\n' \
+    "'utilisateur'" "$(php_texte "$INFOMANIAK_SMTP_UTILISATEUR")" \
+    "'mot_de_passe'" "$(php_texte "$INFOMANIAK_SMTP_MOT_DE_PASSE")" \
+    > "$SITE/formulaire-smtp.php"
+else
+  echo "::warning title=Formulaire sans envoi::Les secrets INFOMANIAK_SMTP_UTILISATEUR et INFOMANIAK_SMTP_MOT_DE_PASSE manquent (README, section 7) : le formulaire de contact propose d'écrire par e-mail au lieu d'envoyer."
+fi
+
+# 4. D'abord /_next/ — des fichiers au nom neuf, qui ne remplacent rien —,
 #    puis les pages : une page en ligne n'appelle jamais un fichier absent.
 #    Le certificat HTTPS d'Infomaniak (.well-known) n'est jamais touché.
 ftp_chiffre "

@@ -265,16 +265,42 @@ photo : déposez un fichier **1200 × 630 px** dans `public/`, puis dans
 
 ## 7. Le formulaire de contact
 
-Aujourd'hui, le bouton **« Préparer le message »** ouvre le logiciel de
-messagerie du visiteur avec un message déjà rédigé, adressé à
-`ptitcentral@gmail.com`. Le visiteur n'a plus qu'à l'envoyer.
+Le bouton **« Envoyer le message »** envoie le message à
+`ptitcentral@gmail.com`. Pour répondre au visiteur, il suffit de cliquer sur
+**Répondre** dans Gmail : la réponse part directement à son adresse.
 
-C'est un choix assumé : un formulaire qui affiche « message envoyé » sans
-rien envoyer est pire que pas de formulaire du tout.
+Le formulaire n'affiche « message bien parti » que si le serveur l'a
+vraiment expédié. Si l'envoi échoue, le visiteur garde son message et peut
+l'ouvrir, déjà rédigé, dans sa propre messagerie : rien ne se perd.
 
-**Pour brancher un vrai envoi automatique** (service type Formspree, Brevo ou
-Resend, à partir d'une dizaine de francs par mois) : dites-le-nous, c'est une
-demi-journée de travail. Tout est préparé dans `src/lib/contact.ts`.
+Les robots sont écartés par un champ piège invisible, par un délai minimum de
+remplissage, et par une limite de cinq messages par heure depuis une même
+connexion.
+
+### Comment les messages partent
+
+Le script `public/contact.php` expédie chaque message depuis une **vraie
+boîte e-mail Infomaniak** : c'est ce qui les empêche de finir dans les
+indésirables (Infomaniak désactive d'ailleurs l'envoi « anonyme »). Il faut
+donc, une seule fois :
+
+1. Dans le Manager Infomaniak, **créer une adresse** qui servira d'expéditeur,
+   par exemple `formulaire@wearebrothers.ch`.
+2. Sur GitHub, **Settings › Secrets and variables › Actions**, ajouter :
+
+   | Nom | Valeur |
+   |---|---|
+   | `INFOMANIAK_SMTP_UTILISATEUR` | l'adresse complète créée à l'étape 1 |
+   | `INFOMANIAK_SMTP_MOT_DE_PASSE` | son mot de passe |
+
+3. **Actions › Mise en ligne › Run workflow**.
+
+Ces accès ne sont jamais dans le code : GitHub les dépose sur le serveur à
+chaque mise en ligne, dans un fichier que personne ne peut lire depuis le web.
+
+Pour changer l'adresse qui **reçoit** les messages, changez `email` dans
+`src/content/site.ts` **et** `DESTINATAIRE` en haut de `public/contact.php`.
+La construction du site s'arrête tant que les deux ne sont pas d'accord.
 
 ---
 

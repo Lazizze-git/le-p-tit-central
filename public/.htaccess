@@ -31,6 +31,10 @@ AddType font/woff2 .woff2
   # Le renouvellement du certificat HTTPS passe par ici : on n'y touche pas.
   RewriteRule ^\.well-known/ - [L]
 
+  # Les accès de la boîte d'envoi du formulaire : lus par contact.php sur
+  # le serveur, jamais servis à un visiteur.
+  RewriteRule ^formulaire-smtp\.php$ - [R=404,L]
+
   # L'adresse officielle. Sur tout autre nom — l'adresse d'aperçu
   # d'Infomaniak, avant le transfert du domaine — elle reste vide :
   # les redirections restent alors sur place au lieu de partir vers
