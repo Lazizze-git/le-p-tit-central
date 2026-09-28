@@ -29,19 +29,19 @@ export const COMMUN = {
   // carte.ts. Il doit donc rester vrai quel que soit le plat concerné :
   // il parle des lignes au tiret, pas de la carte entière.
   prix_indisponibles:
-    'Les lignes suivies d’un tiret ne sont pas chiffrées ici : le menu du jour, les verres et les perches du vendredi changent, et s’annoncent au comptoir. Pour les demander avant de venir :',
+    'Les lignes marquées d’un tiret n’ont pas de prix ici : le menu du jour, les verres et les perches du vendredi changent, et leur prix s’annonce au comptoir. Pour le connaître avant de venir :',
   mise_a_jour: 'Carte mise à jour le',
   credit: 'Site — WeAreBrothers',
 } as const;
 
 export const ACCUEIL = {
   sur_titre: 'Lausanne / Café & cuisine',
-  promesse: 'Un café de quartier au centre-ville, ouvert du matin à tard le soir.',
+  promesse: 'Un café de quartier au centre-ville, ouvert du matin jusque tard le soir.',
   intro_label: 'La maison',
   intro_titre: 'Depuis plus de vingt-trois ans',
   intro: [
-    'Le P’tit Central vous accueille du lundi au samedi, au centre de Lausanne. Des plats divers, un menu du jour réécrit chaque matin, et un comptoir ouvert dès sept heures.',
-    '*C’est un petit lieu.* On y sert le café des habitués le matin, les tables de midi en une heure, et les soirées qui s’étirent jusqu’à minuit.',
+    'Le P’tit Central vous accueille du lundi au samedi, au centre de Lausanne : une carte variée, un menu du jour réécrit chaque matin et un comptoir ouvert dès sept heures.',
+    '*C’est un petit lieu.* Le matin, le café des habitués ; à midi, un repas servi en une heure ; et des soirées qui s’étirent jusqu’à minuit.',
   ],
   signature_label: 'La signature de la maison',
   signature_titre: 'Filets de perche, tous les vendredis midi',
@@ -56,7 +56,7 @@ export const ACCUEIL = {
   reserver_label: 'Réserver',
   reserver_titre: 'Une table ?',
   reserver_texte:
-    'Le plus simple reste le téléphone. On répond pendant le service, et on garde une table pour vous.',
+    'Le plus simple reste le téléphone. On répond pendant le service et on vous garde une table.',
 } as const;
 
 export const LIEU = {
@@ -73,22 +73,22 @@ export const LIEU = {
   salle_titre: 'Privatiser',
   salle_texte: [
     'Une salle séparée, à l’écart du service courant, pour vos anniversaires, mariages et rendez-vous professionnels.',
-    'On adapte la carte à l’occasion : apéritif debout, repas assis, ou service continu. *Dites-nous ce que vous avez en tête et on construit autour.*',
+    'On adapte la carte à l’occasion : apéritif debout, repas assis ou service continu. *Dites-nous ce que vous avez en tête, on s’occupe du reste.*',
   ],
   occasions: [
     { titre: 'Anniversaires', detail: 'Apéritif, repas assis ou buffet.' },
     { titre: 'Mariages', detail: 'Réception avant ou après la cérémonie.' },
-    { titre: 'Événements professionnels', detail: 'Réunions, séminaires, fins d’année.' },
+    { titre: 'Événements professionnels', detail: 'Réunions, séminaires, repas de fin d’année.' },
     { titre: 'Repas de groupe', detail: 'Familles, associations, équipes.' },
   ],
   demande_titre: 'Demander la salle',
-  demande_texte: 'Appelez la maison ou écrivez : on revient vers vous avec une proposition.',
+  demande_texte: 'Appelez la maison ou écrivez-nous : on vous répond avec une proposition.',
 } as const;
 
 export const CONTACT = {
   sur_titre: 'Contact / Réservation',
   titre: 'Nous trouver',
-  accroche: 'Rue Centrale 9, au cœur de Lausanne. Deux minutes à pied de la Riponne.',
+  accroche: 'Rue Centrale 9, au cœur de Lausanne, à quelques minutes à pied de la Riponne.',
   telephone_label: 'Le plus rapide',
   telephone_texte:
     'Pour réserver une table, demander la salle privée ou vérifier le plat du jour : appelez. On répond pendant le service.',
@@ -96,9 +96,9 @@ export const CONTACT = {
   acces_titre: 'Accès',
   transports: [
     { moyen: 'Métro m1 / m2', detail: 'Arrêt Lausanne-Flon, 5 minutes à pied.' },
-    { moyen: 'Bus 6, 7, 8, 16', detail: 'Arrêt Bel-Air, 3 minutes à pied.' },
+    { moyen: 'Bus 6, 7, 8 et 16', detail: 'Arrêt Bel-Air, 3 minutes à pied.' },
     { moyen: 'Métro m2', detail: 'Arrêt Riponne–Maurice Béjart, 4 minutes à pied.' },
-    { moyen: 'Voiture', detail: 'Parking Riponne ou Bel-Air, à 5 minutes.' },
+    { moyen: 'Voiture', detail: 'Parkings de la Riponne ou de Bel-Air, à 5 minutes à pied.' },
   ],
   formulaire_label: 'Écrire',
   formulaire_titre: 'Un message',
@@ -112,7 +112,7 @@ export const ERREURS = {
     'Cette page n’existe pas, ou plus. La carte, les horaires et le téléphone sont toujours là.',
   page_erreur_titre: 'Quelque chose a lâché',
   page_erreur_texte:
-    'Une erreur inattendue est survenue de notre côté. Vous pouvez réessayer, ou appeler directement.',
+    'Une erreur inattendue est survenue de notre côté. Vous pouvez réessayer ou nous appeler directement.',
   reessayer: 'Réessayer',
   retour_accueil: 'Retour à l’accueil',
 } as const;

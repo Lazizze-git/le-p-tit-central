@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent, type ReactElement } from 'react';
 import { SITE } from '@/content/site';
+import { typographieFr } from '@/lib/format';
 import {
   CONTACT_VIDE,
   SUJETS,
@@ -180,10 +181,10 @@ export function Formulaire(): ReactElement {
             <>
               <strong style={{ color: 'var(--fg)' }}>
                 {etat === 'trop'
-                  ? 'Plusieurs messages viennent déjà de partir de cet appareil.'
+                  ? 'Plusieurs messages viennent déjà d’être envoyés depuis cette connexion.'
                   : 'L’envoi n’a pas abouti.'}
               </strong>{' '}
-              Votre message est conservé :{' '}
+              {typographieFr('Votre message est conservé :')}{' '}
               <a className="lien lien--tenu" href={lienMessage(donnees)}>
                 ouvrez-le dans votre messagerie
               </a>

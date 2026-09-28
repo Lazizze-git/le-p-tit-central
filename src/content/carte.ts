@@ -43,13 +43,13 @@ export const MOMENTS: readonly Moment[] = [
     horaire: 'Lundi à samedi, dès 07h00',
     accroche: 'Le café d’abord. Le reste vient après.',
     texte: [
-      'Pour l’expresso à l’italienne, la maison a composé son propre mélange : *une sélection des meilleurs cafés du Brésil et d’Amérique centrale.* On le sert au comptoir dès sept heures, debout ou assis, comme vous voulez.',
+      'Pour l’expresso à l’italienne, la maison a composé son propre mélange : *une sélection des meilleurs cafés du Brésil et d’Amérique centrale.* On le sert au comptoir dès sept heures, debout ou assis, comme vous préférez.',
     ],
     categories: [
       {
         titre: 'La caféterie',
         tirage: 'cafe-du-matin',
-        note: 'Mélange maison, torréfaction italienne. Lait végétal + 0.30',
+        note: 'Mélange maison, torréfaction italienne. Supplément lait végétal : CHF 0.30',
         // L'ORDRE EST CELUI DE LA CARTE IMPRIMÉE, y compris le chocolat
         // et le lait au milieu des cafés : c'est le classement de la
         // maison, et le remettre « dans l'ordre » ferait croire à une
@@ -191,14 +191,14 @@ export const MOMENTS: readonly Moment[] = [
           },
           {
             nom: 'Tartare de bœuf',
-            description: 'Coupé au couteau, marinade, pains grillés et pommes frites.',
+            description: 'Coupé au couteau et mariné. Pains grillés et pommes frites.',
             prix: 32,
             mentions: ['maison'],
           },
           {
             nom: 'Tartare de saumon',
             description:
-              'Coupé au couteau, marinade au citron, concombre et aneth, pains grillés et pommes frites.',
+              'Coupé au couteau, mariné au citron, avec concombre et aneth. Pains grillés et pommes frites.',
             prix: 29,
             mentions: ['maison'],
           },
@@ -225,12 +225,12 @@ export const MOMENTS: readonly Moment[] = [
           {
             nom: 'Raviolis au pesto maison',
             description:
-              'Pesto basilic maison, burrata crémeuse, tomates cerises confites, roquette, pignons torréfiés et crème balsamique.',
+              'Pesto au basilic, burrata crémeuse, tomates cerises confites, roquette, pignons torréfiés et crème de balsamique.',
             prix: 27,
             mentions: ['vegetarien', 'maison'],
           },
           {
-            nom: 'Rumsteak de bœuf grillé',
+            nom: 'Rumsteck de bœuf grillé',
             description: 'Pommes frites, légumes du jour et sauce chimichurri maison.',
             prix: 33,
             mentions: ['sans-gluten', 'maison'],
@@ -242,11 +242,11 @@ export const MOMENTS: readonly Moment[] = [
         plats: [
           { nom: 'Tarte maison', prix: 5.5, mentions: ['maison'] },
           { nom: 'Cannelés, nature ou coco', prix: 3.5 },
-          { nom: 'Brownie chocolat', prix: 4.2 },
+          { nom: 'Brownie au chocolat', prix: 4.2 },
           {
             nom: 'Glaces artisanales',
             description:
-              'Petit pot. Chocolat, pistache, caramel salé, café, noisette, stracciatella, vanille, abricot, fraise, mangue.',
+              'En petit pot : chocolat, pistache, caramel salé, café, noisette, stracciatella, vanille, abricot, fraise, mangue.',
             prix: 5.8,
           },
           { nom: 'Tiramisu maison', prix: 9.5, mentions: ['maison'] },
@@ -274,7 +274,7 @@ export const MOMENTS: readonly Moment[] = [
       {
         titre: 'Les tapas',
         tirage: 'salle-soir',
-        note: 'À partager, servis toute la soirée',
+        note: 'À partager, servies toute la soirée',
         plats: [
           {
             nom: 'Fish & chips',
@@ -296,7 +296,7 @@ export const MOMENTS: readonly Moment[] = [
           },
           { nom: 'Focaccia façon bruschetta, 6 pièces', prix: 17 },
           {
-            nom: 'Falafel, sauce tsatsiki',
+            nom: 'Falafels, sauce tzatziki',
             description: 'Du « Prince d’Égypte ». 3 pièces.',
             prix: 6,
             mentions: ['vegetarien'],

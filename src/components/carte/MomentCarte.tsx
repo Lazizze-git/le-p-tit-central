@@ -63,7 +63,7 @@ export function MomentCarte({ moment, ton }: MomentCarteProps): ReactElement {
 
                 {categorie.note && (
                   <p className="t-label" style={{ marginBottom: 'var(--space-tight)' }}>
-                    {categorie.note}
+                    {typographieFr(categorie.note)}
                   </p>
                 )}
 

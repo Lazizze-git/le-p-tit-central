@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { ADRESSE_UNE_LIGNE } from '@/content/site';
 import { SEMAINE } from '@/content/horaires';
 import { jourDeSemaine, plageEnTexte } from '@/lib/horaires';
+import { typographieFr } from '@/lib/format';
 
 /** Les fragments défilants. Le « / » est le séparateur maison. */
 function fragments(): readonly string[] {
@@ -54,8 +55,9 @@ export function Marquee(): ReactElement {
         ))}
       </div>
       <p className="sr-only">
-        Horaires : {SEMAINE.filter((j) => j.etablissement).length} jours sur 7. Adresse :{' '}
-        {ADRESSE_UNE_LIGNE}.
+        {typographieFr(
+          `Horaires : ${SEMAINE.filter((j) => j.etablissement).length} jours sur 7. Adresse : ${ADRESSE_UNE_LIGNE}.`,
+        )}
       </p>
     </div>
   );

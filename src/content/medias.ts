@@ -154,7 +154,7 @@ export const MEDIAS = {
   },
   'salle-soir': {
     src: '/photos/salle-soir.webp',
-    alt: 'Une assiette de poisson et légumes rôtis, roquette et oignons frits, posée sur une table de la salle.',
+    alt: 'Une assiette de poisson et de légumes rôtis, roquette et oignons frits, posée sur une table de la salle.',
     legende: 'En salle',
     ratio: '1280/1750',
     ton: 'creme',
@@ -172,7 +172,7 @@ export const MEDIAS = {
      table en désordre, jamais un produit seul en studio. */
   verre: {
     src: '/photos/verre.webp',
-    alt: 'Une bouteille du merlot de la maison versée dans un verre de vin rouge tenu à table ; un second verre déjà servi attend à côté.',
+    alt: 'Le merlot de la maison versé de sa bouteille dans un verre tenu à table ; un second verre, déjà servi, attend à côté.',
     legende: 'Le merlot de la maison, au verre',
     ratio: '1290/1740',
     ton: 'bleu',

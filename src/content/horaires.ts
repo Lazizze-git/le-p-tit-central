@@ -119,4 +119,4 @@ export interface Fermeture {
 export const FERMETURES: readonly Fermeture[] = [];
 
 /** Résumé court affiché quand l'heure exacte n'est pas encore connue. */
-export const RESUME_HORAIRES = 'Lun 7h–19h30 · Mar–Sam 7h–00h · Dim fermé';
+export const RESUME_HORAIRES = 'Lun 7h–19h30 · Mar–sam 7h–minuit · Dim fermé';

@@ -4,7 +4,7 @@ import type { ReactElement } from 'react';
 import { useStatut } from '@/hooks/useStatut';
 
 interface StatutProps {
-  /** Ajoute le détail (« jusqu'à 00h00 », « ouvre demain à 07h00 »). */
+  /** Ajoute le détail (« jusqu’à minuit », « ouvre demain à 07h00 »). */
   readonly avecDetail?: boolean;
   readonly className?: string;
 }

@@ -18,8 +18,8 @@ import { lienMailto } from '@/lib/format';
 export const SUJETS = [
   'Réserver une table',
   'Privatiser la salle',
-  'Un groupe',
-  'Autre question',
+  'Venir en groupe',
+  'Autre demande',
 ] as const;
 
 export type Sujet = (typeof SUJETS)[number];
@@ -58,7 +58,7 @@ export function validerContact(donnees: DonneesContact): ErreursContact {
     erreurs.email = 'Cette adresse e-mail semble incomplète.';
   }
   if (donnees.message.trim().length < 10) {
-    erreurs.message = 'Écrivez au moins une phrase, qu’on sache de quoi il s’agit.';
+    erreurs.message = 'Écrivez au moins une phrase, pour que nous sachions de quoi il s’agit.';
   }
   // Le téléphone reste facultatif, mais s'il est saisi, il doit être plausible.
   const tel = donnees.telephone.trim();

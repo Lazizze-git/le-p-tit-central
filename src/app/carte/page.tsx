@@ -77,7 +77,7 @@ export default function PageCarte(): ReactElement {
                 className="t-small border-t border-b border-[var(--rule)] py-[var(--space-stack)]"
                 style={{ maxWidth: 'var(--max-text)' }}
               >
-                {COMMUN.prix_indisponibles}{' '}
+                {typographieFr(COMMUN.prix_indisponibles)}{' '}
                 <a className="lien lien--tenu" href={lienTelephone(SITE.telephone.e164)}>
                   {SITE.telephone.affichage}
                 </a>

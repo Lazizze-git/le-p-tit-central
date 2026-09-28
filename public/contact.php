@@ -22,7 +22,6 @@ declare(strict_types=1);
 // src/content/site.ts : la construction du site le vérifie.
 const DESTINATAIRE = 'ptitcentral@gmail.com';
 
-const SUJETS = ['Réserver une table', 'Privatiser la salle', 'Un groupe', 'Autre question'];
 const ENVOIS_PAR_HEURE = 5;
 const DELAI_MINIMUM_SECONDES = 3;
 
@@ -67,14 +66,17 @@ if (($_POST['site_web'] ?? '') !== '' || $ouvertDepuis < DELAI_MINIMUM_SECONDES 
 $nom = ligne('nom', 100);
 $email = ligne('email', 200);
 $telephone = ligne('telephone', 40);
-$sujet = ligne('sujet', 60);
+// Le sujet vient de la liste du formulaire (src/lib/contact.ts). Il
+// n'est pas revérifié contre elle ici — une liste tenue à deux endroits
+// finit par diverger, et chaque message au sujet renommé serait refusé.
+// Nettoyé comme les autres champs, il ne peut rien injecter.
+$sujet = ligne('sujet', 60) ?: 'Message';
 $message = is_string($_POST['message'] ?? null) ? trim($_POST['message']) : '';
 $message = mb_substr(str_replace(["\r\n", "\r"], "\n", $message), 0, 5000);
 
 if (mb_strlen($nom) < 2
     || filter_var($email, FILTER_VALIDATE_EMAIL) === false
-    || mb_strlen($message) < 10
-    || !in_array($sujet, SUJETS, true)) {
+    || mb_strlen($message) < 10) {
     refuser(400, 'champs');
 }
 

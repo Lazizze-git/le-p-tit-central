@@ -47,14 +47,19 @@ export function enMinutes(heure: string): number {
   return h * 60 + m;
 }
 
-/** 1290 → "21h30". Format suisse, 24 heures. */
+/**
+ * 1290 → « 21h30 ». Format suisse, 24 heures.
+ * La fin de journée (24:00) s'écrit « minuit » : « 07h00 – 00h00 » se
+ * lisait comme une plage vide, et « jusqu'à 00h00 » comme une faute.
+ */
 export function enTexte(minutes: number): string {
+  if (minutes === 24 * 60) return 'minuit';
   const h = Math.floor(minutes / 60) % 24;
   const m = minutes % 60;
   return `${String(h).padStart(2, '0')}h${String(m).padStart(2, '0')}`;
 }
 
-/** "07:00"–"24:00" → "07h00 – 00h00". Le tiret est un demi-cadratin. */
+/** "07:00"–"24:00" → « 07h00 – minuit ». Le tiret est un demi-cadratin. */
 export function plageEnTexte(plage: Plage): string {
   return `${enTexte(enMinutes(plage.debut))} – ${enTexte(enMinutes(plage.fin))}`;
 }
@@ -135,7 +140,7 @@ export function calculerStatut(instant: InstantLocal | null): Statut {
     if (Number.isNaN(debut) || Number.isNaN(fin)) return STATUT_INCONNU;
 
     if (instant.minutes >= debut && instant.minutes < fin) {
-      return { etat: 'ouvert', libelle: 'Ouvert', detail: `jusqu'à ${enTexte(fin)}` };
+      return { etat: 'ouvert', libelle: 'Ouvert', detail: `jusqu’à ${enTexte(fin)}` };
     }
     if (instant.minutes < debut) {
       return { etat: 'ferme', libelle: 'Fermé', detail: `ouvre à ${enTexte(debut)}` };
