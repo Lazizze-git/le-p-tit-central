@@ -2,8 +2,9 @@ import type { NextConfig } from 'next';
 
 /**
  * Export statique : `npm run build` produit un dossier `out/` composé
- * uniquement de fichiers HTML/CSS/JS. Il se déploie tel quel sur Vercel,
- * Netlify, Infomaniak ou n'importe quel hébergeur classique.
+ * uniquement de fichiers HTML/CSS/JS. Il est servi par l'hébergement
+ * Infomaniak (README, section 8), comme il le serait par n'importe quel
+ * hébergeur classique : aucun serveur Node n'est nécessaire.
  */
 const nextConfig: NextConfig = {
   output: 'export',

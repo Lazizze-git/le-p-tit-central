@@ -1,0 +1,67 @@
+# MISE EN LIGNE — construit le site et l'envoie chez Infomaniak.
+#
+#   - Chaque modification de `main` : construction, puis envoi.
+#   - Chaque pull request : construction seule, pour vérifier.
+#   - À la demande : Actions › Mise en ligne › Run workflow.
+#
+# Le site construit reste aussi téléchargeable 30 jours en bas de chaque
+# passage (« site-infomaniak »), prêt à déposer à la main.
+#
+# L'envoi a besoin de trois secrets du dépôt (README, section 8). Tant
+# qu'ils manquent, le site est construit mais rien n'est envoyé.
+
+name: Mise en ligne
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Deux envois ne se chevauchent jamais : le plus récent passe après.
+concurrency:
+  group: mise-en-ligne-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  site:
+    name: Construire et envoyer
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installer
+        run: npm ci
+
+      - name: Construire
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Garder le site construit
+        uses: actions/upload-artifact@v6
+        with:
+          name: site-infomaniak
+          path: out/
+          # Sans cette ligne, le .htaccess serait laissé de côté.
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Envoyer sur Infomaniak
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: bash scripts/mettre-en-ligne.sh out
+        env:
+          INFOMANIAK_FTP_SERVEUR: ${{ secrets.INFOMANIAK_FTP_SERVEUR }}
+          INFOMANIAK_FTP_UTILISATEUR: ${{ secrets.INFOMANIAK_FTP_UTILISATEUR }}
+          INFOMANIAK_FTP_MOT_DE_PASSE: ${{ secrets.INFOMANIAK_FTP_MOT_DE_PASSE }}

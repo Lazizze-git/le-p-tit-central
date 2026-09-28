@@ -1,0 +1,116 @@
+# ==================================================================
+#  LE P'TIT CENTRAL — réglages du serveur (Infomaniak, Apache)
+# ==================================================================
+#
+#  `npm run build` copie ce fichier tel quel à la racine du site
+#  construit (dossier out/). Il règle ce que l'hébergeur ne devine pas :
+#
+#    1. les pages de l'ancien site mènent aux nouvelles
+#    2. une seule adresse : https://www.lepetitcentral.ch
+#    3. la page 404 du site pour toute adresse inconnue
+#    4. ce que le navigateur garde en mémoire, et combien de temps
+#    5. quelques protections de base
+#
+#  Le domaine est écrit en toutes lettres plus bas. Il doit rester
+#  celui de `url` dans src/content/site.ts : la construction du site
+#  s'arrête sinon (scripts/finaliser.mjs le vérifie).
+#
+#  N'y ajoutez que des directives admises dans un .htaccess chez
+#  Infomaniak : une seule ligne refusée rend tout le site inaccessible.
+
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+AddDefaultCharset utf-8
+AddType image/webp .webp
+AddType image/svg+xml .svg
+AddType font/woff2 .woff2
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Le renouvellement du certificat HTTPS passe par ici : on n'y touche pas.
+  RewriteRule ^\.well-known/ - [L]
+
+  # L'adresse officielle. Sur tout autre nom — l'adresse d'aperçu
+  # d'Infomaniak, avant le transfert du domaine — elle reste vide :
+  # les redirections restent alors sur place au lieu de partir vers
+  # l'ancien site.
+  RewriteCond %{HTTP_HOST} ^(www\.)?lepetitcentral\.ch$ [NC]
+  RewriteRule ^ - [E=ORIGINE:https://www.lepetitcentral.ch]
+
+  # --- 1. L'ancien site -----------------------------------------------
+  # Google connaît encore ces pages du site précédent. Chacune mène,
+  # en un seul saut et pour de bon (301), à la page qui en a repris le
+  # contenu : Google y reporte le référencement acquis.
+  RewriteRule ^menu/?$ %{ENV:ORIGINE}/carte/ [R=301,L]
+  RewriteRule ^(matin|en-matinee)/?$ %{ENV:ORIGINE}/carte/#matin [R=301,NE,L]
+  RewriteRule ^repas-du-midi/?$ %{ENV:ORIGINE}/carte/#midi [R=301,NE,L]
+  RewriteRule ^(nightlife-lausanne|biere-artisanales)/?$ %{ENV:ORIGINE}/carte/#soir [R=301,NE,L]
+  # Son titre était « Contact », malgré son adresse.
+  RewriteRule ^a-la-carte/?$ %{ENV:ORIGINE}/contact/ [R=301,L]
+
+  # --- 2. Une seule adresse -------------------------------------------
+  # « /carte » devient « /carte/ », directement à la bonne adresse.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.*[^/])$ %{ENV:ORIGINE}/$1/ [R=301,L]
+
+  # Sans « www » → avec.
+  RewriteCond %{HTTP_HOST} ^lepetitcentral\.ch$ [NC]
+  RewriteRule ^(.*)$ https://www.lepetitcentral.ch/$1 [R=301,L]
+
+  # Toujours chiffré. Infomaniak chiffre la connexion avant Apache et le
+  # signale par l'en-tête X-Forwarded-Proto ; %{HTTPS} couvre le cas où
+  # Apache la chiffre lui-même. Il faut les deux pour ne jamais boucler.
+  RewriteCond %{HTTP_HOST} ^www\.lepetitcentral\.ch$ [NC]
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://www.lepetitcentral.ch/$1 [R=301,L]
+
+  # --- 3. Rien à montrer : 404 ----------------------------------------
+  # La page d'erreur n'est pas une page du site : demandée directement,
+  # elle répond 404 elle aussi (REDIRECT_STATUS n'est vide que dans ce
+  # cas — quand Apache l'affiche pour une autre adresse, il le remplit).
+  # Et un dossier sans page (/photos/, /_next/…) ne s'affiche jamais en
+  # liste de fichiers.
+  RewriteCond %{ENV:REDIRECT_STATUS} ^$
+  RewriteRule ^404(\.html|/|$) - [R=404,L]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html !-f
+  RewriteRule ^ - [R=404,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # --- 4. Mémoire du navigateur ---------------------------------------
+  # Pages et données de navigation : le navigateur redemande à chaque
+  # visite si elles ont changé. Un prix corrigé se voit tout de suite.
+  Header set Cache-Control "no-cache"
+
+  # Photos, logos, image de partage : une semaine.
+  <FilesMatch "\.(webp|png|jpe?g|svg)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+
+  # Tout ce qui est rangé dans /_next/static/ change de nom à chaque
+  # modification : un an, sans jamais redemander et sans risque.
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+
+  # Les fichiers index.txt servent à changer de page sans recharger :
+  # ce ne sont pas des pages, Google n'a pas à les proposer.
+  <Files "index.txt">
+    Header set X-Robots-Tag "noindex"
+  </Files>
+
+  # --- 5. Protections -------------------------------------------------
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+<IfModule mod_filter.c>
+  <IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml text/xml image/svg+xml
+  </IfModule>
+</IfModule>

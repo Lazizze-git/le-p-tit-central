@@ -280,17 +280,61 @@ demi-journée de travail. Tout est préparé dans `src/lib/contact.ts`.
 
 ## 8. Mettre le site en ligne
 
+Le site est hébergé chez **Infomaniak**, dans le dossier
+`sites/lepetitcentral.ch` de l'hébergement Web.
+
+**Au quotidien, il n'y a rien à faire.** Chaque modification enregistrée
+sur la branche `main` est construite puis envoyée par GitHub en deux ou
+trois minutes (onglet **Actions** du dépôt, « Mise en ligne »). Si la
+construction échoue — une virgule oubliée dans un fichier de contenu —,
+rien n'est envoyé : le site en ligne reste tel qu'il était.
+
+### Régler l'envoi — une seule fois
+
+1. Dans le Manager Infomaniak, rubrique **FTP / SSH**, créez un **compte
+   FTP** (pas FTP + SSH) limité au dossier `sites/lepetitcentral.ch`.
+2. Sur GitHub, **Settings › Secrets and variables › Actions › New
+   repository secret**, trois fois :
+
+   | Nom | Valeur |
+   |---|---|
+   | `INFOMANIAK_FTP_SERVEUR` | le serveur FTP indiqué par Infomaniak (ex. `abcd.ftp.infomaniak.com`) |
+   | `INFOMANIAK_FTP_UTILISATEUR` | le nom du compte créé à l'étape 1 |
+   | `INFOMANIAK_FTP_MOT_DE_PASSE` | son mot de passe |
+
+3. **Actions › Mise en ligne › Run workflow** : le site part.
+
+L'envoi est chiffré. Il refuse un compte qui voit tout l'hébergement, et
+tout dossier qui ne serait ni vide ni déjà celui du P'tit Central : les
+autres sites de l'hébergement ne peuvent pas être touchés. Le premier
+envoi n'efface rien ; les suivants retirent les fichiers qui ne font plus
+partie du site.
+
+### Sans GitHub
+
 ```bash
 npm run build
 ```
 
 Cette commande fabrique le site fini dans un dossier **`out/`**, et vérifie
-au passage que rien ne manque. Ce dossier se dépose tel quel sur n'importe
-quel hébergeur (Vercel, Infomaniak, Netlify…). Aucun serveur particulier
-n'est nécessaire.
+au passage que rien ne manque. Son contenu se dépose tel quel dans
+`sites/lepetitcentral.ch`, **y compris le fichier caché `.htaccess`** (sur
+Mac, `Cmd` + `Maj` + `.` affiche les fichiers cachés). Chaque passage dans
+l'onglet Actions laisse aussi, pendant 30 jours, une archive
+**« site-infomaniak »** prête à déposer.
 
-Avant la première mise en ligne, **vérifiez ces deux points** dans
-`src/content/site.ts` :
+### Le fichier `public/.htaccess`
+
+Il règle le serveur : une seule adresse, `https://www.lepetitcentral.ch` ;
+les pages de l'ancien site redirigées vers les nouvelles ; la page 404 ;
+la durée pendant laquelle les navigateurs gardent chaque fichier. Si le
+domaine change un jour, il change à deux endroits — `url` dans
+`src/content/site.ts` et ce fichier — et la construction s'arrête tant
+qu'ils ne sont pas d'accord.
+
+### Avant la première mise en ligne
+
+**Vérifiez ces deux points** dans `src/content/site.ts` :
 
 1. **`url`** doit être l'adresse définitive du site. Elle sert aux liens
    envoyés à Google : une erreur ici pénalise le référencement.
