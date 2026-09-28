@@ -135,7 +135,17 @@
    précédente (56 px, statut sur toute la largeur restante) faisait un
    pavé : « Fermé » flottait seul dans la moitié de l'écran, et la barre
    pesait plus lourd que la page. 48 px tient toujours la zone tactile
-   de 44 px. */
+   de 44 px.
+
+   LE FOND DE LA BARRE EST À L'ENCRE, ET ÇA NE SE VOIT PAS ICI. Safari
+   sur iOS 26 prolonge sous ses propres boutons (retour, adresse, menu)
+   la couleur de fond d'un élément fixé au bas de l'écran. Crème, la
+   barre et toute la zone de Safari ne faisaient qu'un seul bloc de près
+   de 140 px, du haut des cases jusqu'au bord du téléphone. À l'encre,
+   la zone de Safari se détache de la barre, et la case bleue
+   « Appeler » garde sa forme — sur le bleu des azulejos, elle s'y
+   fondait. Les cases, elles, portent chacune leur fond crème : à l'œil,
+   la barre ne change pas. */
 .barre {
   position: fixed;
   inset-inline: 0;
@@ -143,7 +153,7 @@
   z-index: 50;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background: var(--pc-creme);
+  background: var(--pc-encre);
   color: var(--pc-encre);
   border-top: 1px solid var(--pc-encre);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -163,6 +173,7 @@
   min-width: 0;
   min-height: var(--barre-h);
   padding-inline: 8px;
+  background: var(--pc-creme);
   border-left: 1px solid var(--pc-encre);
   /* Un cran d'interlettrage en moins que les autres étiquettes : dans
      une case de 130 px, l'espacement large éparpillait les mots. */

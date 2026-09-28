@@ -745,6 +745,10 @@ improvisée.
   (**seule cellule en aplat bleu** — l'action principale). Hauteur 48 px
   + safe-area. *(v4.1 : 56 px et un statut étiré sur la moitié de l'écran
   faisaient un pavé plus lourd que la page — retour du client sur iPhone.)*
+  **Sous la barre, la zone des boutons de Safari (iOS 26) est à l'encre.**
+  Safari y prolonge la couleur de fond de l'élément fixé en bas : c'est
+  donc le fond de `.barre` (encre), les cases gardant le leur (crème).
+  Crème, barre et zone de Safari faisaient un seul bloc de 140 px.
 - **Desktop** : barre haute, wordmark à gauche, liens en Martian Mono caps à
   droite, `FR / EN` en bout de ligne, filet 1 px en bas. Pas de fond translucide
   au scroll — la barre passe de transparente à crème pleine, sans blur.
