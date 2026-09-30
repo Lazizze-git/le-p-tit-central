@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { SITE } from '@/content/site';
 import { ACCUEIL, COMMUN } from '@/content/textes';
 import { lienTelephone } from '@/lib/format';
+import { LIEN_DEMANDE_SALLE } from '@/lib/salle';
 import { Bande, SurTitre } from '@/components/ui/Bande';
 import { Bouton } from '@/components/ui/Bouton';
 import { MediaSlot } from '@/components/ui/MediaSlot';
@@ -19,7 +20,8 @@ import { Statut } from '@/components/ui/Statut';
  * nom soit annoncé deux fois de suite.
  *
  * Juste dessous, sur une ligne à filets : est-ce ouvert, et comment
- * appeler. Rien d'autre ne s'interpose.
+ * réserver — une table par téléphone (la seule voie), la salle privée
+ * par e-mail. Rien d'autre ne s'interpose.
  *
  * Puis deux tirages qui se partagent la largeur, posés sur la même
  * ligne de sol : la terrasse en paysage sur deux tiers, l'entrée en
@@ -50,7 +52,7 @@ export function Hero(): ReactElement {
             <p className="t-lead">{ACCUEIL.promesse}</p>
 
             {/* `flex-wrap` n'est pas décoratif : dans une colonne de 62 %,
-              le statut et les deux boutons ne tiennent plus sur une
+              le statut et les boutons ne tiennent plus sur une
               ligne. Sans lui, le statut se faisait rogner et on lisait
               « Ouvert — jusqu'à… », ce qui est exactement l'information
               qu'on venait chercher. Ils passent donc à la ligne. */}
@@ -60,6 +62,7 @@ export function Hero(): ReactElement {
                 <Bouton href={lienTelephone(SITE.telephone.e164)} principal>
                   {COMMUN.reserver}
                 </Bouton>
+                <Bouton href={LIEN_DEMANDE_SALLE}>{COMMUN.reserver_salle}</Bouton>
                 <Bouton href="/carte/">
                   {COMMUN.voir_la_carte}
                   <span aria-hidden="true">↓</span>

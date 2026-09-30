@@ -3,7 +3,8 @@ import type { ReactElement } from 'react';
 
 import { SITE, anneesDExistence } from '@/content/site';
 import { LIEU } from '@/content/textes';
-import { lienMailto, lienTelephone, typographieFr } from '@/lib/format';
+import { lienTelephone, typographieFr } from '@/lib/format';
+import { LIEN_DEMANDE_SALLE } from '@/lib/salle';
 import { jsonLdFilAriane } from '@/lib/jsonld';
 import { Bande, SurTitre } from '@/components/ui/Bande';
 import { Bouton } from '@/components/ui/Bouton';
@@ -100,7 +101,7 @@ export default function PageLieu(): ReactElement {
             <Bouton href={lienTelephone(SITE.telephone.e164)} principal>
               {SITE.telephone.affichage}
             </Bouton>
-            <Bouton href={lienMailto(SITE.email, LIEU.demande_email_sujet, LIEU.demande_email_corps)}>
+            <Bouton href={LIEN_DEMANDE_SALLE}>
               {LIEU.demande_email}
             </Bouton>
           </div>

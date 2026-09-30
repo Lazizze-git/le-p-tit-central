@@ -25,6 +25,7 @@ export const COMMUN = {
   voir_la_carte: 'Voir la carte',
   horaires: 'Horaires',
   reserver: 'Réserver par téléphone',
+  reserver_salle: 'Réserver la salle par e-mail',
   // Ce bandeau ne s'affiche que s'il reste au moins un `prix: null` dans
   // la carte. Il doit donc rester vrai quel que soit le plat concerné :
   // il parle des lignes au tiret, pas de la carte entière.
