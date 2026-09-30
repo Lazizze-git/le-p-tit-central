@@ -56,7 +56,7 @@ export const ACCUEIL = {
   reserver_label: 'Réserver',
   reserver_titre: 'Une table ?',
   reserver_texte:
-    'Le plus simple reste le téléphone. On répond pendant le service et on vous garde une table.',
+    'Les tables se réservent uniquement par téléphone. On répond pendant le service et on vous garde une place.',
 } as const;
 
 export const LIEU = {
@@ -107,9 +107,9 @@ export const CONTACT = {
   sur_titre: 'Contact / Réservation',
   titre: 'Nous trouver',
   accroche: 'Rue Centrale 9, au cœur de Lausanne, à quelques minutes à pied de la Riponne.',
-  telephone_label: 'Le plus rapide',
+  telephone_label: 'Réserver une table',
   telephone_texte:
-    'Pour réserver une table, demander la salle privée ou vérifier le plat du jour : appelez. On répond pendant le service.',
+    'Les tables se réservent uniquement par téléphone. Appelez aussi pour la salle privée ou le plat du jour : on répond pendant le service.',
   acces_label: 'Y venir',
   acces_titre: 'Accès',
   transports: [
@@ -121,7 +121,7 @@ export const CONTACT = {
   formulaire_label: 'Écrire',
   formulaire_titre: 'Un message',
   formulaire_texte:
-    'Pour une demande qui n’est pas urgente : privatisation, groupe, question sur la carte. *Pour réserver une table le jour même, préférez le téléphone.*',
+    'Pour une demande qui n’est pas urgente : privatisation, groupe, question sur la carte. *Les tables, elles, se réservent uniquement par téléphone.*',
 } as const;
 
 export const ERREURS = {

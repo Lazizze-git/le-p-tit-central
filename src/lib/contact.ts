@@ -15,8 +15,9 @@
 import { SITE } from '@/content/site';
 import { lienMailto } from '@/lib/format';
 
+// Pas de « Réserver une table » : les tables se réservent uniquement
+// par téléphone, la maison ne les prend pas par écrit.
 export const SUJETS = [
-  'Réserver une table',
   'Privatiser la salle',
   'Venir en groupe',
   'Autre demande',

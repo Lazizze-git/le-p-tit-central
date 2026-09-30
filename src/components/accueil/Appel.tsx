@@ -7,9 +7,9 @@ import { Reveal } from '@/components/ui/Reveal';
 
 /**
  * L'APPEL — dernière bande avant le pied de page.
- * En Suisse romande, la plupart des réservations passent encore par le
- * téléphone. Il est donc écrit en grand, et c'est un lien : un doigt
- * dessus suffit à lancer l'appel.
+ * Les tables se réservent uniquement par téléphone. Le numéro est donc
+ * écrit en grand, et c'est un lien : un doigt dessus suffit à lancer
+ * l'appel.
  */
 export function Appel(): ReactElement {
   return (

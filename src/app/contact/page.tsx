@@ -17,7 +17,7 @@ import { Formulaire } from '@/components/contact/Formulaire';
 export const metadata: Metadata = {
   title: 'Contact & réservation',
   description:
-    'Réserver au P’tit Central : +41 21 312 80 75, rue Centrale 9 à Lausanne. Horaires complets, accès en métro et en bus, formulaire de contact.',
+    'Réserver une table au P’tit Central, uniquement par téléphone : +41 21 312 80 75, rue Centrale 9 à Lausanne. Horaires complets, accès en métro et en bus, formulaire de contact.',
   alternates: { canonical: '/contact/' },
 };
 
