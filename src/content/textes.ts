@@ -83,6 +83,24 @@ export const LIEU = {
   ],
   demande_titre: 'Demander la salle',
   demande_texte: 'Appelez la maison ou écrivez-nous : on vous répond avec une proposition.',
+  demande_email: 'Demander par e-mail',
+  // Le message pré-rempli qui s'ouvre dans la messagerie du visiteur :
+  // les quatre questions auxquelles la maison doit pouvoir répondre.
+  demande_email_sujet: 'Demande de salle privée',
+  demande_email_corps: [
+    'Bonjour,',
+    '',
+    'Je souhaiterais réserver la salle privée.',
+    '',
+    'Date et heure :',
+    'Nombre de personnes :',
+    'Occasion :',
+    'Formule souhaitée (apéritif, repas assis, buffet) :',
+    '',
+    'Nom et téléphone :',
+    '',
+    'Merci et à bientôt,',
+  ].join('\n'),
 } as const;
 
 export const CONTACT = {

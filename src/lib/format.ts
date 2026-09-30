@@ -33,9 +33,8 @@ export function lienTelephone(e164: string): string {
 }
 
 /**
- * Construit un lien mailto complet et correctement encodé.
- * Sert de secours au formulaire de contact tant qu'aucun service
- * d'envoi n'est branché.
+ * Construit un lien mailto complet et correctement encodé : il ouvre
+ * la messagerie du visiteur avec l'objet et le message déjà écrits.
  */
 export function lienMailto(destinataire: string, sujet: string, corps: string): string {
   const params = new URLSearchParams({ subject: sujet, body: corps });
