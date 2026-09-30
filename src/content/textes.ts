@@ -26,7 +26,7 @@ export const COMMUN = {
   horaires: 'Horaires',
   reserver: 'Réserver par téléphone',
   // Ce bandeau ne s'affiche que s'il reste au moins un `prix: null` dans
-  // carte.ts. Il doit donc rester vrai quel que soit le plat concerné :
+  // la carte. Il doit donc rester vrai quel que soit le plat concerné :
   // il parle des lignes au tiret, pas de la carte entière.
   prix_indisponibles:
     'Les lignes marquées d’un tiret n’ont pas de prix ici : le menu du jour, les verres et les perches du vendredi changent, et leur prix s’annonce au comptoir. Pour le connaître avant de venir :',

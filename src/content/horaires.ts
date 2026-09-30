@@ -32,7 +32,7 @@ export interface JourHoraire {
 }
 
 const MIDI: Plage = { debut: '11:30', fin: '14:00' };
-const SOIR: Plage = { debut: '19:00', fin: '22:00' };
+const SOIR: Plage = { debut: '18:30', fin: '21:30' };
 const JOURNEE: Plage = { debut: '07:00', fin: '24:00' };
 
 export const SEMAINE: readonly JourHoraire[] = [

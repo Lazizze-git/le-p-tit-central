@@ -38,7 +38,7 @@ Le reste du projet, vous pouvez l'ignorer.
 |---|---|
 | `src/content/site.ts` | Adresse, téléphone, e-mail, Instagram, Facebook |
 | `src/content/horaires.ts` | Tous les horaires + les fermetures exceptionnelles |
-| `src/content/carte.ts` | La carte : plats, descriptions, prix |
+| `src/content/carte/` | La carte : un fichier par moment (`midi.ts`, `soir.ts`…), les plats communs dans `plats.ts` |
 | `src/content/textes.ts` | Tous les textes des pages |
 | `src/content/medias.ts` | Les emplacements photo |
 
@@ -88,7 +88,7 @@ retirer la ligne quand la période est passée.
 
 ## 4. Changer un prix ou un plat
 
-Ouvrez `src/content/carte.ts`.
+Ouvrez le dossier `src/content/carte/` : `midi.ts`, `soir.ts`, `matin.ts`, `perche.ts`, et `plats.ts` pour les plats servis à midi et le soir.
 
 **Pour saisir un prix**, remplacez `prix: null` par le montant, avec un point
 et sans le mot « CHF » :
@@ -109,10 +109,6 @@ prix qu'un prix faux.
 > changent : le **plat du jour**, les **verres** (vin, bière, cocktails) et les
 > **filets de perche du vendredi**. Donnez-nous ces montants et le bandeau
 > d'explication disparaîtra tout seul de la page.
->
-> **Un chiffre à confirmer** : la *pastèque et burrata* est à **24.-** sur la
-> carte de terrasse et à **25.-** sur la carte pliée du restaurant. Le site
-> affiche 25.- — corrigez `carte.ts` si c'est l'autre.
 
 **Pour ajouter un plat**, copiez une ligne complète et changez le texte :
 
