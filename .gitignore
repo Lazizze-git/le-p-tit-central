@@ -6,3 +6,6 @@ out/
 next-env.d.ts
 .env*.local
 .env*
+
+# Réglages locaux de l’ancien hébergeur
+.vercel
