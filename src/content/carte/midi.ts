@@ -7,14 +7,13 @@
 import type { Moment } from '../types';
 import {
   BURGER,
-  DAHL,
+  CHASSE,
+  CURRY,
   DESSERTS,
   ENTREES,
   PARISIENNE,
-  RAVIOLIS,
   SALADE_CESAR,
   TARTARE_BOEUF,
-  TARTARE_SAUMON,
 } from './plats';
 
 export const MIDI: Moment = {
@@ -57,16 +56,15 @@ export const MIDI: Moment = {
           prix: 24,
           mentions: ['sans-gluten'],
         },
-        {
-          nom: 'Bowl du P’tit',
-          description:
-            'Salade verte, riz parfumé, courge, courgettes et poivrons rôtis, ricotta. Au choix : saumon fumé, poulet ou falafel (végétarien).',
-          prix: 26,
-          mentions: ['sans-gluten'],
-        },
         SALADE_CESAR,
         TARTARE_BOEUF,
-        TARTARE_SAUMON,
+        {
+          nom: 'Tartare de saumon',
+          description:
+            'Coupé au couteau, marinade au citron vert et à l’aneth. Pains grillés et pommes frites.',
+          prix: 29,
+          mentions: ['maison'],
+        },
       ],
     },
     {
@@ -81,11 +79,11 @@ export const MIDI: Moment = {
           prix: 29,
           mentions: ['sans-gluten', 'maison'],
         },
-        DAHL,
-        RAVIOLIS,
+        CURRY,
         PARISIENNE,
       ],
     },
+    CHASSE,
     { titre: 'Les desserts', plats: DESSERTS },
   ],
 };

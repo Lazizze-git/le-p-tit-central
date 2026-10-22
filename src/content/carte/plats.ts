@@ -10,7 +10,7 @@
  * soir.ts.
  */
 
-import type { Plat } from '../types';
+import type { Categorie, Plat } from '../types';
 
 export const ENTREES: readonly Plat[] = [
   { nom: 'Petite salade mêlée', prix: 6, mentions: ['vegetarien', 'sans-gluten'] },
@@ -30,14 +30,6 @@ export const TARTARE_BOEUF: Plat = {
   mentions: ['maison'],
 };
 
-export const TARTARE_SAUMON: Plat = {
-  nom: 'Tartare de saumon',
-  description:
-    'Coupé au couteau, marinade aux agrumes et pommes vertes. Pains grillés et pommes frites.',
-  prix: 29,
-  mentions: ['maison'],
-};
-
 export const BURGER: Plat = {
   nom: 'Burger du P’tit',
   description:
@@ -46,19 +38,11 @@ export const BURGER: Plat = {
   mentions: ['maison', 'vegetarien'],
 };
 
-export const DAHL: Plat = {
-  nom: 'Dahl de lentilles corail',
-  description:
-    'Sauce au curry jaune et lait de coco, noisettes torréfiées et copeaux de noix de coco.',
-  prix: 27,
-  mentions: ['vegetarien', 'sans-gluten'],
-};
-
-export const RAVIOLIS: Plat = {
-  nom: 'Raviolis à la courge',
-  description: 'Courge rôtie, crème de grana padano, noisettes torréfiées et ricotta.',
-  prix: 27,
-  mentions: ['vegetarien', 'saison'],
+export const CURRY: Plat = {
+  nom: 'Curry végétarien',
+  description: 'Boulgour parfumé, curry, lait de coco et petits légumes.',
+  prix: 26,
+  mentions: ['vegetarien'],
 };
 
 export const PARISIENNE: Plat = {
@@ -66,6 +50,17 @@ export const PARISIENNE: Plat = {
   description: 'Grillée, sauce maison aux trois poivres, pommes frites et légumes du jour.',
   prix: 33,
   mentions: ['sans-gluten', 'maison'],
+};
+
+/** La carte de chasse est la même à midi et le soir. */
+export const CHASSE: Categorie = {
+  titre: 'La chasse',
+  note: 'Garniture chasse : spätzli maison, chou rouge braisé, marrons caramélisés, choux de Bruxelles vapeur, poire pochée au porto et à la vanille, confiture d’airelles',
+  plats: [
+    { nom: 'Médaillons de cerf', description: 'Sauce grand veneur et garniture chasse.', prix: 36 },
+    { nom: 'Civet de chevreuil', description: 'Sauce grand veneur et garniture chasse.', prix: 32 },
+    { nom: 'Chasse bredouille', description: 'La garniture chasse, sans la viande.', prix: 27 },
+  ],
 };
 
 export const DESSERTS: readonly Plat[] = [
@@ -78,7 +73,7 @@ export const DESSERTS: readonly Plat[] = [
       'En petit pot : chocolat, caramel salé, café, noisette, vanille, fraise, fruits exotiques.',
     prix: 5.8,
   },
-  { nom: 'Tiramisu maison', prix: 9.5, mentions: ['maison'] },
+  { nom: 'Mousse aux marrons', prix: 9.5 },
   {
     nom: 'Fondant au chocolat',
     description: 'Crème montée à la pistache et à la vanille.',

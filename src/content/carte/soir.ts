@@ -7,14 +7,13 @@
 import type { Moment } from '../types';
 import {
   BURGER,
-  DAHL,
+  CHASSE,
+  CURRY,
   DESSERTS,
   ENTREES,
   PARISIENNE,
-  RAVIOLIS,
   SALADE_CESAR,
   TARTARE_BOEUF,
-  TARTARE_SAUMON,
 } from './plats';
 
 export const SOIR: Moment = {
@@ -24,7 +23,7 @@ export const SOIR: Moment = {
   horaire: 'Mardi à samedi, 18h30 – 21h30',
   accroche: 'Le soir, on prend le temps que le midi ne permet pas.',
   texte: [
-    'Une carte à elle, *plus courte que celle de midi* : deux entrées, sept mets et les desserts.',
+    'Une carte à elle, *plus courte que celle de midi* : deux entrées, cinq mets, la chasse et les desserts.',
     'Le soir y ajoute ce qui se partage : les tapas au milieu de la table, un verre, et le temps de rester. *La carte reste courte — c’est la condition pour qu’elle soit bonne.*',
   ],
   // L'ORDRE EST CELUI DE LA CARTE IMPRIMÉE, mets compris.
@@ -32,8 +31,9 @@ export const SOIR: Moment = {
     { titre: 'Les entrées', plats: ENTREES },
     {
       titre: 'Les mets',
-      plats: [SALADE_CESAR, TARTARE_BOEUF, TARTARE_SAUMON, RAVIOLIS, DAHL, BURGER, PARISIENNE],
+      plats: [SALADE_CESAR, TARTARE_BOEUF, CURRY, BURGER, PARISIENNE],
     },
+    CHASSE,
     {
       titre: 'Les tapas',
       tirage: 'salle-soir',

@@ -36,7 +36,7 @@ import { MIDI } from './midi';
 import { PERCHE } from './perche';
 import { SOIR } from './soir';
 
-export const DATE_MISE_A_JOUR = '30.09.2026';
+export const DATE_MISE_A_JOUR = '22.10.2026';
 
 export const MOMENTS: readonly Moment[] = [MATIN, MIDI, SOIR, PERCHE];
 
@@ -58,6 +58,7 @@ export const PROVENANCES: readonly Provenance[] = [
   { produit: 'Poulet', origine: 'France et Suisse' },
   { produit: 'Saumon', origine: 'Norvège' },
   { produit: 'Truite', origine: 'France' },
+  { produit: 'Cerf, civet', origine: 'Europe' },
   { produit: 'Perches', origine: 'Russie, élaborées en Suisse' },
 ];
 
